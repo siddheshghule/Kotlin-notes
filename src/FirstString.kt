@@ -1,3 +1,4 @@
+import kotlin.math.pow
 import kotlin.random.Random
 
 fun main(args: Array<String>) {
@@ -43,11 +44,64 @@ fun main(args: Array<String>) {
 //    val multipleOfFive = number.toInt() * 5
 //    println("Number multiplied by 5 is: $multipleOfFive")
 
-    print("Enter your birth year: ")
-    val birthYear = readLine()?:""
-    val currentYear = 2023
-    val result = currentYear - birthYear.toInt()
-    println("Estimated age of the user is: ${result-1} or $result")
+//    print("Enter your birth year: ")
+//    val birthYear = readLine()?:""
+//    val currentYear = 2023
+//    val result = currentYear - birthYear.toInt()
+//    println("Estimated age of the user is: ${result-1} or $result")
+
+//    var pi = 3.141592
+//    println("Type of pi: ${pi::class.java}")
+//
+//    var name = "Tommy"
+//    println("Type of name: ${name::class.java}")
+//
+//    var population = 75000000000
+//    println("Type of population: ${population::class.java}")
+
+    //Exercise
+//    print("Enter a Number: ")
+//    var userInput = readLine()?:"1" // default is 1
+//    var doubleNumber = 29.99
+//    var output = doubleNumber * (userInput?.toInt() ?: 1) // if null then 1
+//    println("The output variable ($output) type is: ${output::class.java}")
+//    val multiplyByPi = 3.14 * userInput.toDouble()
+//    println("$userInput * 3.14 = $multiplyByPi and the type is ${multiplyByPi::class.java}")
+
+    // Exercise - Operators
+    // 1
+//    var a =76.254
+//    var b = 3.867
+//    println("Addition of $a and $b: ${a+b}")
+//    println("Subtraction of $a and $b: ${a-b}")
+//    println("Multiplication of $a and $b: ${a*b}")
+//    println("Division of $a and $b: ${a/b}")
+//    println("Remainder of $a and $b: ${a%b}")
+
+    // 2
+//    var meatCostPerKg = 29.99
+//    println("1/3 Kg of mean costs ${29.99/3}")
+
+    // 3
+//    print("Please enter your bank balance: ")
+//    var bankBalance = readLine()?:"1"
+//    println("Congratulations, you have won a contest that triples your amount.")
+//    println("Your current bank balance is ${bankBalance.toDouble()*3}")
+
+    // 4 Read from the console the amount the user has in their bank account. The interest on that account is 5.5% per year. How much would that user have in 5 years?
+
+//    print("Please enter your current bank balance: ")
+//    var principal = readLine()?:"1"
+//    print("Please enter rate of interest per annum: ")
+//    val rateOfInterest = readLine()?:""
+//    print("Please enter number of years: ")
+//    val years = readLine()?:"0"
+//
+//    var balanceWithInterest = principal.toDouble() * ((1 + (rateOfInterest.toDouble()/100)).pow(years.toDouble()))
+//    println("Your bank balance with interest of $rateOfInterest per year for the period of $years years is: $balanceWithInterest")
+    
+    
+
 
 
 }
