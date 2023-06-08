@@ -333,7 +333,7 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | !=       | Not equal                | x != y  |
 | \>       | Greater than             | x > y   |
 | <        | Less than                | x < y   |
-| > =      | Greater than or equal to | x >= y  |
+| >=       | Greater than or equal to | x >= y  |
 | <=       | Less than or equal to    | x <= y  |
 
 ##### Logical Operators
@@ -386,3 +386,214 @@ Please enter rate of interest per annum: 5.5
 Please enter number of years: 5
 Your bank balance with interest of 5.5 per year for the period of 5 years is: 1306.9600064093747
 ```
+
+#### Booleans:  
+ It can only have True/False value.  
+ Is very memory efficient, enables Logical Operators, enables program Flow Control.  
+
+Exercise: A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding. The requirements are  
+- You must have no more than 5 animals
+- Animals must produce something that can be sold
+- Regardless of the other conditions, funding will be approved if the family has 3 or more members  
+Does the farmer receive the funding?
+```
+var noOfCows = 3
+var givesMilk = 1
+var noOfKids = 2
+var conditionOne = noOfCows <= 5
+var conditionTwo = givesMilk > 0
+var conditionThree = (1 + noOfKids) >= 3
+
+    if (conditionOne && conditionTwo || conditionThree)
+        println("Farmer gets funding")
+    else
+        println("Farmaer does not get funding")
+```
+Output:
+```
+Farmer gets funding
+```
+
+### <a href="#nullability">Nullability</a>
+
+#### Null values:
+
+- No value is present. 
+- If you use a variable with null value, your program will crash with NullPointerException (NPE)
+- Kotlin guards against null values, giving us Compilation Error.
+- Kotlin differentiates between variables that can be null(using '?') and those that cannot.  
+  Example:  
+  ```
+  val herName: String = "Lilly" // (Cannot be null, must be given a value. Cannot assign null)  
+  val hisName: String? = null // (Can be null, so giving a value is optional)
+  ```
+- **Null safe calls**: 
+  - Nullable Operator: '?' (used for nullable variable)
+
+Exercise:
+  ```
+var catName:String? = "Lucy"
+println(catName?.length)
+println(catName.length) // compile-time error (Surround by null check)
+catName = null
+println(catName?.length)
+
+  ```
+
+- Arithmetic Operators
+ ```
+var number:Int? = 10
+println(number?.plus(1)) // 11
+println(number?.minus(1)) // 9
+println(number?.div(5)) // 2
+println(number?.rem(4)) // 2
+println(number?.times(2)) // 20
+  ```
+
+- Null operator - Elvis Operator(?:)  
+  Guarantees a result returned  
+  Either the actual result for a nun-null variable, or a default value
+  ```
+    var catName: String? = null
+    println(catName?:"This cat has no name")
+    catName = "Fluffy"
+    println(catName?:"This cat has no name")
+  ```
+  Output:
+    ```  
+    This cat has no name
+    Fluffy
+     ```
+  
+- Non-null assertions
+  !!. -> A developer guarantee that the variable is not null.  
+  **Warning:** : This bypasses all the language checks for the null-safety. Can trigger a program to crash.  
+
+  ```
+  val catName: String? = null
+  println(catName!!.length)
+  // If the value is null then the program will crash.
+  ```
+
+Practice: Elvis and assertions
+Print input message or default message  
+```
+print("Enter the message:")
+var inputMessage = readLine()
+println(inputMessage.let {
+when (it) {
+"" -> "Hello, welcome"
+else -> it
+}
+})
+ ```
+
+Read if input number is not null and multiply by 5
+ ```
+val number: Int? = readLine()?.toIntOrNull()
+println(number!!.times(5))
+ ```
+
+// Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
+ ```
+    val cost = 29.99
+    val items: Int? = readLine()?.toIntOrNull()?:1 // When value is null, items= 1
+    println("The cost of $items items is: ${items?.times(cost)}")
+
+// The cost of 4 items is: 119.96
+// The cost of 1 items is: 29.99
+ ```
+
+### <a href="#handlingExceptions">Handling Exceptions</a>
+
+
+#### 1. What is an Exception?
+An unexpected event in a program. A System cannot recover from an exception, we need to mitigate it ourselves. 
+Execution is stopped and data is lost.  
+Exceptions always have a message, by default, and it is good practice having a message when creating custom Exception.
+
+#### 2. try-catch
+A way to manage exception.
+```
+    print("Enter input:")
+    var test = readLine()
+    try {
+        println(test?.toInt())
+    } catch (e: Exception) {
+        println("An exception has occurred ${e.localizedMessage}")
+    }
+    
+    // Enter input:test
+       An exception has occurred For input string: "test"
+```
+
+#### 3. finally
+A 'finally' block will be executed whether or not an exception occurs. 
+```
+    print("Enter a number:")
+    var input = readLine()
+    try {
+        println(input?.toInt())
+    } catch (e: Exception) {
+        println("Exception has occurred with $e")
+    } finally {
+        println("Finally block, the input was $input")
+    }
+    
+    // Output
+    Enter a number:4
+    4
+    Finally block, the input was 4
+
+```
+#### 4. throw
+A way to generate your own exceptions.  
+Can be used if you detect a state in your program that you cannot recover from.  
+
+```
+    print("Enter input:")
+    var input = readLine()
+    if(input.isNullOrBlank()) throw IllegalAccessException("Input is blank or null")
+    else
+        println("Input is: $input")
+```
+Exercise: Multiply by 5 if it is an Integer and print or else catch
+```
+    print("Enter an Integer:")
+    var input = readLine()
+    try {
+    var result = input?.toInt()?.times(5)
+    println("Result of $input * 5 = $result")
+    } catch (e: Exception) {
+    println("Input was not an integer, input $input was ${input!!::class.java}")
+    }
+    finally {
+    println("Finish.")
+    }
+    // Output:
+    Enter an Integer: 
+    Input was not an integer, input  was class java.lang.String
+    Finish.
+```
+
+### <a href="#collections">Collections</a>
+
+A way to group of elements together.  
+Zero or more elements.  
+Same type of elements.  
+Eg. [1,2,3,4,555,6,4], ["Dogs", "Cats", "Cow"]  
+
+<img src="https://kotlinlang.org/docs/images/collections-diagram.png" alt="isolated" width="500"/>
+
+Note: Mutable means, they can be changed.  
+
+#### List
+Ordered collection.  
+Elements can be accessed by the position(index[0,1,2,3....n])  
+Can contain duplicate elements. 
+
+#### Set
+Is a group of UNIQUE elements.  
+The order has no significance  
+We can go through the elements one by one(iterate over them), but the order is not defined
+#### Map
