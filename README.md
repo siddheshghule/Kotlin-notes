@@ -595,5 +595,23 @@ Can contain duplicate elements.
 #### Set
 Is a group of UNIQUE elements.  
 The order has no significance  
-We can go through the elements one by one(iterate over them), but the order is not defined
+We can go through the elements one by one(iterate over them), but the order is not defined  
+
 #### Map
+
+A set of key-value pair.  (keys are sets, as the keys are always unique)  
+Keys are unique(set)  
+Each key maps to exactly one value  
+Values can have duplicates.  
+Eg. {1=one,2-two,5=five} OR a Dictionary
+
+#### Iterator
+
+An iterator is an object that loops through elements of a collection.  
+They are used when applying a same operation to all the elements.  
+
+### List and ArrayList
+
+
+
+
