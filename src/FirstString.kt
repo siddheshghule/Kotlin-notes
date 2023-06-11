@@ -222,6 +222,71 @@ fun main(args: Array<String>) {
 //    finally {
 //        println("Finish.")
 //    }
+
+
+// LIST
+//    val animals = listOf("cat","dog","horse")
+//    println(animals)
+//    var colors = listOf("yellow","green","red","red")
+//    var colors2 = listOf<String>()
+//    var colorsWithNull = listOf("red","green","yellow", null, null)
+//    println(colors)
+//    println(colors2)
+//    println(colorsWithNull)
+//    println(colors[0]) // yellow
+//    println(colors.size)
+// Functions of List
+//    println(colors) // [yellow, green, red, red]
+//    println(colors.size) // 4
+//    println(colors.contains("red")) // true
+//    println(colors.containsAll(colorsWithNull)) // false(it does not contain 'null')
+//    println(colors.indexOf("red")) // first index of 'red' -> 2
+//    println(colors.lastIndexOf("red")) // last index -> 3
+
+
+// ArrayList
+//    var colors = arrayListOf("blue","red")
+//    colors.add("green")
+//    println(colors)
+//    colors.remove("green")
+//    colors.removeAt(0)
+//    println(colors)
+//    var moreColors = listOf("white","black","grey")
+//    colors.addAll(moreColors)
+//    println(colors)
+//    colors.removeAll(moreColors)
+//    println(colors) // [red]
+//
+//    var animals = arrayListOf("dogs","cats","dogs")
+//    animals.remove("dogs")
+//    println(animals)
+
+    // Functions of Array List
+//    val colors = arrayListOf("blue","red", "blue", "green")
+//    colors[1] = "yellow" // OR colors.set(1,"yellow")
+//    println(colors) // [blue, yellow, blue, green]
+//    val subColors = colors.subList(1,3)
+//    println(subColors) // [yellow, blue]
+//    colors.clear()
+//    println(colors) // []
+//    println(colors.isEmpty()) // true
+
+
+// Exercise
+//    val items = arrayListOf("laptop", "mouse", "pen", "paper", "mug", "phone")
+//    val removedItems = listOf("pen", "paper", "mug", "phone")
+//    items.removeAll(removedItems)
+//    println(items)
+
+//    Exercise 2
+    val animals = arrayListOf("lion","zebra","chimp","elephant") //[lion, zebra, chimp, elephant]
+    animals.add("panda bear cub")
+    println(animals) // [lion, zebra, chimp, elephant, panda bear cub]
+    println(animals.size) // 5
+    animals.remove("lion")
+    println(animals) // [zebra, chimp, elephant, panda bear cub]
+    println("Does the zoo has all the animals: ${animals.containsAll(listOf("elephant","giraffe"))}") // false
+
 }
 
 
