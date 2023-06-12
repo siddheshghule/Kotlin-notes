@@ -279,14 +279,67 @@ fun main(args: Array<String>) {
 //    println(items)
 
 //    Exercise 2
-    val animals = arrayListOf("lion","zebra","chimp","elephant") //[lion, zebra, chimp, elephant]
-    animals.add("panda bear cub")
-    println(animals) // [lion, zebra, chimp, elephant, panda bear cub]
-    println(animals.size) // 5
-    animals.remove("lion")
-    println(animals) // [zebra, chimp, elephant, panda bear cub]
-    println("Does the zoo has all the animals: ${animals.containsAll(listOf("elephant","giraffe"))}") // false
+//    val animals = arrayListOf("lion","zebra","chimp","elephant") //[lion, zebra, chimp, elephant]
+//    animals.add("panda bear cub")
+//    println(animals) // [lion, zebra, chimp, elephant, panda bear cub]
+//    println(animals.size) // 5
+//    animals.remove("lion")
+//    println(animals) // [zebra, chimp, elephant, panda bear cub]
+//    println("Does the zoo has all the animals: ${animals.containsAll(listOf("elephant","giraffe"))}") // false
 
+    // SET
+//    val numbers = setOf(1,2,3,4,1)
+//    println(numbers)
+//    val numbers3 = setOf(1,2,3,4,4,null,null)
+//    println(numbers3) // [1,2,3,4, null]
+
+    // HASHSET
+//    val numbers = hashSetOf(1,2,3,4,1)
+//    println(numbers) // [1, 2, 3, 4] <- '1' is only printed once as set contains unique values
+//
+//    val numbers2 = hashSetOf<Int>()
+//    println(numbers2) // []
+//
+//    val numbers3 = hashSetOf(1,2,3,4,4,null,null)
+//    println(numbers3) // [null, 1, 2, 3, 4]
+//
+//    numbers.add(44)
+//    println(numbers) // [1, 2, 3, 4, 44]
+//
+//    numbers3.addAll(numbers)
+//    println(numbers3) // [null, 1, 2, 3, 4, 44]
+//
+//    numbers.remove(1)
+//    println(numbers) // [2, 3, 4, 44] <- removed all 1's
+//
+//    numbers3.removeAll(numbers)
+//    println(numbers3) // [null, 1]
+
+//    Exercise 1:
+
+    val colors = hashSetOf<String>()
+    colors.addAll(listOf("green", "red", "pink","red"))
+    println(colors) // [red, pink, green]
+
+    colors.remove("green")
+    println(colors) // [red, pink]
+
+//    Exercise 2:
+    val objectsOnTable = hashSetOf("watch", "desktop", "laptop", "hub", "mobile")
+    val objectsToRemove = setOf("mobile")
+    objectsOnTable.removeAll(objectsToRemove)
+    println(objectsOnTable) // [desktop, laptop, hub, watch]
+
+    // Exercise 3:
+//    You have a list of customers for your online store. A new customer has joined. Print the list of customers.
+//    A customer has chosen to leave. Print the list of customers.
+    val customers = hashSetOf("Tom", "Jerry", "Daffy", "Donald")
+    val newCustomer = readLine()?:"" // Panther
+    customers.add(newCustomer)
+    println("List of customers: $customers") // List of customers: [Tom, Panther, Jerry, Daffy, Donald]
+
+    customers.remove("Donald")
+    println(customers) // [Tom, Panther, Jerry, Daffy]
 }
 
 
