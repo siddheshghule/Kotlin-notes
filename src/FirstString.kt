@@ -317,29 +317,77 @@ fun main(args: Array<String>) {
 
 //    Exercise 1:
 
-    val colors = hashSetOf<String>()
-    colors.addAll(listOf("green", "red", "pink","red"))
-    println(colors) // [red, pink, green]
-
-    colors.remove("green")
-    println(colors) // [red, pink]
-
-//    Exercise 2:
-    val objectsOnTable = hashSetOf("watch", "desktop", "laptop", "hub", "mobile")
-    val objectsToRemove = setOf("mobile")
-    objectsOnTable.removeAll(objectsToRemove)
-    println(objectsOnTable) // [desktop, laptop, hub, watch]
+//    val colors = hashSetOf<String>()
+//    colors.addAll(listOf("green", "red", "pink", "red"))
+//    println(colors) // [red, pink, green]
+//
+//    colors.remove("green")
+//    println(colors) // [red, pink]
+//
+////    Exercise 2:
+//    val objectsOnTable = hashSetOf("watch", "desktop", "laptop", "hub", "mobile")
+//    val objectsToRemove = setOf("mobile")
+//    objectsOnTable.removeAll(objectsToRemove)
+//    println(objectsOnTable) // [desktop, laptop, hub, watch]
 
     // Exercise 3:
 //    You have a list of customers for your online store. A new customer has joined. Print the list of customers.
 //    A customer has chosen to leave. Print the list of customers.
-    val customers = hashSetOf("Tom", "Jerry", "Daffy", "Donald")
-    val newCustomer = readLine()?:"" // Panther
-    customers.add(newCustomer)
-    println("List of customers: $customers") // List of customers: [Tom, Panther, Jerry, Daffy, Donald]
 
-    customers.remove("Donald")
-    println(customers) // [Tom, Panther, Jerry, Daffy]
+//    val customers = hashSetOf("Tom", "Jerry", "Daffy", "Donald")
+//    val newCustomer = readLine()?:"" // Panther
+//    customers.add(newCustomer)
+//    println("List of customers: $customers") // List of customers: [Tom, Panther, Jerry, Daffy, Donald]
+//
+//    customers.remove("Donald")
+//    println(customers) // [Tom, Panther, Jerry, Daffy]
+
+    // Set functions
+//    val numbers = setOf(1, 2, 3, 4, 5, 6, 7)
+//    println(numbers.size) // 7
+//    println(numbers.contains(3)) // true
+//    println(numbers.containsAll(setOf(1,2,11))) // false
+//    println(numbers.isEmpty()) // false
+//    numbers.forEach { print("Number: $it ") }  // Number: 1 Number: 2 Number: 3 Number: 4 Number: 5 Number: 6 Number: 7
+
+    // HashSet functions
+//    val numbers = hashSetOf(1,2,3,4,5,6,7, null,7)
+//    println(numbers) // [null, 1, 2, 3, 4, 5, 6, 7]
+//    val newNumbers = setOf(5,6,7,8,9,10)
+//    numbers.retainAll(newNumbers)
+//    println("Retain numbers: $numbers") // Retain numbers: [5, 6, 7]
+//    numbers.clear()
+//    println(numbers) // []
+
+    // Practice
+    val primeNumbers = setOf(2,3,5,7,11,13,17,19,23,29)
+    println("Is 21 a prime number? ${primeNumbers.contains(21)}") // Is 21 a prime number? false
+    println("Is 13 a prime number? ${primeNumbers.contains(13)}") // Is 13 a prime number? true
+
+    val myDrinks = hashSetOf("water","coke","orange juice","beer")
+    val theirDrink = hashSetOf("water","orange juice", "pineapple juice", "milk")
+//    TODO("If you want to buy a drink that you both can enjoy, what are the options you have?")
+    myDrinks.retainAll(theirDrink)
+    println("Drinks that we both enjoy $myDrinks") // Drinks that we both enjoy [orange juice, water]
+
+
+    // Exercise: Set and HashSet
+//    Your company has very strict dress code. Only certain color clothes can be worn in the office.
+//    val acceptedColors = hashSetOf(“white”, “black”, “grey”) You have certain colors in your wardrobe.
+//    val myColors = hashSetOf(“blue”, “red”, “black”, “green”) What color clothes can you wear.
+//    Your company has added another color, “red” to their list. What options do you have now?
+    var acceptedColors = hashSetOf("white", "black", "grey")
+    val myColors = hashSetOf("blue", "red", "black", "green")
+    acceptedColors.retainAll(myColors)
+    println("Clothes that I can wear are: $acceptedColors") // Clothes that I can wear are: [black]
+
+    acceptedColors = hashSetOf("white", "black", "grey") // readded as acceptedColors changed afer retainAll
+    acceptedColors.add("red")
+    acceptedColors.retainAll(myColors)
+    println("Clothes that I can wear now are: $acceptedColors") // Clothes that I can wear now are: [black, red]
+
+
+
 }
 
 
