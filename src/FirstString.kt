@@ -342,51 +342,96 @@ fun main(args: Array<String>) {
 //    customers.remove("Donald")
 //    println(customers) // [Tom, Panther, Jerry, Daffy]
 
-    // Set functions
-//    val numbers = setOf(1, 2, 3, 4, 5, 6, 7)
-//    println(numbers.size) // 7
-//    println(numbers.contains(3)) // true
-//    println(numbers.containsAll(setOf(1,2,11))) // false
-//    println(numbers.isEmpty()) // false
-//    numbers.forEach { print("Number: $it ") }  // Number: 1 Number: 2 Number: 3 Number: 4 Number: 5 Number: 6 Number: 7
+//    // Set functions
+////    val numbers = setOf(1, 2, 3, 4, 5, 6, 7)
+////    println(numbers.size) // 7
+////    println(numbers.contains(3)) // true
+////    println(numbers.containsAll(setOf(1,2,11))) // false
+////    println(numbers.isEmpty()) // false
+////    numbers.forEach { print("Number: $it ") }  // Number: 1 Number: 2 Number: 3 Number: 4 Number: 5 Number: 6 Number: 7
+//
+//    // HashSet functions
+////    val numbers = hashSetOf(1,2,3,4,5,6,7, null,7)
+////    println(numbers) // [null, 1, 2, 3, 4, 5, 6, 7]
+////    val newNumbers = setOf(5,6,7,8,9,10)
+////    numbers.retainAll(newNumbers)
+////    println("Retain numbers: $numbers") // Retain numbers: [5, 6, 7]
+////    numbers.clear()
+////    println(numbers) // []
+//
+//    // Practice
+//    val primeNumbers = setOf(2,3,5,7,11,13,17,19,23,29)
+//    println("Is 21 a prime number? ${primeNumbers.contains(21)}") // Is 21 a prime number? false
+//    println("Is 13 a prime number? ${primeNumbers.contains(13)}") // Is 13 a prime number? true
+//
+//    val myDrinks = hashSetOf("water","coke","orange juice","beer")
+//    val theirDrink = hashSetOf("water","orange juice", "pineapple juice", "milk")
+////    TODO("If you want to buy a drink that you both can enjoy, what are the options you have?")
+//    myDrinks.retainAll(theirDrink)
+//    println("Drinks that we both enjoy $myDrinks") // Drinks that we both enjoy [orange juice, water]
+//
+//
+//    // Exercise: Set and HashSet
+////    Your company has very strict dress code. Only certain color clothes can be worn in the office.
+////    val acceptedColors = hashSetOf(“white”, “black”, “grey”) You have certain colors in your wardrobe.
+////    val myColors = hashSetOf(“blue”, “red”, “black”, “green”) What color clothes can you wear.
+////    Your company has added another color, “red” to their list. What options do you have now?
+//    var acceptedColors = hashSetOf("white", "black", "grey")
+//    val myColors = hashSetOf("blue", "red", "black", "green")
+//    acceptedColors.retainAll(myColors)
+//    println("Clothes that I can wear are: $acceptedColors") // Clothes that I can wear are: [black]
+//
+//    acceptedColors = hashSetOf("white", "black", "grey") // readded as acceptedColors changed afer retainAll
+//    acceptedColors.add("red")
+//    acceptedColors.retainAll(myColors)
+//    println("Clothes that I can wear now are: $acceptedColors") // Clothes that I can wear now are: [black, red]
 
-    // HashSet functions
-//    val numbers = hashSetOf(1,2,3,4,5,6,7, null,7)
-//    println(numbers) // [null, 1, 2, 3, 4, 5, 6, 7]
-//    val newNumbers = setOf(5,6,7,8,9,10)
-//    numbers.retainAll(newNumbers)
-//    println("Retain numbers: $numbers") // Retain numbers: [5, 6, 7]
-//    numbers.clear()
-//    println(numbers) // []
+// Map
+//    val count = mapOf(Pair(1,"one"), Pair(2,"two"), Pair(3,"three"))
+//    println(count)
+//    println(count.get(2))
+////    TODO(Get the whole SET of keys (they are unique))
+//    println(count.keys) // [1,2,3]
+////    TODO(Get the collection of values (can have duplicates))
+//    println(count.values) // [one, two, three]
 
-    // Practice
-    val primeNumbers = setOf(2,3,5,7,11,13,17,19,23,29)
-    println("Is 21 a prime number? ${primeNumbers.contains(21)}") // Is 21 a prime number? false
-    println("Is 13 a prime number? ${primeNumbers.contains(13)}") // Is 13 a prime number? true
+//    HashMap
+//    val countHash = hashMapOf(Pair(1,"one"), Pair(2,"two"), Pair(3,"three"))
+//    countHash[4] = "four"
+//    println(countHash) // {1=one, 2=two, 3=three, 4=four}
+//    val count = mapOf(Pair(20,"one"), Pair(30,"two"), Pair(40,"three"))
+//    countHash.putAll(count)
+//    println(countHash) // {1=one, 2=two, 3=three, 4=four, 20=one, 40=three, 30=two}
+//    countHash.remove(20)
+//    println(countHash) // {1=one, 2=two, 3=three, 4=four, 40=three, 30=two}
+//    countHash.replace(2, "TWO")
+//    println(countHash) // {1=one, 2=TWO, 3=three, 4=four, 40=three, 30=two}
+//    countHash.clear()
+//    println(countHash) // {}
 
-    val myDrinks = hashSetOf("water","coke","orange juice","beer")
-    val theirDrink = hashSetOf("water","orange juice", "pineapple juice", "milk")
-//    TODO("If you want to buy a drink that you both can enjoy, what are the options you have?")
-    myDrinks.retainAll(theirDrink)
-    println("Drinks that we both enjoy $myDrinks") // Drinks that we both enjoy [orange juice, water]
+//    Practice: Map and HashMap
 
+//    var count = hashMapOf(Pair(1,"un"), Pair(2, "deux"), Pair(3,"trois"))
+//    println("value of 2 in french is ${count[2]}") // value of 2 in french is deux
+//    println("value of 3 in french is ${count[3]}") // value of 3 in french is trois
+//    count.put(4,"quatre") //OR  count[4] = "quatre"
+//    println(count) // {1=un, 2=deux, 3=trois, 4=quatre}
+//
+//    var customers = mapOf(Pair("John", 1), Pair("Alice", 5), Pair("Bob", 3))
+//    println("Is Alice a customer? : ${customers.containsKey("Alice")}, and she bought ${customers["Alice"]} products.")
+//        // Is Alice a customer? : true, and she bought 5 products.
+//    println("Is Michael a customer? : ${customers.containsKey("Michael")}") // Is Michael a customer? : false
 
-    // Exercise: Set and HashSet
-//    Your company has very strict dress code. Only certain color clothes can be worn in the office.
-//    val acceptedColors = hashSetOf(“white”, “black”, “grey”) You have certain colors in your wardrobe.
-//    val myColors = hashSetOf(“blue”, “red”, “black”, “green”) What color clothes can you wear.
-//    Your company has added another color, “red” to their list. What options do you have now?
-    var acceptedColors = hashSetOf("white", "black", "grey")
-    val myColors = hashSetOf("blue", "red", "black", "green")
-    acceptedColors.retainAll(myColors)
-    println("Clothes that I can wear are: $acceptedColors") // Clothes that I can wear are: [black]
-
-    acceptedColors = hashSetOf("white", "black", "grey") // readded as acceptedColors changed afer retainAll
-    acceptedColors.add("red")
-    acceptedColors.retainAll(myColors)
-    println("Clothes that I can wear now are: $acceptedColors") // Clothes that I can wear now are: [black, red]
-
-
+//    Exercise:
+//    You manage an amusement park, and you have a map that stores dates and attendance.
+//    `var attendance = hashMapOf(Pair(“23 Sept”, 2837), Pair(“24 Sept”, 3726), Pair(“25 Sept”, 6253))`
+//    Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is data for 22 Sept available?
+    var attendance = hashMapOf(Pair("23 Sept", 2837), Pair("24 Sept", 3726), Pair("25 Sept", 6253))
+    attendance["26 Sept"] = 1234
+    println("The total number of people attending on 25 Sept and 26 Sept are: ${(attendance["25 Sept"]?:0) + (attendance["26 Sept"]?:0)}")
+        //The total number of people attending on 25 Sept and 26 Sept are: 7487
+    println("Are people attending on 22nd Sept: ${attendance.containsKey("22 Sept")}")
+        // Are people attending on 22nd Sept: false
 
 }
 

@@ -1,4 +1,5 @@
 # kotlin-notes
+[**WORK IN PROGRESS**]
 
 Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catalin Stefan.
 
@@ -1513,12 +1514,72 @@ Your company has added another color, “red” to their list. What options do y
     println("Clothes that I can wear now are: $acceptedColors") // Clothes that I can wear now are: [black, red]
 
 #### Map
+- Conceptually Maps are part of collections abut practically they are not.  
+- A set of key-value pair.  (keys are sets, as the keys are always unique)  
+- Keys are unique(set)  
+- Each key maps to exactly one value  
+- Values can have duplicates.  
+- Eg. {1=one,2-two,5=five} OR a Dictionary(Words - Definition)
+- Maps are immutable, HashMaps are mutable
 
-A set of key-value pair.  (keys are sets, as the keys are always unique)  
-Keys are unique(set)  
-Each key maps to exactly one value  
-Values can have duplicates.  
-Eg. {1=one,2-two,5=five} OR a Dictionary
+```
+val count = mapOf(Pair(1,"one"), Pair(2,"two"), Pair(3,"three"))
+println(count) // {1=one, 2=two, 3=three}
+println(count.get(2)) // count[2] -> two
+// Get the whole SET of keys (they are unique)
+println(count.keys) // [1,2,3]
+// Get the collection of values (can have duplicates)
+println(count.values) // [one, two, three]
+```
+```
+val count = mapOf<Int, String>()
+println(count) // {}
+```
+
+HashMap
+
+    val countHash = hashMapOf(Pair(1,"one"), Pair(2,"two"), Pair(3,"three"))
+    countHash[4] = "four"
+    println(countHash) // {1=one, 2=two, 3=three, 4=four}
+    val count = mapOf(Pair(20,"one"), Pair(30,"two"), Pair(40,"three"))
+    countHash.putAll(count)
+    println(countHash) // {1=one, 2=two, 3=three, 4=four, 20=one, 40=three, 30=two}
+    countHash.remove(20)
+    println(countHash) // {1=one, 2=two, 3=three, 4=four, 40=three, 30=two}
+    countHash.replace(2, "TWO")
+    println(countHash) // {1=one, 2=TWO, 3=three, 4=four, 40=three, 30=two}
+    countHash.clear()
+    println(countHash) // {} 
+
+Practice: Map and HashMap
+
+```
+var count = hashMapOf(Pair(1,"un"), Pair(2, "deux"), Pair(3,"trois"))
+println("value of 2 in french is ${count[2]}") // value of 2 in french is deux
+println("value of 3 in french is ${count[3]}") // value of 3 in french is trois
+count.put(4,"quatre") //OR  count[4] = "quatre"
+println(count) // {1=un, 2=deux, 3=trois, 4=quatre}
+```
+
+```
+var customers = mapOf(Pair("John", 1), Pair("Alice", 5), Pair("Bob", 3))
+println("Is Alice a customer? : ${customers.containsKey("Alice")}, and she bought ${customers["Alice"]} products.")
+    // Is Alice a customer? : true, and she bought 5 products.
+println("Is Michael a customer? : ${customers.containsKey("Michael")}") // Is Michael a customer? : false
+```
+
+Exercise:  
+You manage an amusement park, and you have a map that stores dates and attendance.   
+`var attendance = hashMapOf(Pair(“23 Sept”, 2837), Pair(“24 Sept”, 3726), Pair(“25 Sept”, 6253))`  
+Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is data for 22 Sept available?
+
+    var attendance = hashMapOf(Pair("23 Sept", 2837), Pair("24 Sept", 3726), Pair("25 Sept", 6253))
+    attendance["26 Sept"] = 1234
+    println("The total number of people attending on 25 Sept and 26 Sept are: ${(attendance["25 Sept"]?:0) + (attendance["26 Sept"]?:0)}")
+        //The total number of people attending on 25 Sept and 26 Sept are: 7487
+    println("Are people attending on 22nd Sept: ${attendance.containsKey("22 Sept")}")
+        // Are people attending on 22nd Sept: false
+
 
 #### Iterator
 
