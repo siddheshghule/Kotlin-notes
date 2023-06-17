@@ -584,7 +584,8 @@ Zero or more elements.
 Same type of elements.  
 Eg. [1,2,3,4,555,6,4], ["Dogs", "Cats", "Cow"]  
 
-<img src="https://kotlinlang.org/docs/images/collections-diagram.png" alt="isolated" width="500"/>
+<img src="src/images/collection.png" alt="isolated" width="500"/>  
+https://kotlinlang.org/docs/images/collections-diagram.png  
 
 Note: Mutable means, they can be changed.  
 
@@ -1568,7 +1569,7 @@ println("Is Alice a customer? : ${customers.containsKey("Alice")}, and she bough
 println("Is Michael a customer? : ${customers.containsKey("Michael")}") // Is Michael a customer? : false
 ```
 
-Exercise:  
+**Exercise**:  
 You manage an amusement park, and you have a map that stores dates and attendance.   
 `var attendance = hashMapOf(Pair(“23 Sept”, 2837), Pair(“24 Sept”, 3726), Pair(“25 Sept”, 6253))`  
 Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is data for 22 Sept available?
@@ -1581,28 +1582,37 @@ Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is
         // Are people attending on 22nd Sept: false
 
 
-#### Iterator
+### <a href="#flowControl">Flow control  </a>
 
-An iterator is an object that loops through elements of a collection.  
-They are used when applying a same operation to all the elements.
+- Change the direction of execution of a program
+- Make a decision
+- Run a part of code multiple times
+- Stop execution of a part of code
 
-
-
-
-
-
-Question to search:
-If `val` means immutable and it cannot be changed, how can we make changes to arrayList} OR a Dictionary
-
-#### Iterator
-
+**Iterator**:
 An iterator is an object that loops through elements of a collection.  
 They are used when applying a same operation to all the elements.  
 
+#### If conditional
+<img src="src/images/if-condition.png" alt="isolated" width="500"/>
+https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#1  
+
+#### When conditional
+
+<img src="src/images/when-condition.png" alt="isolated" width="500"/>  
+https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#2  
+
+#### For loop 
+- works on elements of a collection
+
+`--> collection C -> for  each element in collection C -> do something`
+#### While loop
+- works on a boolean expression
+
+`while(expression==true) -> do something`   
+s(it will influence the expression, eventually making it false)
 
 
 
-
-
-Question to search:
+#### **Question to search:**
 If `val` means immutable and it cannot be changed, how can we make changes to arrayList
