@@ -426,12 +426,252 @@ fun main(args: Array<String>) {
 //    You manage an amusement park, and you have a map that stores dates and attendance.
 //    `var attendance = hashMapOf(Pair(“23 Sept”, 2837), Pair(“24 Sept”, 3726), Pair(“25 Sept”, 6253))`
 //    Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is data for 22 Sept available?
-    var attendance = hashMapOf(Pair("23 Sept", 2837), Pair("24 Sept", 3726), Pair("25 Sept", 6253))
-    attendance["26 Sept"] = 1234
-    println("The total number of people attending on 25 Sept and 26 Sept are: ${(attendance["25 Sept"]?:0) + (attendance["26 Sept"]?:0)}")
-        //The total number of people attending on 25 Sept and 26 Sept are: 7487
-    println("Are people attending on 22nd Sept: ${attendance.containsKey("22 Sept")}")
-        // Are people attending on 22nd Sept: false
+//    var attendance = hashMapOf(Pair("23 Sept", 2837), Pair("24 Sept", 3726), Pair("25 Sept", 6253))
+//    attendance["26 Sept"] = 1234
+//    println("The total number of people attending on 25 Sept and 26 Sept are: ${(attendance["25 Sept"]?:0) + (attendance["26 Sept"]?:0)}")
+//        //The total number of people attending on 25 Sept and 26 Sept are: 7487
+//    println("Are people attending on 22nd Sept: ${attendance.containsKey("22 Sept")}")
+//        // Are people attending on 22nd Sept: false
+
+//    If statement
+//
+//    print("Enter true if it is Night, else false:") // Enter true if it is Night, else false:false
+//    val isNight = readLine()?:"true"
+//    val night = isNight.toBoolean()
+//    if(night){
+//        println("Sleep") // if isNight = true -> Sleep
+//    }
+//    else{
+//        println("Be active") // if isNight = false -> Be Active
+//    }
+
+//    print("Please input the client funds: ")
+//    var input = readLine() ?: "100"
+//    var clientFunds = input.toInt() // default 100
+//    val price = 50
+//    var clientProduct = 0
+//    if (clientFunds > price) {
+//        clientFunds -= price
+//        clientProduct++
+//        println("You have purchased $clientProduct products,")
+//        println("You have $clientFunds funds.")
+//    }
+//    else{
+//        println("You have insufficient funds: $clientFunds")
+//    }
+
+//    val petStore = listOf("Cat", "Dog", "Rabbit")
+//    val hasCatFood = true
+//    if (petStore.contains("Cat")) {
+//        if (hasCatFood) {
+//            println("Buy Cat and cat food") // output -> Buy Cat and cat food
+//        } else {
+//            println("Buy cat and place an order for cat food")
+//        }
+//    } else {
+//        println("Don't buy anything")
+//    }
+
+//    Exercise:
+
+//    Define two variables
+//    val hasEggs = true
+//    val hasBacon = false
+//    A man goes to the market. His instructions are:
+//
+//    If you find eggs, buy 12
+//
+//    If you buy eggs, and you also find bacon, buy two packs
+//
+//    Eggs cost 5 each.
+//    A pack of bacon costs 20.
+//    How much does the man spend at the market?
+//    val hasEggs = true
+//    val costEggs = 5
+//    val hasBacon = false
+//    val costBacon = 20
+//    var moneySpent = 0
+//
+//    if (hasEggs) {
+//        println("Buying 12 eggs") // Buying 12 eggs
+//        moneySpent = 12 * costEggs
+//        if (hasBacon) {
+//            println("Buying 2 packs of bacon")
+//            moneySpent += 2 * costBacon
+//        }
+//        println("Money Spent: $moneySpent") // Money Spent: 60
+//    }else{
+//        println("Did not buy anything")
+//    }
+
+//    val number = 25
+//    if (number % 2 == 0)
+//        println("Number is even")
+//    else
+//        println("Number is odd")
+//
+//    if(number%2==0) println("Number is Even") else println("Number is odd")
+//
+//    val isEven = if(number%2==0) "Number is Even" else "Number is odd"
+//    println(isEven)
+
+//     multiple branches
+//    print("Enter an animal: ")
+//    val animal = readLine()?:""
+//    if (animal == "dog") {
+//        println("Animal is a dog")
+//    } else if (animal == "cat") {
+//        println("Animal is a cat")
+//    } else if (animal == "rabbit") {
+//        println("Animal is a rabbit")
+//    } else {
+//        println("Animal not found")
+//    }
+
+//    practice: if single digit print the statement
+//    print("Please enter a number:")
+//    val input = readLine() ?: "0"
+//    val number = input.toInt()
+//    if (number / 10 == 0) println("Number is single digit") else println("Number is multiple digit")
+//
+////    practice for multiple if branches
+//    val responseCode = 404
+//    val message = if(responseCode/100 == 1)
+//        "Information response"
+//    else if(responseCode/100 == 2)
+//        "Success"
+//    else if(responseCode/100 == 3)
+//        "Redirect"
+//    else if(responseCode/100 == 4)
+//        "Client error"
+//    else
+//        "Server Error"
+//    println("Message for response $responseCode: $message") // Message for response 404: Client error
+//
+
+//    Exercise: You are designing a grading system for school exams. The total for an exam is 100 points, and you need to convert that into a grade A to F.
+//
+//    Design a program that reads in a number that represents a student’s grade, from 1 to 100 and prints out a grade.
+//
+//    A -> 90 to 100
+//    B -> 80 to 89
+//    C -> 70 to 79
+//    D -> 60 to 69
+//    E -> 50 to 59
+//    F -> everything else
+//    print("Enter exam points: ")
+//    val input = readLine()?:""
+//    val points = input.toInt()
+//    val grade: String? = if(points>=90 && points <=100)
+//        "A"
+//    else if(points>=80 && points <=89)
+//        "B"
+//    else if(points>=70 && points <=79)
+//        "C"
+//    else if(points>=60 && points <=69)
+//        "D"
+//    else if(points>=50 && points <=59)
+//        "E"
+//    else
+//        "F"
+//    println(grade)
+
+    // Arithmetic and logical EXPRESSIONS
+//    1.
+//    if(326/72 * 15 + 93 % 13 == 62){
+//        println("Math is easy")
+//    }else{
+//        println("Math is difficult")
+//    }
+
+//    2.
+//    val haveCat = true
+//    val haveCatFood = true
+//    if(haveCat && haveCatFood){
+//        println("Cat is happy")
+//    }else{
+//        println("Oh no!")
+//    }
+
+//    in keyword
+
+//    val favouritePet = "dog"
+//    val availablePets = listOf("dog","cat","horse")
+//    if(favouritePet in availablePets){
+//        println("YAY!") // YAY!
+//    }else{
+//        println("Oh no!")
+//    }
+//    if(favouritePet !in availablePets){   // !in keyword
+//        println("Please notify when you have a dog.")
+//    }else{
+//        println("Yay!") // Yay!
+//    }
+//Example of in keyword for range
+//    println("Please input a number")
+//    val input = readLine() ?: ""
+//    val number = input.toInt()
+//    if(number !in 0..9){
+//        println("Your input is not single digit")
+//    }
+
+//    Boolean returning function:
+
+//    val animals = arrayListOf<String>()
+//    if (animals.isEmpty()) {
+//        animals.add("Dog")
+//    } else {
+//        animals.add("Cat")
+//    }
+//    println(animals) // [Dog]
+
+//    val animals = arrayListOf<String>()
+//    if (animals.add("Horse")) {
+//        println("Horse was added successfully") // Horse was added successfully
+//    } else {
+//        println("Horse not was added")
+//    }
+//    println(animals) // [Horse]
+
+//    Practice:
+//    1.
+//    val guestList = listOf("Alice", "Bob", "Carol", "John")
+//    print("Please enter your name: ")
+//    val guest = readLine() ?: ""
+//    if (guest in guestList) {
+//        println("Please come in")
+//    } else {
+//        println("Sorry, you are not on the list")
+//    }
+
+//    2.
+//    print("How many cats do you have? ")
+//    val input = readLine() ?: "0"
+//    val numberOfCats = input.toInt()
+//    val howMany = if (numberOfCats in 1..3)
+//        "few cats"
+//    else if(numberOfCats in 4..6)
+//        "several cats"
+//    else
+//        "Many cats"
+//    println("This lady has $howMany")
+
+//    Exercise
+//    Ask a user to input their age.
+//
+//    If they are under 13, they are a child
+//    If they are under 18, they are a teen
+//    If they are older, they are an adult.
+//    Use ranges to print out the correct message.
+//    If the age is 0, convert it to 1.
+    print("Enter the age:")
+    val input = readLine() ?: "0"
+    var age = input.toInt()
+    if (age == 0) age = 1
+    if (age in 1..12) println("You are a child")
+    else if (age in 13..18) println("You are a child")
+    else println("You are an adult")
+
 
 }
 
