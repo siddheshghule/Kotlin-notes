@@ -664,15 +664,50 @@ fun main(args: Array<String>) {
 //    If they are older, they are an adult.
 //    Use ranges to print out the correct message.
 //    If the age is 0, convert it to 1.
-    print("Enter the age:")
-    val input = readLine() ?: "0"
-    var age = input.toInt()
-    if (age == 0) age = 1
-    if (age in 1..12) println("You are a child")
-    else if (age in 13..18) println("You are a child")
-    else println("You are an adult")
+//    print("Enter the age:")
+//    val input = readLine() ?: "0"
+//    var age = input.toInt()
+//    if (age == 0) age = 1
+//    if (age in 1..12) println("You are a child")
+//    else if (age in 13..18) println("You are a child")
+//    else println("You are an adult")
 
+//    WHEN condition
+//    var animal = "cat"
+//    var action: String = ""
+//    when (animal) {
+//        "cat" -> {
+//            action = "pet it"
+//        }
+//        "dog" -> {
+//            action = "feed it"
+//        }
+//        else -> {
+//            action = "google it"
+//        }
+//    }
+//
+//    println("When you meet a $animal, you should $action.")
 
+    // Example: if even or odd
+//    var result = ""
+//    var number = 1234
+//    when(number%2){
+//        0 -> result = "even"
+//        1 -> result = "odd"
+//    }
+//    println("Number is $result") // -> Number is even
+
+//    When as a statement
+
+    val animal = "dog"
+    val action = when(animal){
+        "cat" -> "pet it"
+        "dog" -> "feed it"
+        else -> "google it"
+    }
+    println("When you see a $animal then $action") // -> When you see a dog then feed it
 }
+
 
 

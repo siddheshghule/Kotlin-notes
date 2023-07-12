@@ -3,16 +3,17 @@
 
 Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catalin Stefan.
 
-### Table of  content
+## Table of  content
 
 1. [String and Variables](#stringAndVariables)
     1. [String](#string)
-    2. [Variable](#variable)
+    2. [Variables](#variables)
+       1. [Variable names](#variable-names)
     3. [User Input](#userInput)
 
-<a href="string"></a>
+## String and Variables
 
-### <a href="#string">String</a>
+### <a name="#string">String</a>
 
 String is surrounded by double-quotes or triple-quotes.  
 There are 2 types of string: **Escaped String** and **Raw String**
@@ -23,8 +24,8 @@ There are 2 types of string: **Escaped String** and **Raw String**
 
 ```
 fun main(args: Array<String>) { 
-println("Hello")
-println("String with escape character backslash \\, and quotes \".")
+    println("Hello")
+    println("String with escape character backslash \\, and quotes \".")
 }
 
 Output:
@@ -1211,7 +1212,7 @@ A way to manage exception.
 ```
 
 #### 3. finally
-A 'finally' block will be executed whether or not an exception occurs.
+A 'finally' block will always be executed whether an exception occurs.
 ```
     print("Enter a number:")
     var input = readLine()
@@ -1791,6 +1792,44 @@ println(grade)
 <img src="src/images/when-condition.png" alt="isolated" width="500"/>  
 https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#2  
 
+Example: 
+```
+var animal = "cat"
+var action: String = ""
+when (animal) {
+    "cat" -> {
+        action = "pet it"
+     }
+     "dog" -> {
+        action = "feed it"
+     }
+     else -> {
+        action = "google it"
+     }
+}
+    println("When you meet a $animal, you should $action.") // output -> When you meet a cat, you should pet it.
+```
+
+```
+var result = ""
+var number = 1234
+when(number%2){
+    0 -> result = "even"
+    1 -> result = "odd"
+}
+println("Number is $result") // -> Number is even
+```
+
+##### When as a statement
+```
+val animal = "dog"
+val action = when(animal){
+    "cat" -> "pet it"
+    "dog" -> "feed it"
+    else -> "google it"
+}
+println("When you see a $animal then $action") // -> When you see a dog then feed it
+```
 #### For loop 
 - works on elements of a collection
 
@@ -1920,7 +1959,7 @@ if (age in 1..12) println("You are a child")
 else if (age in 13..18) println("You are a child")
 else println("You are an adult")
 ```
-#### When condition
+
 
 
 #### Question to search:
