@@ -7,15 +7,36 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
 
 1. [String and Variables](#string-and-variables)
     1. [String](#string)
+       1. [Chars](#chars)
     2. [Variables](#variables)
        1. [Variable names](#variable-names)
-    3. [User Input](#userInput)
+2. [User Input](#user-input)
+3. [Numbers and Variable Types](#numbers-and-variable-types)
+   1. [Numbers](#numbers)
+   2. [Variables](#variables)
+      1. [Implicit vs Explicit variable types](#implicit-vs-explicit-variable-types)
+4. [Operators and Booleans](#operators-and-booleans)
+   1. [Operators](#operators)
+5. [Nullability](#nullability)
+6. [Handling Exception](#handling-exception)
+7. [Collections](#collections)
+8. [List and ArrayList](#list-and-arraylist)
+9. [Set and HashSet](#set-and-hashset)
+10. [Map and HashMap](#map-and-hashmap)
+11. [Flow control](#flow-control)
+    1. [If conditional](#if-conditional)
+    2. [Expressions](#expressions)
+    3. [When Conditional](#when-conditional)
+    4. [For loop](#for-loop)
+    5. [While loop](#while-loop)
+    6. [Break and continue](#break-and-continue)
+12. [Functions](#functions)
+13. [Packages](#packages)
+
 
 
 ## String and Variables
-
 ### <a name="#string">String</a>
-
 
 String is surrounded by double-quotes or triple-quotes.  
 There are 2 types of string: **Escaped String** and **Raw String**
@@ -51,15 +72,13 @@ Output:
 O_(")(")
 ```
 
-#### Chars
+#### <a name="#chars">Chars</a>
 
 A char is a single character, surrounded by single quotes.  
 Example: 'A', 'a, ''.  
 A string is composed of character (String of chars)
 
-<a href="variables"></a>
-
-### <a href="#variables">Variables</a>
+### <a name="#variables">Variables</a>
 
 A variable is a container of data.  
 Examples:
@@ -98,12 +117,12 @@ age = 21
 Error: val cannot be reassigned
 ```
 
-#### Variable names
+#### <a name="#variable-names">Variable names</a>
 
 Names can contain letters, numbers and underscores '_'. Cannot use space or kotlin keywords(println, var, val, etc.).
 Names can start with letters or underscores, I personally prefer letters and use underscores to separate words. For
 example, first name can be written as  
-`var firstName = 'Tommy'` (also known as camel case) or  
+`var firstName = 'Tommy'` (also known as **camelCase**) or  
 `var first_name = 'Tommy' `
 
 **Naming convention** - camelCase - firstName.
@@ -119,11 +138,9 @@ println(slashes)
 
 var url = "https://www.google.com"
 println(url)
-```
 
 Output:
 
-```
 My cat's name is "Fluffy"
 Two types of slashesh \ and /
 https://google.com
@@ -136,20 +153,16 @@ println("Random.nextDouble(): ${Random.nextDouble()}")
 println("Random.nextInt(): ${Random.nextInt()}") // random integer
 println("Random.nextInt(1, 9): ${Random.nextInt(1, 9)}") // random integer 1 till 8
 println("Random.nextInt(10): ${Random.nextInt(10)}") // random integer less than 10
-```  
 
 Output:
 
-```  
 Random.nextDouble(): 0.3519018166295108
 Random.nextInt(): -1941111987
 Random.nextInt(1, 9): 8
 Random.nextInt(10): 6 
-```  
+```
 
-<a href="userInput"></a>
-
-### <a href="#userInput">User Input</a>
+## <a href="#user-input">User Input</a>
 
 User input can come from many sources, and one way is from command line.  
 We can use readLine().  
@@ -158,12 +171,10 @@ Example:
 ``` 
 println("Enter user input")
 val userInput = readLine() // read only one line
-println("Your input string is: $userInput")
-```   
+println("Your input string is: $userInput")   
 
 Output:
 
-``` 
 Enter user input
 hello
 Your input string is hello
@@ -176,12 +187,10 @@ empty string will be used `""`.
 ```  
 println("Enter user input")
 val userInput = readLine()?:"" // if empty then use "" (empty string)
-println("Your input times 5 is: ${userInput.toInt()*5}")  
-```  
+println("Your input times 5 is: ${userInput.toInt()*5}")   
 
 Output:
 
-```  
 Enter user input
 5
 Your input times 5 is: 25
@@ -193,11 +202,9 @@ Example: Welcome
 println("What is your name?")
 val name =  readLine()
 println("Welcome, $name")
-```
 
 Output:
 
-```
 What is your name?
 Tommy
 Welcome, Tommy
@@ -210,11 +217,9 @@ print("Enter a number: ")
 val number = readLine()?:""
 val multipleOfFive = number.toInt() * 5
 println("Number multiplied by 5 is: $multipleOfFive")
-```
 
 Output:
 
-```
 Enter a number: 4
 Number multiplied by 5 is: 20
 ```
@@ -227,19 +232,17 @@ val birthYear = readLine()?:""
 val currentYear = 2023
 val result = currentYear - birthYear.toInt() 
 println("Estimated age of the user is: ${result-1} or $result")
-```
 
 Output:
 
-```
 Enter your birth year: 1996
 Estimated age of the user is: 26 or 27
 ```
 
-<a href="numbersAndVariableTypes"></a>
 
-### <a href="#numbersAndVariableTypes">Numbers And Variable Types</a>
+## <a name="#numbers-and-variable-types">Numbers And Variable Types</a>
 
+### <a name="#numbers">Numbers</a>
 Different types are stored in memory in different ways.  
 Number types have limits.
 
@@ -250,7 +253,8 @@ Number types have limits.
 | int   | 32   | -2147483648 (-2^31)          | 2147483647    (2^31-1)       |
 | long  | 64   | -9223372036854775808 (-2^64) | 9223372036854775807 (2^64-1) |
 
--> Know the type of variable.
+
+Exercise: Know the type of variable.
 
 ```
 var pi = 3.141592
@@ -261,11 +265,9 @@ println("Type of name: ${name::class.java}")
 
 var population = 75000000000
 println("Type of population: ${population::class.java}")
-```
 
 Output:
 
-```
 Type of pi: double
 Type of name: class java.lang.String
 Type of population: long
@@ -279,11 +281,9 @@ var userInput = readLine()
 var doubleNumber = 29.99
 var output = doubleNumber * (userInput?.toInt() ?: 1) // if null then 1
 println("The output variable ($output) type is: ${output::class.java}")
-```
 
 Output:
 
-```
 Enter a Number: 44
 The output variable (1319.56) type is: double
 ```
@@ -298,7 +298,6 @@ Example: `val cat:Byte = 5`
 `val floatVal: Float = 29.99F` Or `val floatValue = 29.99F`  
 `val longVal: Float = 29` Or `val longVal = 29L`
 
-<a href="operatorsAndBooleans"></a>
 
 ### <a href="#operatorsAndBooleans">Operators And Booleans</a>
 
