@@ -5,15 +5,17 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
 
 ## Table of  content
 
-1. [String and Variables](#stringAndVariables)
+1. [String and Variables](#string-and-variables)
     1. [String](#string)
     2. [Variables](#variables)
        1. [Variable names](#variable-names)
     3. [User Input](#userInput)
 
+
 ## String and Variables
 
 ### <a name="#string">String</a>
+
 
 String is surrounded by double-quotes or triple-quotes.  
 There are 2 types of string: **Escaped String** and **Raw String**
