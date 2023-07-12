@@ -10,8 +10,6 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     2. [Variable](#variable)
     3. [User Input](#userInput)
 
-<a href="string"></a>
-
 ### <a href="#string">String</a>
 
 String is surrounded by double-quotes or triple-quotes.  
