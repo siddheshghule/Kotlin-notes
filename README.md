@@ -1,4 +1,5 @@
 # kotlin-notes
+
 [**WORK IN PROGRESS**]
 
 Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catalin Stefan.
@@ -7,24 +8,24 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
 
 1. [String and Variables](#string-and-variables)
     1. [String](#string)
-       1. [Chars](#chars)
+        1. [Chars](#chars)
     2. [Variables](#variables)
-       1. [Variable names](#variable-names)
+        1. [Variable names](#variable-names)
 2. [User Input](#user-input)
 3. [Numbers and Variable Types](#numbers-and-variable-types)
-   1. [Numbers](#numbers)
-   2. [Variables](#variables)
-      1. [Implicit vs Explicit variable types](#implicit-vs-explicit-variable-types)
+    1. [Numbers](#numbers)
+    2. [Variables](#variables)
+        1. [Implicit vs Explicit variable types](#implicit-vs-explicit-variable-types)
 4. [Operators and Booleans](#operators-and-booleans)
-   1. [Operators](#operators)
-      1. [Arithmetic Operators](#arithmetic-operators)
-      2. [Assignment Operators](#assignment-operators)
-      3. [Comparison Operators](#comparison-operators)
-      4. [Logical Operators](#logical-operators)
+    1. [Operators](#operators)
+        1. [Arithmetic Operators](#arithmetic-operators)
+        2. [Assignment Operators](#assignment-operators)
+        3. [Comparison Operators](#comparison-operators)
+        4. [Logical Operators](#logical-operators)
 5. [Nullability](#nullability)
-   1. [Null values](#null-values)
-   2. [Elvis Operator](#elvis-operator)
-   3. [Non-null assertions](#non-null-assertions)
+    1. [Null values](#null-values)
+    2. [Elvis Operator](#elvis-operator)
+    3. [Non-null assertions](#non-null-assertions)
 6. [Handling Exception](#handling-exception)
 7. [Collections](#collections)
 8. [List and ArrayList](#list-and-arraylist)
@@ -36,13 +37,12 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     3. [For loop](#for-loop)
     4. [While loop](#while-loop)
     5. [Break and continue](#break-and-continue)
-12. [Expressions](#expressions)
-13. [Functions](#functions)
-14. [Packages](#packages)
-
-
+    6. [Expressions](#expressions)
+12. [Functions](#functions)
+13. [Packages](#packages)
 
 ## String and Variables
+
 ### String
 
 String is surrounded by double-quotes or triple-quotes.  
@@ -244,10 +244,10 @@ Enter your birth year: 1996
 Estimated age of the user is: 26 or 27
 ```
 
-
 ## 3. Numbers And Variable Types
 
 ### Numbers
+
 Different types are stored in memory in different ways.  
 Number types have limits.
 
@@ -257,7 +257,6 @@ Number types have limits.
 | short | 16   | -32768                       | 32767                        |
 | int   | 32   | -2147483648 (-2^31)          | 2147483647    (2^31-1)       |
 | long  | 64   | -9223372036854775808 (-2^64) | 9223372036854775807 (2^64-1) |
-
 
 Exercise: Know the type of variable.
 
@@ -303,7 +302,6 @@ Example: `val cat:Byte = 5`
 `val floatVal: Float = 29.99F` Or `val floatValue = 29.99F`  
 `val longVal: Float = 29` Or `val longVal = 29L`
 
-
 ### 4. Operators And Booleans
 
 #### Operators:
@@ -341,7 +339,7 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | !=       | Not equal                | x != y  |
 | \>       | Greater than             | x > y   |
 | <        | Less than                | x < y   |
-| >=       | Greater than or equal to | x >= y  |
+| > =       | Greater than or equal to | x >= y  |
 | <=       | Less than or equal to    | x <= y  |
 
 ##### Logical Operators
@@ -351,7 +349,6 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | &&           | Logical and | Returns true if both statements are true                | x < 5 && x < 10          |
 | &#124;&#124; | Logical or  | Returns true if one of the statements is true           | x < 5 &#124;&#124; x < 4 |
 | !            | Logical not | Reverse the result, returns false if the result is true |
-
 
 Exercise:
 
@@ -372,7 +369,9 @@ Multiplication of 76.254 and 3.867: 294.87421800000004
 Division of 76.254 and 3.867: 19.719162141194726
 Remainder of 76.254 and 3.867: 2.781000000000005
 ```
-Exercise: Read from the console the amount the user has in their bank account. The interest on that account is 5.5% per year. How much would that user have in 5 years?
+
+Exercise: Read from the console the amount the user has in their bank account. The interest on that account is 5.5% per
+year. How much would that user have in 5 years?
 
 ```
 print("Please enter your current bank balance: ")
@@ -393,15 +392,19 @@ Please enter number of years: 5
 Your bank balance with interest of 5.5 per year for the period of 5 years is: 1306.9600064093747
 ```
 
-#### Booleans:  
- It can only have True/False value.  
- Is very memory efficient, enables Logical Operators, enables program Flow Control.  
+#### Booleans:
 
-Exercise: A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding. The requirements are  
+It can only have True/False value.  
+Is very memory efficient, enables Logical Operators, enables program Flow Control.
+
+Exercise: A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding.
+The requirements are
+
 - You must have no more than 5 animals
 - Animals must produce something that can be sold
 - Regardless of the other conditions, funding will be approved if the family has 3 or more members  
-Does the farmer receive the funding?
+  Does the farmer receive the funding?
+
 ```
 var noOfCows = 3
 var givesMilk = 1
@@ -424,19 +427,20 @@ Farmer gets funding
 
 #### Null values:
 
-- No value is present. 
+- No value is present.
 - If you use a variable with null value, your program will crash with NullPointerException (NPE)
 - Kotlin guards against null values, giving us Compilation Error.
 - Kotlin differentiates between variables that can be null(using '?') and those that cannot.  
-  Example:  
+  Example:
   ```
   val herName: String = "Lilly" // (Cannot be null, must be given a value. Cannot assign null)  
   val hisName: String? = null // (Can be null, so giving a value is optional)
   ```
-- **Null safe calls**: 
-  - Nullable Operator: '?' (used for nullable variable)
+- **Null safe calls**:
+    - Nullable Operator: '?' (used for nullable variable)
 
 Exercise:
+
   ```
 var catName:String? = "Lucy"
 println(catName?.length)
@@ -446,6 +450,7 @@ println(catName?.length)
   ```
 
 Exercise: Arithmetic Operators
+
 ```
 var number:Int? = 10
 println(number?.plus(1)) // 11
@@ -456,9 +461,11 @@ println(number?.times(2)) // 20
 ```
 
 #### Elvis Operator
-- Null operator - Elvis Operator(?:)  
-- Guarantees a result returned  
+
+- Null operator - Elvis Operator(?:)
+- Guarantees a result returned
 - Either the actual result for a nun-null variable, or a default value
+
 ```
 var catName: String? = null
 println(catName?:"This cat has no name")
@@ -470,10 +477,11 @@ Output:
 This cat has no name
 Fluffy
 ```
-  
+
 #### Non-null assertions
-  !!. -> A developer guarantee that the variable is not null.  
-  **Warning:** : This bypasses all the language checks for the null-safety. Can trigger a program to crash.  
+
+!!. -> A developer guarantee that the variable is not null.  
+**Warning:** : This bypasses all the language checks for the null-safety. Can trigger a program to crash.
 
 ```
 val catName: String? = null
@@ -481,8 +489,8 @@ println(catName!!.length)
 // If the value is null then the program will crash.
 ```
 
-Practice: Elvis and assertions
-Print input message or default message  
+Practice: Elvis and assertions Print input message or default message
+
 ```
 print("Enter the message:")
 var inputMessage = readLine()
@@ -495,12 +503,15 @@ else -> it
  ```
 
 Read if input number is not null and multiply by 5
+
  ```
 val number: Int? = readLine()?.toIntOrNull()
 println(number!!.times(5))
  ```
 
-Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
+Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is
+null, use the default of one. Print the total of the purchase.
+
  ```
     val cost = 29.99
     val items: Int? = readLine()?.toIntOrNull()?:1 // When value is null, items= 1
@@ -510,16 +521,18 @@ Exercise: A product costs 29.99. Ask a user at the console how many products the
 // The cost of 1 items is: 29.99
  ```
 
-### Handling Exceptions 
-
+### Handling Exceptions
 
 #### 1. What is an Exception?
-An unexpected event in a program. A System cannot recover from an exception, we need to mitigate it ourselves. 
-Execution is stopped and data is lost.  
+
+An unexpected event in a program. A System cannot recover from an exception, we need to mitigate it ourselves. Execution
+is stopped and data is lost.  
 Exceptions always have a message, by default, and it is good practice having a message when creating custom Exception.
 
 #### 2. try-catch
+
 A way to manage exception.
+
 ```
     print("Enter input:")
     var test = readLine()
@@ -534,7 +547,9 @@ A way to manage exception.
 ```
 
 #### 3. finally
-A 'finally' block will be executed whether or not an exception occurs. 
+
+A 'finally' block will be executed whether or not an exception occurs.
+
 ```
     print("Enter a number:")
     var input = readLine()
@@ -552,9 +567,11 @@ A 'finally' block will be executed whether or not an exception occurs.
     Finally block, the input was 4
 
 ```
+
 #### 4. throw
+
 A way to generate your own exceptions.  
-Can be used if you detect a state in your program that you cannot recover from.  
+Can be used if you detect a state in your program that you cannot recover from.
 
 ```
     print("Enter input:")
@@ -563,7 +580,9 @@ Can be used if you detect a state in your program that you cannot recover from.
     else
         println("Input is: $input")
 ```
+
 Exercise: Multiply by 5 if it is an Integer and print or else catch
+
 ```
     print("Enter an Integer:")
     var input = readLine()
@@ -587,18 +606,21 @@ Exercise: Multiply by 5 if it is an Integer and print or else catch
 A way to group of elements together.  
 Zero or more elements.  
 Same type of elements.  
-Eg. [1,2,3,4,555,6,4], ["Dogs", "Cats", "Cow"]  
+Eg. [1,2,3,4,555,6,4], ["Dogs", "Cats", "Cow"]
 
 <img src="src/images/collection.png" alt="isolated" width="500"/>  
 https://kotlinlang.org/docs/images/collections-diagram.png  
 
-Note: Mutable means, they can be changed.  
+Note: Mutable means, they can be changed.
 
 #### List(Immutable)
+
 Ordered collection.  
 Elements can be accessed by the position(index[0,1,2,3....n])
- 
-Lists are immutable, that means we cannot add or remove elements. Meaning, we can only use elements that are present at creation time.
+
+Lists are immutable, that means we cannot add or remove elements. Meaning, we can only use elements that are present at
+creation time.
+
 ```
 val animals = listOf("cat","dog","horse")
 println(animals) // print wont change the order
@@ -627,6 +649,7 @@ A mutable list is a changeable list.
 `var colors = arrayListOf("blue","red")`
 
 We can add/remove elements
+
 ```
 var colors = arrayListOf("blue","red")
 colors.add("green")
@@ -634,7 +657,9 @@ println(colors) // [blue, red, green]
 colors.remove("green") // [blue, red]
 colors.removeAt(0) // [red]
 ```
+
 We can add/remove another collection.
+
 ```
 var moreColors = listOf("white","black","grey")
 colors.addAll(moreColors)
@@ -642,17 +667,21 @@ println(colors) // [red, white, black, grey]
 colors.removeAll(moreColors)
 println(colors) // [red]
 ```  
+
 If a array contains duplicate elements then it will just remove the first element.
+
 ``` 
 var animals = arrayListOf("dogs","cats","dogs")
 animals.remove("dogs") 
 println(animals) // [cats, dogs]
 ``` 
+
 Exercise:  
 You have a number of items on your desk.  
 `val items = arrayListOf(“laptop”, “mouse”, “pen”, “paper”, “mug”, “phone”)
 `. You clean up your desk and remove as many items as you can to be more productive.
 `val removedItems = listOf(“pen”, “paper”, “mug”, “phone”)`. Print out the remaining items.
+
 ``` 
 val items = arrayListOf("laptop", "mouse", "pen", "paper", "mug", "phone")
 val removedItems = listOf("pen", "paper", "mug", "phone")
@@ -661,6 +690,7 @@ println(items) // [laptop, mouse]
 ```
 
 #### List functions
+
 ```
 var colors = listOf("yellow","green","red","red")
 var colorsWithNull = listOf("red","green","yellow", null, null)
@@ -674,11 +704,11 @@ println(colors.lastIndexOf("red")) // last index -> 3
 
 #### ArrayList  functions
 
-
 #### Set
+
 Is a group of UNIQUE elements.  
 The order has no significance  
-We can go through the elements one by one(iterate over them), but the order is not defined  
+We can go through the elements one by one(iterate over them), but the order is not defined
 
 #### Map
 
@@ -1021,7 +1051,7 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | !=       | Not equal                | x != y  |
 | \>       | Greater than             | x > y   |
 | <        | Less than                | x < y   |
-| >=       | Greater than or equal to | x >= y  |
+| > =       | Greater than or equal to | x >= y  |
 | <=       | Less than or equal to    | x <= y  |
 
 ##### Logical Operators
@@ -1045,7 +1075,9 @@ println("Multiplication of $a and $b: ${a*b}")
 println("Division of $a and $b: ${a/b}")
 println("Remainder of $a and $b: ${a%b}")
 ```
+
 Output:
+
 ```
 Addition of 76.254 and 3.867: 80.12100000000001
 Subtraction of 76.254 and 3.867: 72.387
@@ -1053,7 +1085,9 @@ Multiplication of 76.254 and 3.867: 294.87421800000004
 Division of 76.254 and 3.867: 19.719162141194726
 Remainder of 76.254 and 3.867: 2.781000000000005
 ```
-Exercise: Read from the console the amount the user has in their bank account. The interest on that account is 5.5% per year. How much would that user have in 5 years?
+
+Exercise: Read from the console the amount the user has in their bank account. The interest on that account is 5.5% per
+year. How much would that user have in 5 years?
 
 ```
 print("Please enter your current bank balance: ")
@@ -1068,6 +1102,7 @@ println("Your bank balance with interest of $rateOfInterest per year for the per
 ```
 
 Output:
+
 ```
 Please enter your current bank balance: 1000
 Please enter rate of interest per annum: 5.5
@@ -1076,14 +1111,18 @@ Your bank balance with interest of 5.5 per year for the period of 5 years is: 13
 ```
 
 #### Booleans:
+
 It can only have True/False value.  
 Is very memory efficient, enables Logical Operators, enables program Flow Control.
 
-Exercise: A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding. The requirements are
+Exercise: A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding.
+The requirements are
+
 - You must have no more than 5 animals
 - Animals must produce something that can be sold
 - Regardless of the other conditions, funding will be approved if the family has 3 or more members  
   Does the farmer receive the funding?
+
 ```
 var noOfCows = 3
 var givesMilk = 1
@@ -1097,7 +1136,9 @@ var conditionThree = (1 + noOfKids) >= 3
     else
         println("Farmaer does not get funding")
 ```
+
 Output:
+
 ```
 Farmer gets funding
 ```
@@ -1119,6 +1160,7 @@ Farmer gets funding
     - Nullable Operator: '?' (used for nullable variable)
 
 Exercise:
+
   ```
 var catName:String? = "Lucy"
 println(catName?.length)
@@ -1129,6 +1171,7 @@ println(catName?.length)
   ```
 
 - Arithmetic Operators
+
  ```
 var number:Int? = 10
 println(number?.plus(1)) // 11
@@ -1163,8 +1206,8 @@ println(number?.times(2)) // 20
   // If the value is null then the program will crash.
   ```
 
-Practice: Elvis and assertions
-Print input message or default message
+Practice: Elvis and assertions Print input message or default message
+
 ```
 print("Enter the message:")
 var inputMessage = readLine()
@@ -1177,12 +1220,15 @@ else -> it
  ```
 
 Read if input number is not null and multiply by 5
+
  ```
 val number: Int? = readLine()?.toIntOrNull()
 println(number!!.times(5))
  ```
 
-// Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
+// Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is
+null, use the default of one. Print the total of the purchase.
+
  ```
     val cost = 29.99
     val items: Int? = readLine()?.toIntOrNull()?:1 // When value is null, items= 1
@@ -1194,14 +1240,16 @@ println(number!!.times(5))
 
 ### <a href="#handlingExceptions">Handling Exceptions</a>
 
-
 #### 1. What is an Exception?
-An unexpected event in a program. A System cannot recover from an exception, we need to mitigate it ourselves.
-Execution is stopped and data is lost.  
+
+An unexpected event in a program. A System cannot recover from an exception, we need to mitigate it ourselves. Execution
+is stopped and data is lost.  
 Exceptions always have a message, by default, and it is good practice having a message when creating custom Exception.
 
 #### 2. try-catch
+
 A way to manage exception.
+
 ```
     print("Enter input:")
     var test = readLine()
@@ -1216,7 +1264,9 @@ A way to manage exception.
 ```
 
 #### 3. finally
+
 A 'finally' block will always be executed whether an exception occurs.
+
 ```
     print("Enter a number:")
     var input = readLine()
@@ -1234,7 +1284,9 @@ A 'finally' block will always be executed whether an exception occurs.
     Finally block, the input was 4
 
 ```
+
 #### 4. throw
+
 A way to generate your own exceptions.  
 Can be used if you detect a state in your program that you cannot recover from.
 
@@ -1245,7 +1297,9 @@ Can be used if you detect a state in your program that you cannot recover from.
     else
         println("Input is: $input")
 ```
+
 Exercise: Multiply by 5 if it is an Integer and print or else catch
+
 ```
     print("Enter an Integer:")
     var input = readLine()
@@ -1276,10 +1330,13 @@ Eg. [1,2,3,4,555,6,4], ["Dogs", "Cats", "Cow"]
 Note: Mutable means, they can be changed.
 
 #### List(Immutable)
+
 Ordered collection.  
 Elements can be accessed by the position(index[0,1,2,3....n])
 
-Lists are immutable, that means we cannot add or remove elements. Meaning, we can only use elements that are present at creation time.
+Lists are immutable, that means we cannot add or remove elements. Meaning, we can only use elements that are present at
+creation time.
+
 ```
 val animals = listOf("cat","dog","horse")
 println(animals) // print wont change the order
@@ -1308,6 +1365,7 @@ A mutable list is a changeable list.
 `var colors = arrayListOf("blue","red")`
 
 We can add/remove elements
+
 ```
 var colors = arrayListOf("blue","red")
 colors.add("green")
@@ -1315,7 +1373,9 @@ println(colors) // [blue, red, green]
 colors.remove("green") // [blue, red]
 colors.removeAt(0) // [red]
 ```
+
 We can add/remove another collection.
+
 ```
 var moreColors = listOf("white","black","grey")
 colors.addAll(moreColors)
@@ -1323,17 +1383,21 @@ println(colors) // [red, white, black, grey]
 colors.removeAll(moreColors)
 println(colors) // [red]
 ```  
+
 If a array contains duplicate elements then it will just remove the first element.
+
 ``` 
 var animals = arrayListOf("dogs","cats","dogs")
 animals.remove("dogs") 
 println(animals) // [cats, dogs]
 ``` 
+
 Exercise:  
 You have a number of items on your desk.  
 `val items = arrayListOf(“laptop”, “mouse”, “pen”, “paper”, “mug”, “phone”)
 `. You clean up your desk and remove as many items as you can to be more productive.
 `val removedItems = listOf(“pen”, “paper”, “mug”, “phone”)`. Print out the remaining items.
+
 ``` 
 val items = arrayListOf("laptop", "mouse", "pen", "paper", "mug", "phone")
 val removedItems = listOf("pen", "paper", "mug", "phone")
@@ -1342,6 +1406,7 @@ println(items) // [laptop, mouse]
 ```
 
 #### List functions
+
 ```
 var colors = listOf("yellow","green","red","red")
 var colorsWithNull = listOf("red","green","yellow", null, null)
@@ -1352,8 +1417,11 @@ println(colors.containsAll(colorsWithNull)) // false(it does not contain 'null')
 println(colors.indexOf("red")) // first index of 'red' -> 2
 println(colors.lastIndexOf("red")) // last index -> 3
 ```
-There are many more function :)  
+
+There are many more function :)
+
 #### ArrayList  functions
+
 ```
 val colors = arrayListOf("blue","red", "blue", "green")
 colors[1] = "yellow" // OR colors.set(1,"yellow")
@@ -1364,7 +1432,8 @@ colors.clear()
 println(colors) // []
 println(colors.isEmpty()) // true
 ```
-There are many more function :)  
+
+There are many more function :)
 
 Exercise:  
 A zoo has a list of animals.   
@@ -1372,6 +1441,7 @@ val animals = arrayListOf(“lion”, “zebra”, “chimp”, “elephant”)
 A new panda bear cub has arrived. Print out the new list of animals.  
 The lion has been sold to a different zoo. Print out the new list of animals.   
 Does the zoo have both elephants and giraffes?
+
 ```
 val animals = arrayListOf("lion","zebra","chimp","elephant") //[lion, zebra, chimp, elephant]
 animals.add("panda bear cub")
@@ -1382,35 +1452,42 @@ println(animals) // [zebra, chimp, elephant, panda bear cub]
 println("Does the zoo has all the animals: ${animals.containsAll(listOf("elephant","giraffe"))}") 
         // Does the zoo has all the animals: false
 ```
+
 #### Set(Immutable)
+
 Is a group of UNIQUE elements.  
 The order has no significance.    
 We can go through the elements one by one(iterate over them), but the order is not defined.  
-Cannot add or remove elements, we can use HashSets for that.  
+Cannot add or remove elements, we can use HashSets for that.
+
 ```
 val numbers = setOf(1,2,3,4,1)
 println(numbers) // [1, 2, 3, 4] <- '1' is only printed once as set contains unique values
 ```
 
-If we want to create an empty set then we must specify type of set.  
+If we want to create an empty set then we must specify type of set.
+
 ```
 val numbers2 = setOf<Int>()
 println(numbers2) // []
 ```
-We can have a null, but no duplicates, only once  
+
+We can have a null, but no duplicates, only once
+
 ```
 val numbers3 = setOf(1,2,3,4,4,null,null)
 println(numbers3) // [1, 2, 3, 4, null]
 ```
 
 #### HashSet(Mutable)
+
 HashSets are Sets with the capability to add/remove elements.  
-Feature: Unique elements, can have null, can add/remove elements, un-ordered.  
+Feature: Unique elements, can have null, can add/remove elements, un-ordered.
 
     val numbers = hashSetOf(1,2,3,4,1)
     println(numbers) // [1, 2, 3, 4] <- '1' is only printed once as set contains unique values
 
-Empty HashSet, we need to specify the type.  
+Empty HashSet, we need to specify the type.
 
     val numbers2 = hashSetOf<Int>()
     println(numbers2) // []
@@ -1440,7 +1517,7 @@ Remove all elements of a set
     numbers3.removeAll(numbers)
     println(numbers3) // [null, 1]
 
-//    Exercise 1:
+// Exercise 1:
 
     val colors = hashSetOf<String>()
     colors.addAll(listOf("green", "red", "pink","red"))
@@ -1457,8 +1534,8 @@ Exercise 2:
     println(objectsOnTable) // [desktop, laptop, hub, watch]
 
 Exercise 3:
-You have a list of customers for your online store. A new customer has joined. Print the list of customers.
-A customer has chosen to leave. Print the list of customers.
+You have a list of customers for your online store. A new customer has joined. Print the list of customers. A customer
+has chosen to leave. Print the list of customers.
 
     val customers = hashSetOf("Tom", "Jerry", "Daffy", "Donald")
     val newCustomer = readLine()?:"" // Panther
@@ -1501,13 +1578,12 @@ Practice:
     myDrinks.retainAll(theirDrink)
     println("Drinks that we both enjoy $myDrinks") // Drinks that we both enjoy [orange juice, water]
 
-
-Exercise: Set and HashSet 
+Exercise: Set and HashSet
 
 Your company has very strict dress code. Only certain color clothes can be worn in the office.
 `val acceptedColors = hashSetOf(“white”, “black”, “grey”)` You have certain colors in your wardrobe.  
-`val myColors = hashSetOf(“blue”, “red”, “black”, “green”)` What color clothes can you wear.
-Your company has added another color, “red” to their list. What options do you have now?
+`val myColors = hashSetOf(“blue”, “red”, “black”, “green”)` What color clothes can you wear. Your company has added
+another color, “red” to their list. What options do you have now?
 
     var acceptedColors = hashSetOf("white", "black", "grey")
     val myColors = hashSetOf("blue", "red", "black", "green")
@@ -1520,11 +1596,12 @@ Your company has added another color, “red” to their list. What options do y
     println("Clothes that I can wear now are: $acceptedColors") // Clothes that I can wear now are: [black, red]
 
 #### Map
-- Conceptually Maps are part of collections abut practically they are not.  
-- A set of key-value pair.  (keys are sets, as the keys are always unique)  
-- Keys are unique(set)  
-- Each key maps to exactly one value  
-- Values can have duplicates.  
+
+- Conceptually Maps are part of collections abut practically they are not.
+- A set of key-value pair.  (keys are sets, as the keys are always unique)
+- Keys are unique(set)
+- Each key maps to exactly one value
+- Values can have duplicates.
 - Eg. {1=one,2-two,5=five} OR a Dictionary(Words - Definition)
 - Maps are immutable, HashMaps are mutable
 
@@ -1537,6 +1614,7 @@ println(count.keys) // [1,2,3]
 // Get the collection of values (can have duplicates)
 println(count.values) // [one, two, three]
 ```
+
 ```
 val count = mapOf<Int, String>()
 println(count) // {}
@@ -1586,7 +1664,6 @@ Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is
     println("Are people attending on 22nd Sept: ${attendance.containsKey("22 Sept")}")
         // Are people attending on 22nd Sept: false
 
-
 ### Flow control
 
 - Change the direction of execution of a program
@@ -1596,19 +1673,22 @@ Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is
 
 **Iterator**:
 An iterator is an object that loops through elements of a collection.  
-They are used when applying a same operation to all the elements.  
+They are used when applying a same operation to all the elements.
 
 #### If conditional
+
 <img src="src/images/if-condition.png" alt="isolated" width="500"/>
 https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#1  
 
 **if statement**
+
 ```
 if(logical expression){
     //do something
 } else{
 }
 ```
+
 ```
 print("Enter true if it is Night, else false:") // Enter true if it is Night, else false:false
 val isNight = readLine()?:"true"
@@ -1637,6 +1717,7 @@ else{
 println("You have insufficient funds: $clientFunds")
 }
 ```
+
 ```
 val petStore = listOf("Cat", "Dog", "Rabbit")
 val hasCatFood = true
@@ -1651,21 +1732,17 @@ if (petStore.contains("Cat")) {
 }
 ```
 
-**Exercise:**  
+**Exercise:**
 
 Define two variables
 
-val hasEggs = true
-val hasBacon = false
-A man goes to the market. His instructions are:
+val hasEggs = true val hasBacon = false A man goes to the market. His instructions are:
 
 If you find eggs, buy 12
 
 If you buy eggs, and you also find bacon, buy two packs
 
-Eggs cost 5 each.
-A pack of bacon costs 20.
-How much does the man spend at the market?
+Eggs cost 5 each. A pack of bacon costs 20. How much does the man spend at the market?
 
 ```
 val hasEggs = true
@@ -1689,6 +1766,7 @@ if (hasEggs) {
 
 **shorthand if**  
 Curly brackets can be omitted if there is only one expression.
+
 ```
 val number = 25
 val isEven: String? = null
@@ -1697,17 +1775,22 @@ if (number % 2 == 0)
 else
     println("Number is odd")
 ```
+
 Shorthand if expression looks like as below
+
 ```
 if(number%2==0) isEven = "Number is Even" else isEven = "Number is odd"
 ```
+
 Shorthand if with assignment
+
 ```
 val isEven = if(number%2==0) "Number is Even" else "Number is odd"
 println(isEven)
 ```
 
 **Multiple branches**
+
 ```
 if (expression A) {
 // Do A
@@ -1719,7 +1802,9 @@ if (expression A) {
 // Or default action
 }
 ```
+
 Example:
+
 ```
 print("Enter an animal: ")
 val animal = readLine()?:""
@@ -1735,7 +1820,8 @@ println("Animal not found")
 ```
 
 Practice:  
-if single digit print the statement  
+if single digit print the statement
+
 ```
 print("Please enter a number:")
 val input = readLine() ?: "0"
@@ -1744,6 +1830,7 @@ if (number / 10 == 0) println("Number is single digit") else println("Number is 
 ```
 
 for multiple if branches
+
 ```
 val responseCode = 404
 val message = if(responseCode/100 == 1)
@@ -1761,7 +1848,8 @@ println("Message for response $responseCode: $message") // Message for response 
 
 Exercise:
 
-You are designing a grading system for school exams. The total for an exam is 100 points, and you need to convert that into a grade A to F.
+You are designing a grading system for school exams. The total for an exam is 100 points, and you need to convert that
+into a grade A to F.
 
 Design a program that reads in a number that represents a student’s grade, from 1 to 100 and prints out a grade.
 
@@ -1770,7 +1858,8 @@ B -> 80 to 89
 C -> 70 to 79  
 D -> 60 to 69  
 E -> 50 to 59  
-F -> everything else  
+F -> everything else
+
 ```
 print("Enter exam points: ")
 val input = readLine()?:""
@@ -1796,7 +1885,8 @@ println(grade)
 <img src="src/images/when-condition.png" alt="isolated" width="500"/>  
 https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#2  
 
-Example: 
+Example:
+
 ```
 var animal = "cat"
 var action: String = ""
@@ -1824,7 +1914,8 @@ when(number%2){
 println("Number is $result") // -> Number is even
 ```
 
-##### When as a statement
+**When as a statement**
+
 ```
 val animal = "dog"
 val action = when(animal){
@@ -1834,26 +1925,110 @@ val action = when(animal){
 }
 println("When you see a $animal then $action") // -> When you see a dog then feed it
 ```
-#### For loop 
+
+**Capturing the subject**
+
+It is possible to capture the value in a when statement and use it in the block.
+
+```
+val name = "Monkey D. Luffy"
+when(val length = name.length){
+    in 1..5 -> println("A name $name with length of $length characters is short")
+    in 6..10 -> println("A name $name with length of $length characters is medium")
+    else -> println("A name $name with length of $length characters is long.")
+}
+Output -> A name Monkey D. Luffy with length of 15 characters is long.
+```
+
+This is useful when getting a result of a function.
+
+Practice: When conditional  
+Assume that 3 means a day is the recommended amount. Ask the user to input the number of means they have every day.
+Based on the input, print out a message that encourages the user to increase or decrease the number of means they have.
+
+```
+print("How many meals do you have in a day?")
+val input = readLine()
+val numberOfMealsFromUser = input?.toIntOrNull()
+val recommendedMeals = 3
+when (numberOfMealsFromUser) {
+    in 0..2 -> println("You should each more.")
+    3 -> println("That is perfect")
+    else -> println("You should eat less")
+}
+```
+
+Practice 2:  
+Assuming, based on the hour of the day 6 to 11 -> morning, 12 to 14 -> noon, 15 to 17 -> afternoon, 18 to 21 -> evening,
+22 to 5 -> night  
+Ask user to input the current hour, and print out the message.
+
+```
+print("Please enter current hour(0..23): ")
+val input = readLine()?:""
+val currentHour = input.toIntOrNull()
+when(currentHour){
+    in 6..11 -> println("It is morning")
+    in 12..14 -> println("It is noon")
+    in 15..17 -> println("It is afternoon")
+    in 18..21 -> println("It is evening")
+    in 22..23 -> println("It is night")
+    in 0..5 -> println("It is night")
+    else -> println("Please enter correct input")
+}
+
+Output:
+
+Please enter current hour(0..23): 0
+It is night
+```
+
+Exercise:
+Ask the user to input their name.  
+Based on the first letter of their name, print out a personalised greeting  
+for the first 3 letters of the alphabet,  
+a different one for the next 3 letters,  
+and a third message for the rest
+
+```
+print("Please Enter your name: ")
+val name = readLine()?:""
+when(name[0]){
+    in 'A'..'C' -> println("Hello $name")
+    in 'D'..'F' -> println("Hi $name")
+    else -> println("Hey $name")
+}
+
+Output:
+Please Enter your name: Zoro
+Hey Zoro
+```
+
+#### For loop
+
 - works on elements of a collection
 
 `--> collection C -> for  each element in collection C -> do something`
+
 #### While loop
+
 - works on a boolean expression
 
 `while(expression==true) -> do something`   
 s(it will influence the expression, eventually making it false)
 
 #### Expressions
-**Arithmetic and Logical Expressions:**  
+
+**Arithmetic and Logical Expressions:**
 
 An expression consists of variables and operators that evaluate to a single value.  
 Eg: `1+1 // 2` OR `326/72 * 15 + 93 % 13 // 62`  
 We cannot use these kinds of expressions in conditional statements.  
-We need expressions that evaluate a  boolean value -> `true` or `false`  
+We need expressions that evaluate a boolean value -> `true` or `false`  
 Eg: `1+1 == 2 // true` `1+1 == 5 // false`  
 In conditional statements we can use any logical expressions.  
 Example:
+
 ```
 if(326/72 * 15 + 93 % 13 == 62){
 println("Math is easy") // Math is easy
@@ -1861,6 +2036,7 @@ println("Math is easy") // Math is easy
 println("Math is difficult")
 }
 ```
+
 ```
 val haveCat = true
 val haveCatFood = true
@@ -1870,10 +2046,12 @@ if(haveCat && haveCatFood){
     println("Oh no!")
 }
 ```
+
 **in keyword**
 Checks whether a value is in a Collection or in a range.  
 `"cat" in listOf("dog","cat","rabbit")` AND `5 in 1.....10`  
-Example with collection:  
+Example with collection:
+
 ```
 val favouritePet = "dog"
 val availablePets = listOf("dog","cat","horse")
@@ -1890,6 +2068,7 @@ if(favouritePet !in availablePets){   // !in keyword
 ```
 
 Example with range:
+
 ```
 println("Please input a number") // 60
 val input = readLine() ?: ""
@@ -1900,7 +2079,8 @@ if(number !in 0..9){
 ```
 
 Boolean returning function:  
-A function can be used in a conditional statement if it returns a boolean.  
+A function can be used in a conditional statement if it returns a boolean.
+
 ```
 val animals = arrayListOf<String>()
 if (animals.isEmpty()) {
@@ -1910,6 +2090,7 @@ if (animals.isEmpty()) {
 }
 println(animals) // [Dog]
 ```
+
 ```
 val animals = arrayListOf<String>()
 if (animals.add("Horse")) {
@@ -1919,7 +2100,9 @@ if (animals.add("Horse")) {
 }
 println(animals) // [Horse]
 ```
-Practice:  
+
+Practice:
+
 ```
 val guestList = listOf("Alice", "Bob", "Carol", "John")
 print("Please enter your name: ")
@@ -1930,6 +2113,7 @@ if (guest in guestList) {
     println("Sorry, you are not on the list")
 }
 ```
+
 ```
 print("How many cats do you have? ")
 val input = readLine() ?: "0"
@@ -1946,9 +2130,7 @@ println("This lady has $howMany")
 Exercise:
 Ask a user to input their age.
 
-If they are under 13, they are a child
-If they are under 18, they are a teen
-If they are older, they are an adult.
+If they are under 13, they are a child If they are under 18, they are a teen If they are older, they are an adult.
 
 Use ranges to print out the correct message.
 
@@ -1964,11 +2146,9 @@ else if (age in 13..18) println("You are a child")
 else println("You are an adult")
 ```
 
-
-
 #### Question to search:
+
 If `val` means immutable, and it cannot be changed, how can we make changes to arrayList
 
 Formatting:
-1-> linking every section
-2_. code formatting, adding <tab> wherever needed 
+1-> linking every section 2_. code formatting, adding <tab> wherever needed 

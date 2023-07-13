@@ -700,13 +700,69 @@ fun main(args: Array<String>) {
 
 //    When as a statement
 
-    val animal = "dog"
-    val action = when(animal){
-        "cat" -> "pet it"
-        "dog" -> "feed it"
-        else -> "google it"
+//    val animal = "dog"
+//    val action = when(animal){
+//        "cat" -> "pet it"
+//        "dog" -> "feed it"
+//        else -> "google it"
+//    }
+//    println("When you see a $animal then $action") // -> When you see a dog then feed it
+
+//    **Capturing the subject**
+//    val name = "Monkey D. Luffy"
+//    when(val length = name.length){
+//        in 1..5 -> println("A name $name with length of $length characters is short")
+//        in 6..10 -> println("A name $name with length of $length characters is medium")
+//        else -> println("A name $name with length of $length characters is long.")
+//    }
+
+//    Practice 1:
+//    Assume that 3 means a day is the recommended amount.
+//    Ask the user to input the number of means they have every day.
+//    Based on the input, print out a message that encourages the user to increase or decrease the number of means they have.
+//    print("How many meals do you have in a day?")
+//    val input = readLine()
+//    val numberOfMealsFromUser = input?.toIntOrNull()
+//    val recommendedMeals = 3
+//    when (numberOfMealsFromUser) {
+//        in 0..2 -> println("You should each more.")
+//        3 -> println("That is perfect")
+//        else -> println("You should eat less")
+//    }
+
+//    Practice 2:
+//Assuming, based on the hour of the day
+//6 to 11 -> morning, 12 to 14 -> noon, 15 to 17 -> afternoon, 18 to 21 -> evening, 22 to 5 -> night
+//Ask user to input the current hour, and print out the message.
+
+//    print("Please enter current hour(0..23): ")
+//    val input = readLine()?:""
+//    val currentHour = input.toIntOrNull()
+//    when(currentHour){
+//        in 6..11 -> println("It is morning")
+//        in 12..14 -> println("It is noon")
+//        in 15..17 -> println("It is afternoon")
+//        in 18..21 -> println("It is evening")
+//        in 22..23 -> println("It is night")
+//        in 0..5 -> println("It is night")
+//        else -> println("Please enter correct input")
+//    }
+
+//    Exercise:
+//    Ask the user to input their name.
+//    Based on the first letter of their name, print out a personalised greeting
+//    for the first 3 letters of the alphabet,
+//    a different one for the next 3 letters,
+//    and a third message for the rest
+
+    print("Please Enter your name: ")
+    val name = readLine()?:""
+    when(name[0]){
+        in 'A'..'C' -> println("Hello $name")
+        in 'D'..'F' -> println("Hi $name")
+        else -> println("Hey $name")
     }
-    println("When you see a $animal then $action") // -> When you see a dog then feed it
+
 }
 
 
