@@ -17,7 +17,14 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
       1. [Implicit vs Explicit variable types](#implicit-vs-explicit-variable-types)
 4. [Operators and Booleans](#operators-and-booleans)
    1. [Operators](#operators)
+      1. [Arithmetic Operators](#arithmetic-operators)
+      2. [Assignment Operators](#assignment-operators)
+      3. [Comparison Operators](#comparison-operators)
+      4. [Logical Operators](#logical-operators)
 5. [Nullability](#nullability)
+   1. [Null values](#null-values)
+   2. [Elvis Operator](#elvis-operator)
+   3. [Non-null assertions](#non-null-assertions)
 6. [Handling Exception](#handling-exception)
 7. [Collections](#collections)
 8. [List and ArrayList](#list-and-arraylist)
@@ -25,18 +32,18 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
 10. [Map and HashMap](#map-and-hashmap)
 11. [Flow control](#flow-control)
     1. [If conditional](#if-conditional)
-    2. [Expressions](#expressions)
-    3. [When Conditional](#when-conditional)
-    4. [For loop](#for-loop)
-    5. [While loop](#while-loop)
-    6. [Break and continue](#break-and-continue)
-12. [Functions](#functions)
-13. [Packages](#packages)
+    2. [When Conditional](#when-conditional)
+    3. [For loop](#for-loop)
+    4. [While loop](#while-loop)
+    5. [Break and continue](#break-and-continue)
+12. [Expressions](#expressions)
+13. [Functions](#functions)
+14. [Packages](#packages)
 
 
 
 ## String and Variables
-### <a name="#string">String</a>
+### String
 
 String is surrounded by double-quotes or triple-quotes.  
 There are 2 types of string: **Escaped String** and **Raw String**
@@ -62,23 +69,21 @@ Example: String Bunny with escape characters
 println("(\\(\\")
 println("(-.-)")
 println("O_(\")(\")")
-```
 
 Output:
 
-```
 (\(\
 (-.-)
 O_(")(")
 ```
 
-#### <a name="#chars">Chars</a>
+#### Chars
 
 A char is a single character, surrounded by single quotes.  
 Example: 'A', 'a, ''.  
 A string is composed of character (String of chars)
 
-### <a name="#variables">Variables</a>
+### Variables
 
 A variable is a container of data.  
 Examples:
@@ -117,7 +122,7 @@ age = 21
 Error: val cannot be reassigned
 ```
 
-#### <a name="#variable-names">Variable names</a>
+#### Variable names
 
 Names can contain letters, numbers and underscores '_'. Cannot use space or kotlin keywords(println, var, val, etc.).
 Names can start with letters or underscores, I personally prefer letters and use underscores to separate words. For
@@ -162,7 +167,7 @@ Random.nextInt(1, 9): 8
 Random.nextInt(10): 6 
 ```
 
-## <a href="#user-input">User Input</a>
+## 2. User Input
 
 User input can come from many sources, and one way is from command line.  
 We can use readLine().  
@@ -240,9 +245,9 @@ Estimated age of the user is: 26 or 27
 ```
 
 
-## <a name="#numbers-and-variable-types">Numbers And Variable Types</a>
+## 3. Numbers And Variable Types
 
-### <a name="#numbers">Numbers</a>
+### Numbers
 Different types are stored in memory in different ways.  
 Number types have limits.
 
@@ -299,7 +304,7 @@ Example: `val cat:Byte = 5`
 `val longVal: Float = 29` Or `val longVal = 29L`
 
 
-### <a href="#operatorsAndBooleans">Operators And Booleans</a>
+### 4. Operators And Booleans
 
 #### Operators:
 
@@ -347,7 +352,6 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | &#124;&#124; | Logical or  | Returns true if one of the statements is true           | x < 5 &#124;&#124; x < 4 |
 | !            | Logical not | Reverse the result, returns false if the result is true |
 
-Remainder: See all the section objectives to create a table of content 
 
 Exercise:
 
@@ -359,9 +363,9 @@ println("Subtraction of $a and $b: ${a-b}")
 println("Multiplication of $a and $b: ${a*b}")
 println("Division of $a and $b: ${a/b}")
 println("Remainder of $a and $b: ${a%b}")
-```
+
 Output:
-```
+
 Addition of 76.254 and 3.867: 80.12100000000001
 Subtraction of 76.254 and 3.867: 72.387
 Multiplication of 76.254 and 3.867: 294.87421800000004
@@ -380,10 +384,9 @@ val years = readLine()?:"0"
 
 var balanceWithInterest = principal.toDouble() * ((1 + (rateOfInterest.toDouble()/100/1)).pow(years.toDouble()))  // P(1+(r/n)^years)
 println("Your bank balance with interest of $rateOfInterest per year for the period of $years years is: $balanceWithInterest")
-```
 
 Output:
-```
+
 Please enter your current bank balance: 1000
 Please enter rate of interest per annum: 5.5
 Please enter number of years: 5
@@ -411,13 +414,13 @@ var conditionThree = (1 + noOfKids) >= 3
         println("Farmer gets funding")
     else
         println("Farmaer does not get funding")
-```
+
 Output:
-```
+
 Farmer gets funding
 ```
 
-### <a href="#nullability">Nullability</a>
+### Nullability
 
 #### Null values:
 
@@ -440,43 +443,43 @@ println(catName?.length)
 println(catName.length) // compile-time error (Surround by null check)
 catName = null
 println(catName?.length)
-
   ```
 
-- Arithmetic Operators
- ```
+Exercise: Arithmetic Operators
+```
 var number:Int? = 10
 println(number?.plus(1)) // 11
 println(number?.minus(1)) // 9
 println(number?.div(5)) // 2
 println(number?.rem(4)) // 2
 println(number?.times(2)) // 20
-  ```
+```
 
+#### Elvis Operator
 - Null operator - Elvis Operator(?:)  
-  Guarantees a result returned  
-  Either the actual result for a nun-null variable, or a default value
-  ```
-    var catName: String? = null
-    println(catName?:"This cat has no name")
-    catName = "Fluffy"
-    println(catName?:"This cat has no name")
-  ```
-  Output:
-    ```  
-    This cat has no name
-    Fluffy
-     ```
+- Guarantees a result returned  
+- Either the actual result for a nun-null variable, or a default value
+```
+var catName: String? = null
+println(catName?:"This cat has no name")
+catName = "Fluffy"
+println(catName?:"This cat has no name")
+
+Output:
+ 
+This cat has no name
+Fluffy
+```
   
-- Non-null assertions
+#### Non-null assertions
   !!. -> A developer guarantee that the variable is not null.  
   **Warning:** : This bypasses all the language checks for the null-safety. Can trigger a program to crash.  
 
-  ```
-  val catName: String? = null
-  println(catName!!.length)
-  // If the value is null then the program will crash.
-  ```
+```
+val catName: String? = null
+println(catName!!.length)
+// If the value is null then the program will crash.
+```
 
 Practice: Elvis and assertions
 Print input message or default message  
@@ -497,7 +500,7 @@ val number: Int? = readLine()?.toIntOrNull()
 println(number!!.times(5))
  ```
 
-// Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
+Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
  ```
     val cost = 29.99
     val items: Int? = readLine()?.toIntOrNull()?:1 // When value is null, items= 1
@@ -507,7 +510,7 @@ println(number!!.times(5))
 // The cost of 1 items is: 29.99
  ```
 
-### <a href="#handlingExceptions">Handling Exceptions</a>
+### Handling Exceptions 
 
 
 #### 1. What is an Exception?
@@ -1584,7 +1587,7 @@ Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is
         // Are people attending on 22nd Sept: false
 
 
-### <a href="#flowControl">Flow control  </a>
+### Flow control
 
 - Change the direction of execution of a program
 - Make a decision
@@ -1849,7 +1852,7 @@ Eg: `1+1 // 2` OR `326/72 * 15 + 93 % 13 // 62`
 We cannot use these kinds of expressions in conditional statements.  
 We need expressions that evaluate a  boolean value -> `true` or `false`  
 Eg: `1+1 == 2 // true` `1+1 == 5 // false`  
-In conditional statements we can use any logical expressions.
+In conditional statements we can use any logical expressions.  
 Example:
 ```
 if(326/72 * 15 + 93 % 13 == 62){
@@ -1964,7 +1967,7 @@ else println("You are an adult")
 
 
 #### Question to search:
-If `val` means immutable and it cannot be changed, how can we make changes to arrayList
+If `val` means immutable, and it cannot be changed, how can we make changes to arrayList
 
 Formatting:
 1-> linking every section
