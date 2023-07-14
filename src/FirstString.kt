@@ -755,15 +755,275 @@ fun main(args: Array<String>) {
 //    a different one for the next 3 letters,
 //    and a third message for the rest
 
-    print("Please Enter your name: ")
-    val name = readLine()?:""
-    when(name[0]){
-        in 'A'..'C' -> println("Hello $name")
-        in 'D'..'F' -> println("Hi $name")
-        else -> println("Hey $name")
-    }
+//    print("Please Enter your name: ")
+//    val name = readLine()?:""
+//    when(name[0]){
+//        in 'A'..'C' -> println("Hello $name")
+//        in 'D'..'F' -> println("Hi $name")
+//        else -> println("Hey $name")
+//    }
+
+
+//    FOR LOOP
+//    val animals = arrayListOf("cat","dog","mouse","bear")
+//    for(animal in animals){
+//        println("Feed the $animal")
+//    }
+
+//    for(i in 1..12){
+//        val month = when(i){
+//            1 -> "January"
+//            2 -> "February"
+//            3 -> "March"
+//            4 -> "April"
+//            5 -> "May"
+//            6 -> "June"
+//            7 -> "July"
+//            8 -> "August"
+//            9 -> "September"
+//            10 -> "October"
+//            11 -> "November"
+//            else -> "December"
+//        }
+//        println("Month #$i is $month")
+//    }
+
+
+//    Exercise: Add up all the numbers from 1 to 100
+//    var sum = 0
+//    for(i in 1..100){
+//        sum += i
+//    }
+//    println(sum)
+
+//    Exercise: Printout message telling how many purchases they have made.
+
+//    val customers = hashMapOf(Pair("Alice",4),Pair("Judy",8),Pair("Anna",6))
+//    for(customerName in customers.keys){
+//        println("$customerName has ${customers[customerName]} purchases.")
+//    }
+
+//    Exercise:
+//    Ask the user to input a year. For each month of that year, print out how many days there are.
+//    Make sure you count leap years.
+//    Assume a leap year is a year that is divisible by 4.
+//    *there are additional rules for leap years, but we will ignore those in this exercise
+
+//    print("Please enter a desired Year: ")
+//    val input = readLine() ?: ""
+//    val year = input.toIntOrNull()
+//    val months = listOf(
+//        "January", "February", "March", "April", "May", "June",
+//        "July", "August", "September", "October", "November", "December"
+//    )
+//    for (month in months) {
+//        if (year != null && listOf("January", "March", "May", "July", "August", "October", "December").contains(month)) {
+//            println("$month has 31 days")
+//        } else if (year != null && listOf("April", "June", "September", "November").contains(month)) {
+//            println("$month has 30 days")
+//        } else if (year != null && month == "February" && year % 4 == 0)
+//            println("$month has 28 days") else println("$month has 29 days")
+//    }
+
+//    FOR IN RANGE
+
+//    for(i in 1..3){
+//        println("Strike #$i")
+//    }
+//    println("You are out!")
+
+//    Descending
+//    for(i in 10 downTo 0){
+//        println(i)
+//        when(i){
+//            9 -> println("Start your Engine!")
+//            6 -> println("On your marks!")
+//            3 -> println("Get Set!")
+//            0 -> println("GO!")
+//        }
+//    }
+
+//    step Exercise:
+
+//    for(i in 1..10 step 3){
+//        println(i)
+//    }
+
+//    Nested for loop
+//
+//    for(i in 0..5){
+//        for(j in 0..5){
+//            if(i==j) {
+//                print("diagonal \t")
+//            }
+//            else print("$i, $j\t\t")
+//        }
+//        println()
+//    }
+
+//    Exercise: printout every number smaller than user-input(maxValue) that is divisible by 7, in descending order
+
+//    print("Please enter a value: ")
+//    val input = readLine()?:"70"
+//    val maxValue = input.toInt()
+//    for(value in maxValue downTo 1){
+//        if(value%7==0){
+//            println(value)
+//        }
+//    }
+
+//    Exercise: print smiley pattern
+//    for(i in 1..10){
+//        for(j in 1..i){
+//            print("\uD83D\uDE04 ")
+//        }
+//        println()
+//    }
+
+//    Exercise:
+//    Ask the user for a number.
+//    Print out a square matrix of the size indicated by the number.
+//    Inside each cell, print out 1 emoji
+//    😀 If the row*column is divisible by 3
+//    🤨 If the row*column % 3 is 1
+//    😱 If the row*column % 3 is 2
+
+//    print("Please enter a number to create a square matrix: ")
+//    val input = readLine() ?: "4"
+//    val matrixSize = input.toInt()
+//    for (i in 0..matrixSize) {
+//        for (j in 0..matrixSize) {
+//            when ((i * j) % 3) {
+//                0 -> print("\uD83D\uDE00 ")
+//                1 -> print("\uD83E\uDD28 ")
+//                2 -> print("\uD83D\uDE31 ")
+//            }
+//        }
+//        println()
+//    }
+
+//    While loop
+//    var puzzlePieces = 20
+//    var piecesPlaced = 0
+//    while (piecesPlaced < puzzlePieces) {
+//        piecesPlaced++
+//        println("Placed piece #$piecesPlaced")
+//    }
+
+//    Example: Print out a greeting message 10 times
+
+//    var i=0
+//    while(i<=10){
+//        println("Hello #$i")
+//        i++
+//    }
+
+//    Exercise: Print out hello for each cat
+//    var cats = listOf("Lucy", "Tommy", "Smokey", "Sammy", "Patch")
+//    var i = 0
+//    while (i < cats.size) {
+//        println("Hello ${cats[i]}")
+//        i++
+//    }
+
+//   Exercise: Calculate the factorial of the inputted integer, for numbers up to 20, because the limit of Integer and Long is limited.
+//    print("Please enter a number for calculating a factorial of it: ")
+//    val input = readLine() ?: "1"
+//    var inputtedNumber = input.toLong()
+//    var factorial: Long = 1
+//    while (inputtedNumber >= 1) {
+//        factorial *= inputtedNumber
+//        inputtedNumber--
+//    }
+//    println("Factorial of $input is $factorial")
+
+//    Exercise: Print out all the numbers that are divisible by 7, that are less than the user’s number.
+//    print("Please enter a number to see all the numbers less than it that are divisible by 7: ")
+//    val input = readLine() ?: "1"
+//    var number = input.toInt()
+//    var i = 0
+//    while (i <= number) {
+//        if (i % 7 == 0) {
+//            println(i)
+//        }
+//        i++
+//    }
+
+//    val puzzlePieces = 20
+//    var piecesPlaced = 0
+//    do {
+//        piecesPlaced++
+//        println("Placed piece #$piecesPlaced")
+//    } while (piecesPlaced < puzzlePieces)
+
+//    nested  while loop
+
+//    var i = 0
+//    var j = 0
+//    while(i<10){
+//        while(j<10){
+//            print("$i$j \t")
+//            j++
+//        }
+//        println()
+//        j=0
+//        i++
+//    }
+
+//    Exercise: Ask the user to input a number multiple times, until they input a number larger than 100
+
+//    do {
+//        print("Please input a number greater than 100:")
+//        val input = readLine() ?: ""
+//        val number = input.toInt()
+//        if(number>=100){
+//            println("Thank you!")
+//        }
+//        else println("Please try again!")
+//    } while (number < 100)
+
+//    Exercise: If a factorial is less than 3000000, ask them to input another number and repeat the process
+//    do {
+//        var factorial = 1
+//        print("Please input a number whose factorial is more than 3000000: ")
+//        var input = readLine() ?: ""
+//        var number = input.toDouble()
+//        var i = 1
+//        while (i <= number) {
+//            factorial *= i
+//            i++
+//        }
+//        if (factorial < 3000000)
+//            println("Factorial is less than 3000000!: $factorial")
+//        else
+//            println("Factorial is $factorial")
+//
+//    } while (factorial < 3000000)
+
+//    Exercise:
+//    You have a set of usernames
+//    val usernames = hashSetOf(“john”, “bob”, “alice”)
+//    Ask the user to choose their username. If their username is taken, print out a message and ask again.
+//    Add the username to the set.
+
+    var usernames = hashSetOf("John", "bob", "alice")
+    do {
+        var flag = false
+        print("Please input a username: ")
+        val input = readLine() ?: ""
+        if (usernames.contains(input)) {
+            println("Username $input already exists.")
+
+        } else {
+            usernames.add(input)
+            println("Username has been added")
+            flag = true
+        }
+    } while (!flag)
+    println("Username list: $usernames")
 
 }
+
 
 
 

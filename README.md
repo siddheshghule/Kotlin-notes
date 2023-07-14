@@ -976,7 +976,7 @@ They are used when applying a same operation to all the elements.
 -------------------------------
 #### If conditional
 
-<img src="src/images/if-condition.png" alt="isolated" width="500"/>
+<img src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-conditionals/img/c3945d8ebcbf8380_856.png" alt="isolated" width="500"/>
 https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#1  
 
 **if statement**
@@ -1181,7 +1181,7 @@ println(grade)
 -------------------------------
 #### When conditional
 
-<img src="src/images/when-condition.png" alt="isolated" width="500"/>  
+<img src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-conditionals/img/2f7c0a1e312a2581_856.png" alt="isolated" width="500"/>  
 https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals#2  
 
 Example:
@@ -1306,21 +1306,524 @@ Hey Zoro
 #### For loop
 
 - works on elements of a collection
+- Executes a block of code for each element in an iterator
 
 `--> collection C -> for  each element in collection C -> do something`
 
+Example:
+```
+val animals = arrayListOf("cat","dog","mouse","bear")
+for(animal in animals){
+    println("Feed the $animal")
+}
+
+Output:
+Feed the cat
+Feed the dog
+Feed the mouse
+Feed the bear
+```
+
+```
+for(i in 1..12){
+    val month = when(i){
+        1 -> "January"
+        2 -> "February"
+        3 -> "March"
+        4 -> "April"
+        5 -> "May"
+        6 -> "June"
+        7 -> "July"
+        8 -> "August"
+        9 -> "September"
+        10 -> "October"
+        11 -> "November"
+        else -> "December"
+    }
+    println("Month #$i is $month")
+}
+Output:
+Month #1 is January
+Month #2 is February
+Month #3 is March
+Month #4 is April
+Month #5 is May
+Month #6 is June
+Month #7 is July
+Month #8 is August
+Month #9 is September
+Month #10 is October
+Month #11 is November
+Month #12 is December
+```
+
+Exercise: Add up all the numbers from 1 to 100
+```
+var sum = 0
+for(i in 1..100){
+   sum += i
+}
+println(sum)
+Output:
+5050
+
+```
+
+Exercise: Printout message telling how many purchases they have made.
+```
+val customers = hashMapOf(Pair("Alice",4),Pair("Judy",8),Pair("Anna",6))
+for(customerName in customers.keys){
+    println("$customerName has ${customers[customerName]} purchases.")
+}
+Output:
+Judy has 8 purchases.
+Alice has 4 purchases.
+Anna has 6 purchases.
+```
+
+Exercise:  
+Ask the user to input a year. For each month of that year, print out how many days there are.  
+Make sure you count leap years.  
+Assume a leap year is a year that is divisible by 4.  
+*there are additional rules for leap years, but we will ignore those in this exercise
+
+```
+print("Please enter a desired Year: ")
+val input = readLine() ?: ""
+val year = input.toIntOrNull()
+val months = listOf(
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+)
+for (month in months) {
+    if (year != null && listOf("January", "March", "May", "July", "August", "October", "December").contains(month)) {
+        println("$month has 31 days")
+    } else if (year != null && listOf("April", "June", "September", "November").contains(month)) {
+        println("$month has 30 days")
+    } else if (year != null && month == "February" && year % 4 == 0)
+        println("$month has 28 days") else println("$month has 29 days")
+}
+Output:
+Please enter a desired Year: 2021
+January has 31 days
+February has 29 days
+March has 31 days
+April has 30 days
+May has 31 days
+June has 30 days
+July has 31 days
+August has 31 days
+September has 30 days
+October has 31 days
+November has 30 days
+December has 31 days
+ 
+```
+
 **Ranges in for loops** 
+
+```
+for(i in 1..3){
+    println("Strike #$i")
+}
+println("You are out!")
+```
+
+Descending:
+```
+for(i in 10 downTo 0){
+    println(i)
+    when(i){
+        9 -> println("Start your Engine!")
+        6 -> println("On your marks!")
+        3 -> println("Get Set!")
+        0 -> println("GO!")
+    }
+}
+Output:
+10
+9
+Start your Engine!
+8
+7
+6
+On your marks!
+5
+4
+3
+Get Set!
+2
+1
+0
+GO!
+```  
+
+**step** Exercise:
+
+```
+for(i in 1..10 step 3){
+    println(i)
+}
+
+Output:
+1
+4
+7
+10
+```
+
+
 
 **Nested for loops**
 
+**Inside a for loop** you can have any code you like, including other **for loop**
 
+```
+for(i in 1..5){
+    for(j in 1..5){
+        print("$i, $j \t")
+    }
+    println()
+}
+
+Output:
+1, 1 	1, 2 	1, 3 	1, 4 	1, 5 	
+2, 1 	2, 2 	2, 3 	2, 4 	2, 5 	
+3, 1 	3, 2 	3, 3 	3, 4 	3, 5 	
+4, 1 	4, 2 	4, 3 	4, 4 	4, 5 	
+5, 1 	5, 2 	5, 3 	5, 4 	5, 5 
+```
+
+```
+for(i in 0..5){
+    for(j in 0..5){
+        if(i==j) {
+            print("diagonal \t")
+        }
+        else print("$i, $j\t\t")
+   }
+   println()
+}
+
+Output:
+diagonal 	0, 1		0, 2		0, 3		0, 4		0, 5		
+1, 0		diagonal 	1, 2		1, 3		1, 4		1, 5		
+2, 0		2, 1		diagonal 	2, 3		2, 4		2, 5		
+3, 0		3, 1		3, 2		diagonal 	3, 4		3, 5		
+4, 0		4, 1		4, 2		4, 3		diagonal 	4, 5		
+5, 0		5, 1		5, 2		5, 3		5, 4		diagonal
+```
+
+Exercise: printout every number smaller than user-input(maxValue) that is divisible by 7, in descending order
+```
+print("Please enter a value: ")
+val input = readLine()?:"70"
+val maxValue = input.toInt()
+for(value in maxValue downTo 1){
+    if(value%7==0){
+        println(value)
+    }
+}
+
+Output:
+70
+63
+56
+49
+42
+35
+28
+21
+14
+7
+```
+Exercise: print smiley emoji pattern
+
+```
+for(i in 1..10){
+    for(j in 1..i){
+        print("\uD83D\uDE04 ")
+    }
+    println()
+}
+
+Output:
+😄 
+😄 😄 
+😄 😄 😄 
+😄 😄 😄 😄 
+😄 😄 😄 😄 😄 
+😄 😄 😄 😄 😄 😄 
+😄 😄 😄 😄 😄 😄 😄 
+😄 😄 😄 😄 😄 😄 😄 😄 
+😄 😄 😄 😄 😄 😄 😄 😄 😄 
+😄 😄 😄 😄 😄 😄 😄 😄 😄 😄 
+```
+
+Exercise:  
+Ask the user for a number.
+Print out a square matrix of the size indicated by the number.
+Inside each cell, print out 1 emoji
+😀 If the row*column is divisible by 3
+🤨 If the row*column % 3 is 1  
+😱 If the row*column % 3 is 2  
+```
+print("Please enter a number to create a square matrix: ")
+val input = readLine() ?: "4"
+val matrixSize = input.toInt()
+for (i in 0..matrixSize) {
+    for (j in 0..matrixSize) {
+        when ((i * j) % 3) {
+            0 -> print("\uD83D\uDE00 ")
+            1 -> print("\uD83E\uDD28 ")
+            2 -> print("\uD83D\uDE31 ")
+        }
+        println()
+    }
+}
+
+Output:
+😀 😀 😀 😀 😀 😀 
+😀 🤨 😱 😀 🤨 😱 
+😀 😱 🤨 😀 😱 🤨 
+😀 😀 😀 😀 😀 😀 
+😀 🤨 😱 😀 🤨 😱 
+😀 😱 🤨 😀 😱 🤨 
+```
 -------------------------------
 #### While loop
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/kotlin-while-loop-flowchart.jpg" alt="isolated" width="400"/>
 
-- works on a boolean expression
+- works on a boolean expression  
+- `while(expression==true) -> do something`     
+- Body needs to modify the value responsible for the condition, as it will influence the expression, eventually making it false  
 
-`while(expression==true) -> do something`   
-s(it will influence the expression, eventually making it false)
+Example: 
+
+```
+var i=0
+while(i<10){
+    // do something
+    i++
+}
+```
+
+Example: Print out a greeting message 10 times
+```
+var i=0
+while(i<10){
+    println("Hello #$i")
+    i++
+}
+
+Output:
+Hello #0
+Hello #1
+Hello #2
+Hello #3
+Hello #4
+Hello #5
+Hello #6
+Hello #7
+Hello #8
+Hello #9
+```
+
+Exercise: Print out hello for each cat
+```
+val cats = listOf("Lucy", "Tommy", "Smokey", "Sammy", "Patch")
+var i = 0
+while (i < cats.size) {
+    println("Hello ${cats[i]}")
+    i++
+}
+
+Output:
+Hello Lucy
+Hello Tommy
+Hello Smokey
+Hello Sammy
+Hello Patch
+```
+
+Exercise: Calculate the factorial of the inputted integer, for numbers up to 20, because the limit of Integer and Long is limited.
+```
+print("Please enter a number for calculating a factorial of it: ")
+val input = readLine() ?: "1"
+var inputtedNumber = input.toLong()
+var factorial:Long = 1
+while (inputtedNumber>=1) {
+    factorial *= inputtedNumber
+    inputtedNumber--
+}
+println("Factorial of $input is $factorial")
+
+Output:
+Please enter a number for calculating a factorial of it: 5
+Factorial of 5 is 120
+```
+
+Exercise: Print out all the numbers that are divisible by 7, that are less than the user’s number.
+```
+print("Please enter a number to see all the numbers less than it that are divisible by 7: ")
+val input = readLine() ?: "1"
+var number = input.toInt()
+var i = 0
+while (i <= number) {
+   if (i % 7 == 0) {
+      println(i)   
+    }
+    i++
+}
+
+Output:
+Please enter a number to see all the numbers less than it that are divisible by 7: 36
+0
+7
+14
+21
+28
+35
+```
+##### do while loop 
+- Very similar to **while loop**
+- Condition is evaluated at the end
+- There are rare situations where you have to choose either `while` or `do while`
+```
+var i = 0
+do {
+    // do somehting
+    i++
+} while (i < 10)
+```
+Exercise:
+```
+val puzzlePieces = 10
+var piecesPlaced = 0
+do {
+piecesPlaced++
+println("Placed piece #$piecesPlaced")
+} while (piecesPlaced < puzzlePieces)
+Output:
+Placed piece #1
+Placed piece #2
+Placed piece #3
+Placed piece #4
+Placed piece #5
+Placed piece #6
+Placed piece #7
+Placed piece #8
+Placed piece #9
+Placed piece #10
+```
+
+Exercise: Ask the user to input a number multiple times, until they input a number larger than 100
+```
+do {
+    print("Please input a number greater than 100:")
+    val input = readLine() ?: ""
+    val number = input.toInt()
+    if(number>=100){
+        println("Thank you!")
+    }
+    else println("Please try again!")
+} while (number < 100)
+
+Output:
+Please input a number greater than 100:10
+Please try again!
+Please input a number greater than 100:20
+Please try again!
+Please input a number greater than 100:90
+Please try again!
+Please input a number greater than 100:100
+Thank you!
+```
+
+Exercise: If a factorial is less than 3000000, ask them to input another number and repeat the process.
+```
+do {
+    var factorial = 1
+    print("Please input a number whose factorial is more than 3000000: ")
+    var input = readLine() ?: ""
+    var number = input.toDouble()
+    var i = 1
+    while (i <= number) {
+        factorial *= i
+        i++
+    }
+    if (factorial < 3000000)
+        println("Factorial is less than 3000000!: $factorial")
+    else
+        println("Factorial is $factorial")
+
+} while (factorial < 3000000)
+
+Output:
+Please input a number whose factorial is more than 3000000: 5
+Factorial is less than 3000000!: 120
+Please input a number whose factorial is more than 3000000: 20
+Factorial is less than 3000000!: -2102132736
+Please input a number whose factorial is more than 3000000: 15
+Factorial is 2004310016
+```
+
+##### nested  while loop
+- A block of code of a **while loop** can contain anything including other block of code.
+```
+var i = 0
+var j = 0
+while(i<10){
+    while(j<10){
+        print("$i$j \t")
+        j++
+    }
+    println()
+    j=0
+    i++
+}
+
+Output:
+00 	01 	02 	03 	04 	05 	06 	07 	08 	09 	
+10 	11 	12 	13 	14 	15 	16 	17 	18 	19 	
+20 	21 	22 	23 	24 	25 	26 	27 	28 	29 	
+30 	31 	32 	33 	34 	35 	36 	37 	38 	39 	
+40 	41 	42 	43 	44 	45 	46 	47 	48 	49 	
+50 	51 	52 	53 	54 	55 	56 	57 	58 	59 	
+60 	61 	62 	63 	64 	65 	66 	67 	68 	69 	
+70 	71 	72 	73 	74 	75 	76 	77 	78 	79 	
+80 	81 	82 	83 	84 	85 	86 	87 	88 	89 	
+90 	91 	92 	93 	94 	95 	96 	97 	98 	99
+```
+
+Exercise:
+You have a set of usernames  
+val usernames = hashSetOf(“john”, “bob”, “alice”)  
+Ask the user to choose their username. If their username is taken, print out a message and ask again.  
+Add the username to the set.
+```
+var usernames = hashSetOf("John", "bob", "alice")
+do {
+    var flag = false
+    print("Please input a username: ")
+    val input = readLine() ?: ""
+    if (usernames.contains(input)) {
+        println("Username $input already exists.")
+    } else {
+        usernames.add(input)
+        println("Username has been added")
+        flag = true
+    }
+} while (!flag)
+println("Username list: $usernames")
+
+Output: 
+Please input a username: bob
+Username bob already exists.
+Please input a username: Timmy
+Username has been added
+Username list: [John, alice, bob, Timmy]
+```
 
 -------------------------------
 #### Expressions
