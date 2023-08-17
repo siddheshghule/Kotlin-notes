@@ -1,3 +1,5 @@
+package src
+
 fun main(args: Array<String>) {
 //    println("Hello String")
 //    println("String with escape character backslash \\, and quotes \".")
@@ -1006,24 +1008,109 @@ fun main(args: Array<String>) {
 //    Ask the user to choose their username. If their username is taken, print out a message and ask again.
 //    Add the username to the set.
 
-    var usernames = hashSetOf("John", "bob", "alice")
-    do {
-        var flag = false
-        print("Please input a username: ")
-        val input = readLine() ?: ""
-        if (usernames.contains(input)) {
-            println("Username $input already exists.")
+//    var usernames = hashSetOf("John", "bob", "alice")
+//    do {
+//        var flag = false
+//        print("Please input a username: ")
+//        val input = readLine() ?: ""
+//        if (usernames.contains(input)) {
+//            println("Username $input already exists.")
+//
+//        } else {
+//            usernames.add(input)
+//            println("Username has been added")
+//            flag = true
+//        }
+//    } while (!flag)
+//    println("Username list: $usernames")
+//
 
-        } else {
-            usernames.add(input)
-            println("Username has been added")
-            flag = true
-        }
-    } while (!flag)
-    println("Username list: $usernames")
+
+//                                          ### Break and Continue
+
+//                                              break keyword
+
+// Practice:
+
+//    var onlyEvenNumbers = arrayListOf(2, 4, 6, 8, 7, 10, 12) // 7 is not even
+//    for (number in onlyEvenNumbers) {
+//        if (number % 2 != 0)
+//            break // breaks out of for loop
+//        println("Even Number $number/2 = ${number / 2} ")
+//    }
+
+
+//                                              continue keyword
+//    Practice:
+
+//    var onlyEvenNumbers = arrayListOf(2, 4, 6, 8, 7, 10, 12) // 7 is not even
+//    for (number in onlyEvenNumbers) {
+//        if (number % 2 != 0)
+//            continue //continues to the next step
+//        println("Even Number $number/2 = ${number / 2} ")
+//    }
+
+//                                              label keyword
+//    Practice:
+
+//    loop@ for(i in 1..5){
+//        for(j in 1..5){
+//            if(i%3==0)
+//                break@loop
+//            println("$i,$j")
+//        }
+//    }
+
+
+//                      Exercise: Break and continue
+
+//    Exercise 1:
+//    An animal shelter is accepting all animals except "snake".
+//    A user is allowed to bring 5 animals to the shelter.
+//    Ask the user to input the animals they want to bring.
+//    If they bring a snake, print a message and stop accepting animals.
+
+//    var animals = arrayListOf<String>()
+//    for(i in 1..5){
+//        print("Please enter an animal: ")
+//        var input = readLine()?:""
+//        if(input == "snake") {
+//            println("Snakes are not allowed")
+//            break
+//        }
+//        animals.add(input)
+//    }
+//    println("Current animal is: $animals")
+
+//    Exercise 2:
+//    You have a list of clients
+//    val clients = listOf("Anna","Bob","Carol","David")
+//    Print out a greeting message for each client, unless their name starts with the letter 'c'
+//    val clients = listOf("Anna","Bob","Carol","David")
+//    for(client in clients){
+//        if(client.startsWith("C")){
+//            continue
+//        }
+//        println("Hello $client")
+//    }
+
+//    Exercise 3:
+//    A group of young people are going to a nightclub.
+//    Design a program that accepts user ages.
+//    The program displays a welcome message for each user.
+//    If it receives an age lower than 18, it prints a message that this client is not allowed.
+//    If it receives the word “stop”, the program ends
+
+    while (true) {
+        print("Please enter your age:")
+        val input = readLine() ?: ""
+        if (input == "stop") break
+        if (input.toInt() < 18)
+            println("You are underage! No entry!")
+        else
+            println("Welcome to the club")
+    }
 
 }
-
-
 
 

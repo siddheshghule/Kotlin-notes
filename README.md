@@ -53,7 +53,7 @@ There are 2 types of string: **Escaped String** and **Raw String**
   characters.
 
 ```
-fun main(args: Array<String>) { 
+fun src.main(args: Array<String>) { 
 println("Hello")
 println("String with escape character backslash \\, and quotes \".")
 }
@@ -1954,6 +1954,156 @@ if (age in 1..12) println("You are a child")
 else if (age in 13..18) println("You are a child")
 else println("You are an adult")
 ```
+
+-------------------------------
+
+### Break and Continue
+
+#### break
+- Terminates a loop
+
+```
+var onlyEvenNumbers = arrayListOf(2, 4, 6, 8, 7, 10, 12) // 7 is not even
+for (number in onlyEvenNumbers) {
+    if (number % 2 != 0)
+        break // breaks out of for loop
+    println("Even Number $number/2 = ${number / 2} ")
+}
+
+Output:
+Even Number 2/2 = 1
+Even Number 4/2 = 2
+Even Number 6/2 = 3
+Even Number 8/2 = 4
+```
+
+#### continue
+- Proceeds to the next step of the loop 
+
+```
+var onlyEvenNumbers = arrayListOf(2, 4, 6, 8, 7, 10, 12) // 7 is not even
+for (number in onlyEvenNumbers) {
+    if (number % 2 != 0)
+        continue //continues to the next step
+    println("Even Number $number/2 = ${number / 2} ")
+}
+
+Output:
+
+Even Number 2/2 = 1 
+Even Number 4/2 = 2 
+Even Number 6/2 = 3 
+Even Number 8/2 = 4 
+Even Number 10/2 = 5 
+Even Number 12/2 = 6 
+```
+
+#### labels
+- Usually not considered a good coding practice
+- A label is used to mark a position in code that you can jump to
+- Can be used with break and continue
+
+```
+loop@ for(i in 1..5){
+    for(j in 1..5){
+        if(i%3==0)
+            break@loop
+        println("$i,$j")
+    }
+}
+Output:
+1,1
+1,2
+1,3
+1,4
+1,5
+2,1
+2,2
+2,3
+2,4
+2,5
+```
+
+#### Exercise break and continue
+
+Exercise 1:
+An animal shelter is accepting all animals except "snake".  
+A user is allowed to bring 5 animals to the shelter.  
+Ask the user to input the animals they want to bring.  
+If they bring a snake, print a message and stop accepting animals.
+```
+var animals = arrayListOf<String>()
+for(i in 1..5){
+    print("Please enter an animal: ")
+    var input = readLine()?:""
+    if(input == "snake") {
+        println("Snakes are not allowed")
+        break
+    }
+    animals.add(input)
+}
+println("Current animal is: $animals")
+
+Output:
+Please enter an animal: dog
+Please enter an animal: cat
+Please enter an animal: elephant
+Please enter an animal: snake
+Snakes are not allowed
+Current animal is: [dog, cat, elephant]
+```
+
+Exercise 2:
+You have a list of clients
+val clients = listOf("Anna","Bob","Carol","David")
+Print out a greeting message for each client, unless their name starts with the letter 'c'
+```
+val clients = listOf("Anna","Bob","Carol","David")
+for(client in clients){
+    if(client.startsWith("C")){
+        continue
+    }
+    println("Hello $client")
+}
+
+Output:
+Hello Anna
+Hello Bob
+Hello David
+```
+
+Exercise 3:
+A group of young people are going to a nightclub.  
+Design a program that accepts user ages.  
+The program displays a welcome message for each user.  
+If it receives an age lower than 18, it prints a message that this client is not allowed.
+If it receives the word “stop”, the program ends
+```
+while (true) {
+    print("Please enter your age:")
+    val input = readLine() ?: ""
+    if (input == "stop") break
+    if (input.toInt() < 18)
+        println("You are underage! No entry!")
+    else
+        println("Welcome to the club")
+}
+Output
+Please enter your age:14
+You are underage! No entry!
+Please enter your age:18
+Welcome to the club
+Please enter your age:3
+You are underage! No entry!
+Please enter your age:stop
+```
+-------------------------------
+### Functions
+#### Lambda Functions
+
+-------------------------------
+### Packages
+-------------------------------
 
 #### Question to search:
 
