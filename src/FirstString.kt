@@ -1,6 +1,7 @@
 package src
 
 fun main(args: Array<String>) {
+
 //    println("Hello String")
 //    println("String with escape character backslash \\, and quotes \".")
 //
@@ -19,7 +20,7 @@ fun main(args: Array<String>) {
 //    println(url)
 //    println("The length of url is ${url.length}")
 //
-//                                      // Drawing Bunny
+//                                      Drawing Bunny
 //
 //    println("(\\(\\")
 //    println("(-.-)")
@@ -58,7 +59,7 @@ fun main(args: Array<String>) {
 //    var population = 75000000000
 //    println("Type of population: ${population::class.java}")
 
-                                        //Exercise
+    //                                  Exercise
 //    print("Enter a Number: ")
 //    var userInput = readLine()?:"1" // default is 1
 //    var doubleNumber = 29.99
@@ -67,8 +68,8 @@ fun main(args: Array<String>) {
 //    val multiplyByPi = 3.14 * userInput.toDouble()
 //    println("$userInput * 3.14 = $multiplyByPi and the type is ${multiplyByPi::class.java}")
 
-                                    // Exercise - Operators
-                                    // 1
+//                                     Exercise - Operators
+    //                                   1
 //    var a =76.254
 //    var b = 3.867
 //    println("Addition of $a and $b: ${a+b}")
@@ -77,17 +78,17 @@ fun main(args: Array<String>) {
 //    println("Division of $a and $b: ${a/b}")
 //    println("Remainder of $a and $b: ${a%b}")
 
-                                        // 2
+    //                                   2
 //    var meatCostPerKg = 29.99
 //    println("1/3 Kg of mean costs ${29.99/3}")
 
-                                        // 3
+    //                                   3
 //    print("Please enter your bank balance: ")
 //    var bankBalance = readLine()?:"1"
 //    println("Congratulations, you have won a contest that triples your amount.")
 //    println("Your current bank balance is ${bankBalance.toDouble()*3}")
 
-                                        // 4
+    //                                   4
     // Read from the console the amount the user has in their bank account. The interest on that account is 5.5% per year. How much would that user have in 5 years?
 
 //    print("Please enter your current bank balance: ")
@@ -100,8 +101,8 @@ fun main(args: Array<String>) {
 //    var balanceWithInterest = principal.toDouble() * ((1 + (rateOfInterest.toDouble()/100)).pow(years.toDouble()))
 //    println("Your bank balance with interest of $rateOfInterest per year for the period of $years years is: $balanceWithInterest")
 
-                                        // Operators
-// Exercise 1: Kids will get new tows if they have less than 5 toys and have at least one broken
+    //                                   Operators
+//                         Exercise 1: Kids will get new tows if they have less than 5 toys and have at least one broken
 
 //    var toys = 2
 //    var broken = 1
@@ -112,7 +113,7 @@ fun main(args: Array<String>) {
 //    } else
 //        println("Kids wont get toys")
 
-// Exercise 2:
+//                                   Exercise 2:
     //A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding.
     // The requirements are
     //You must have no more than 5 animals
@@ -132,13 +133,14 @@ fun main(args: Array<String>) {
 //    else
 //        println("Farmaer does not get funding")
 
-                                        // Nullability
+
+    //                                   Nullability
 //    var catName:String? = "Lucy"
 //    println(catName?.length)
 //    catName = null
 //    println(catName?.length)
 
-                                        // nullability arithmetic
+    //                                   Nullability arithmetic
 
 //    var number:Int? = 10
 //    println(number?.plus(1)) // 11
@@ -165,8 +167,8 @@ fun main(args: Array<String>) {
 //    catName = "Fluffy"
 //    println(catName?:"This cat has no name")
 
-                                    //Practice: Elvis and assertions
-// print input message or default message
+    //                                  Practice: Elvis and assertions
+//                                   print input message or default message
 
 //    print("Enter the message:")
 //    var inputMessage = readLine()
@@ -178,17 +180,20 @@ fun main(args: Array<String>) {
 //    })
 
 
-// Read if input number is not null and multiply by 5
+//                                   Practice: Read if input number is not null and multiply by 5
 //    val number: Int? = readLine()?.toIntOrNull()
 //    println(number!!.times(5))
 
-// Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
+
+//                                   Exercise:
+// A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is null, use the default of one. Print the total of the purchase.
 
 //    val cost = 29.99
 //    val items: Int? = readLine()?.toIntOrNull()?:4
 //    println("The cost of $items items is: ${items?.times(cost)}")
 
-                                        // try- catch
+
+    //                                   try- catch
 //    print("Enter input:")
 //    var test = readLine()
 //    try {
@@ -197,7 +202,8 @@ fun main(args: Array<String>) {
 //        println("An exception has occurred ${e.localizedMessage}")
 //    }
 
-                                        // finally
+
+    //                                   finally
 //    print("Enter a number:")
 //    var input = readLine()
 //    try {
@@ -208,14 +214,15 @@ fun main(args: Array<String>) {
 //        println("Finally block, the input was $input")
 //    }
 
-                                        // throw
+
+    //                                   throw
 //    print("Enter input:")
 //    var input = readLine()
 //    if(input.isNullOrBlank()) throw IllegalAccessException("Input is blank or null")
 //    else
 //        println("Input is: $input")
 
-                                        // Exercise Multiply by 5 if it is an Integer and print or else catch
+    //                                   Exercise Multiply by 5 if it is an Integer and print or else catch
 //    print("Enter an Integer:")
 //    var input = readLine()
 //    try {
@@ -229,7 +236,7 @@ fun main(args: Array<String>) {
 //    }
 
 
-                                    // LIST
+    //                                   LIST
 
 //    val animals = listOf("cat","dog","horse")
 //    println(animals)
@@ -250,7 +257,7 @@ fun main(args: Array<String>) {
 //    println(colors.lastIndexOf("red")) // last index -> 3
 
 
-                                    // ArrayList
+    //                                   ArrayList
 
 //    var colors = arrayListOf("blue","red")
 //    colors.add("green")
@@ -268,7 +275,7 @@ fun main(args: Array<String>) {
 //    animals.remove("dogs")
 //    println(animals)
 
-                                        // Functions of Array List
+    //                                   Functions of Array List
 
 //    val colors = arrayListOf("blue","red", "blue", "green")
 //    colors[1] = "yellow" // OR colors.set(1,"yellow")
@@ -280,14 +287,14 @@ fun main(args: Array<String>) {
 //    println(colors.isEmpty()) // true
 
 
-                                    // Exercise
+    //                                   Exercise 1
 
 //    val items = arrayListOf("laptop", "mouse", "pen", "paper", "mug", "phone")
 //    val removedItems = listOf("pen", "paper", "mug", "phone")
 //    items.removeAll(removedItems)
 //    println(items)
 
-//    Exercise 2
+//                                      Exercise 2
 //    val animals = arrayListOf("lion","zebra","chimp","elephant") //[lion, zebra, chimp, elephant]
 //    animals.add("panda bear cub")
 //    println(animals) // [lion, zebra, chimp, elephant, panda bear cub]
@@ -296,13 +303,13 @@ fun main(args: Array<String>) {
 //    println(animals) // [zebra, chimp, elephant, panda bear cub]
 //    println("Does the zoo has all the animals: ${animals.containsAll(listOf("elephant","giraffe"))}") // false
 
-                                        // SET
+    //                                   SET
 //    val numbers = setOf(1,2,3,4,1)
 //    println(numbers)
 //    val numbers3 = setOf(1,2,3,4,4,null,null)
 //    println(numbers3) // [1,2,3,4, null]
 
-                                        // HASHSET
+    //                                   HASHSET
 //    val numbers = hashSetOf(1,2,3,4,1)
 //    println(numbers) // [1, 2, 3, 4] <- '1' is only printed once as set contains unique values
 //
@@ -324,7 +331,7 @@ fun main(args: Array<String>) {
 //    numbers3.removeAll(numbers)
 //    println(numbers3) // [null, 1]
 
-                                    //    Exercise 1:
+    //                                      Exercise 1:
 
 //    val colors = hashSetOf<String>()
 //    colors.addAll(listOf("green", "red", "pink", "red"))
@@ -333,14 +340,14 @@ fun main(args: Array<String>) {
 //    colors.remove("green")
 //    println(colors) // [red, pink]
 
-                                    //   Exercise 2:
+    //                                     Exercise 2:
 
 //    val objectsOnTable = hashSetOf("watch", "desktop", "laptop", "hub", "mobile")
 //    val objectsToRemove = setOf("mobile")
 //    objectsOnTable.removeAll(objectsToRemove)
 //    println(objectsOnTable) // [desktop, laptop, hub, watch]
 
-                                        // Exercise 3:
+    //                                   Exercise 3:
 
 //    You have a list of customers for your online store. A new customer has joined. Print the list of customers.
 //    A customer has chosen to leave. Print the list of customers.
@@ -353,26 +360,28 @@ fun main(args: Array<String>) {
 //    customers.remove("Donald")
 //    println(customers) // [Tom, Panther, Jerry, Daffy]
 
-                                        // Set functions
+    //                                   Set functions
 
-////    val numbers = setOf(1, 2, 3, 4, 5, 6, 7)
-////    println(numbers.size) // 7
-////    println(numbers.contains(3)) // true
-////    println(numbers.containsAll(setOf(1,2,11))) // false
-////    println(numbers.isEmpty()) // false
-////    numbers.forEach { print("Number: $it ") }  // Number: 1 Number: 2 Number: 3 Number: 4 Number: 5 Number: 6 Number: 7
+//    val numbers = setOf(1, 2, 3, 4, 5, 6, 7)
+//    println(numbers.size) // 7
+//    println(numbers.contains(3)) // true
+//    println(numbers.containsAll(setOf(1,2,11))) // false
+//    println(numbers.isEmpty()) // false
+//    numbers.forEach { print("Number: $it ") }
+// Output: Number: 1 Number: 2 Number: 3 Number: 4 Number: 5 Number: 6 Number: 7
 
-                                        // HashSet functions
+    //                                   HashSet functions
 
 //    val numbers = hashSetOf(1,2,3,4,5,6,7, null,7)
 //    println(numbers) // [null, 1, 2, 3, 4, 5, 6, 7]
 //    val newNumbers = setOf(5,6,7,8,9,10)
 //    numbers.retainAll(newNumbers)
-//    println("Retain numbers: $numbers") // Retain numbers: [5, 6, 7]
+//    println("Retain numbers: $numbers") // Output: Retain numbers: [5, 6, 7]
 //    numbers.clear()
-//    println(numbers) // []
+//    println(numbers) // Output: []
 
-                                        // Practice
+
+    //                                   Practice
 
 //    val primeNumbers = setOf(2,3,5,7,11,13,17,19,23,29)
 //    println("Is 21 a prime number? ${primeNumbers.contains(21)}") // Is 21 a prime number? false
@@ -384,7 +393,8 @@ fun main(args: Array<String>) {
 //    myDrinks.retainAll(theirDrink)
 //    println("Drinks that we both enjoy $myDrinks") // Drinks that we both enjoy [orange juice, water]
 
-                                       // Exercise: Set and HashSet
+
+    //                                   Exercise: Set and HashSet
 //    Your company has very strict dress code. Only certain color clothes can be worn in the office.
 //    val acceptedColors = hashSetOf(“white”, “black”, “grey”) You have certain colors in your wardrobe.
 //    val myColors = hashSetOf(“blue”, “red”, “black”, “green”) What color clothes can you wear.
@@ -400,7 +410,8 @@ fun main(args: Array<String>) {
 //    acceptedColors.retainAll(myColors)
 //    println("Clothes that I can wear now are: $acceptedColors") // Clothes that I can wear now are: [black, red]
 
-                                    // Map
+
+    //                                   Map
 
 //    val count = mapOf(Pair(1,"one"), Pair(2,"two"), Pair(3,"three"))
 //    println(count)
@@ -410,7 +421,7 @@ fun main(args: Array<String>) {
 ////    TODO(Get the collection of values (can have duplicates))
 //    println(count.values) // [one, two, three]
 
-                                    //    HashMap
+    //                                    HashMap
 
 //    val countHash = hashMapOf(Pair(1,"one"), Pair(2,"two"), Pair(3,"three"))
 //    countHash[4] = "four"
@@ -425,7 +436,7 @@ fun main(args: Array<String>) {
 //    countHash.clear()
 //    println(countHash) // {}
 
-                                    //    Practice: Map and HashMap
+    //                                  Practice: Map and HashMap
 
 //    var count = hashMapOf(Pair(1,"un"), Pair(2, "deux"), Pair(3,"trois"))
 //    println("value of 2 in french is ${count[2]}") // value of 2 in french is deux
@@ -438,7 +449,7 @@ fun main(args: Array<String>) {
 //        // Is Alice a customer? : true, and she bought 5 products.
 //    println("Is Michael a customer? : ${customers.containsKey("Michael")}") // Is Michael a customer? : false
 
-                                    //    Exercise:
+    //                                      Exercise:
 //    You manage an amusement park, and you have a map that stores dates and attendance.
 //    `var attendance = hashMapOf(Pair(“23 Sept”, 2837), Pair(“24 Sept”, 3726), Pair(“25 Sept”, 6253))`
 //    Add a value for 26 Sept. How many people attended in total on 25 and 26 Sept? Is data for 22 Sept available?
@@ -450,7 +461,7 @@ fun main(args: Array<String>) {
 //    println("Are people attending on 22nd Sept: ${attendance.containsKey("22 Sept")}")
 //        // Are people attending on 22nd Sept: false
 
-                                    //    If statement
+    //                                      If statement
 //
 //    print("Enter true if it is Night, else false:") // Enter true if it is Night, else false:false
 //    val isNight = readLine()?:"true"
@@ -489,7 +500,7 @@ fun main(args: Array<String>) {
 //        println("Don't buy anything")
 //    }
 
-                                    //    Exercise:
+    //                                      Exercise:
 
 //    Define two variables
 //    val hasEggs = true
@@ -530,7 +541,7 @@ fun main(args: Array<String>) {
 //    val isEven = if(number%2==0) "Number is Even" else "Number is odd"
 //    println(isEven)
 
-                                    //     multiple branches
+    //                                       Multiple branches
 
 //    print("Enter an animal: ")
 //    val animal = readLine()?:""
@@ -544,7 +555,7 @@ fun main(args: Array<String>) {
 //        println("Animal not found")
 //    }
 
-                                    //    practice: if single digit print the statement
+    //                                      Practice: if single digit print the statement
 
 //    print("Please enter a number:")
 //    val input = readLine() ?: "0"
@@ -552,7 +563,7 @@ fun main(args: Array<String>) {
 //    if (number / 10 == 0) println("Number is single digit") else println("Number is multiple digit")
 
 
-                                    //    practice for multiple if branches
+    //                                      Practice for multiple if branches
 
 //    val responseCode = 404
 //    val message = if(responseCode/100 == 1)
@@ -568,7 +579,8 @@ fun main(args: Array<String>) {
 //    println("Message for response $responseCode: $message") // Message for response 404: Client error
 //
 
-//    Exercise: You are designing a grading system for school exams. The total for an exam is 100 points, and you need to convert that into a grade A to F.
+//                                      Exercise:
+//    You are designing a grading system for school exams. The total for an exam is 100 points, and you need to convert that into a grade A to F.
 //    Design a program that reads in a number that represents a student’s grade, from 1 to 100 and prints out a grade.
 //    A -> 90 to 100
 //    B -> 80 to 89
@@ -594,8 +606,8 @@ fun main(args: Array<String>) {
 //        "F"
 //    println(grade)
 
-                                        // Arithmetic and logical EXPRESSIONS
-                                    //    1.
+    //                                   Arithmetic and logical EXPRESSIONS
+    //                                      1.
 
 //    if(326/72 * 15 + 93 % 13 == 62){
 //        println("Math is easy")
@@ -603,7 +615,7 @@ fun main(args: Array<String>) {
 //        println("Math is difficult")
 //    }
 
-                                    //    2.
+    //                                      2.
 
 //    val haveCat = true
 //    val haveCatFood = true
@@ -613,7 +625,7 @@ fun main(args: Array<String>) {
 //        println("Oh no!")
 //    }
 
-                                    //    in keyword
+    //                                      in keyword
 
 //    val favouritePet = "dog"
 //    val availablePets = listOf("dog","cat","horse")
@@ -628,7 +640,7 @@ fun main(args: Array<String>) {
 //        println("Yay!") // Yay!
 //    }
 
-                                    //Example of in keyword for range
+    //                                  Example of in keyword for range
 
 //    println("Please input a number")
 //    val input = readLine() ?: ""
@@ -637,7 +649,7 @@ fun main(args: Array<String>) {
 //        println("Your input is not single digit")
 //    }
 
-                                    //    Boolean returning function:
+    //                                      Boolean returning function:
 
 //    val animals = arrayListOf<String>()
 //    if (animals.isEmpty()) {
@@ -655,8 +667,8 @@ fun main(args: Array<String>) {
 //    }
 //    println(animals) // [Horse]
 
-                                    //    Practice:
-                                    //    1.
+    //                                      Practice:
+    //                                      1.
 //    val guestList = listOf("Alice", "Bob", "Carol", "John")
 //    print("Please enter your name: ")
 //    val guest = readLine() ?: ""
@@ -666,7 +678,7 @@ fun main(args: Array<String>) {
 //        println("Sorry, you are not on the list")
 //    }
 
-                                    //    2.
+    //                                      2.
 //    print("How many cats do you have? ")
 //    val input = readLine() ?: "0"
 //    val numberOfCats = input.toInt()
@@ -678,7 +690,7 @@ fun main(args: Array<String>) {
 //        "Many cats"
 //    println("This lady has $howMany")
 
-                                    //    Exercise
+    //                                      Exercise
 //    Ask a user to input their age.
 //    If they are under 13, they are a child
 //    If they are under 18, they are a teen
@@ -694,7 +706,7 @@ fun main(args: Array<String>) {
 //    else if (age in 13..18) println("You are a child")
 //    else println("You are an adult")
 
-                                    //    WHEN condition
+    //                                      WHEN condition
 
 //    var animal = "cat"
 //    var action: String = ""
@@ -712,7 +724,7 @@ fun main(args: Array<String>) {
 //
 //    println("When you meet a $animal, you should $action.")
 
-                                        // Example: if even or odd
+    //                                   Example: if even or odd
 //    var result = ""
 //    var number = 1234
 //    when(number%2){
@@ -721,7 +733,7 @@ fun main(args: Array<String>) {
 //    }
 //    println("Number is $result") // -> Number is even
 
-                                    //    When as a statement
+    //                                      When as a statement
 
 //    val animal = "dog"
 //    val action = when(animal){
@@ -731,7 +743,7 @@ fun main(args: Array<String>) {
 //    }
 //    println("When you see a $animal then $action") // -> When you see a dog then feed it
 
-                                    //    **Capturing the subject**
+    //                                      Capturing the subject
 //    val name = "Monkey D. Luffy"
 //    when(val length = name.length){
 //        in 1..5 -> println("A name $name with length of $length characters is short")
@@ -739,7 +751,7 @@ fun main(args: Array<String>) {
 //        else -> println("A name $name with length of $length characters is long.")
 //    }
 
-                                    //    Practice 1:
+    //                                      Practice 1:
 //    Assume that 3 means a day is the recommended amount.
 //    Ask the user to input the number of means they have every day.
 //    Based on the input, print out a message that encourages the user to increase or decrease the number of means they have.
@@ -754,7 +766,7 @@ fun main(args: Array<String>) {
 //        else -> println("You should eat less")
 //    }
 
-                                    //    Practice 2:
+    //                                      Practice 2:
 //Assuming, based on the hour of the day
 //6 to 11 -> morning, 12 to 14 -> noon, 15 to 17 -> afternoon, 18 to 21 -> evening, 22 to 5 -> night
 //Ask user to input the current hour, and print out the message.
@@ -772,7 +784,7 @@ fun main(args: Array<String>) {
 //        else -> println("Please enter correct input")
 //    }
 
-                                    //    Exercise:
+    //                                      Exercise:
 //    Ask the user to input their name.
 //    Based on the first letter of their name, print out a personalised greeting
 //    for the first 3 letters of the alphabet,
@@ -788,7 +800,7 @@ fun main(args: Array<String>) {
 //    }
 
 
-                                    //    FOR LOOP
+    //                                      FOR LOOP
 
 //    val animals = arrayListOf("cat","dog","mouse","bear")
 //    for(animal in animals){
@@ -814,7 +826,7 @@ fun main(args: Array<String>) {
 //    }
 
 
-                                    //    Exercise: Add up all the numbers from 1 to 100
+    //                                      Exercise: Add up all the numbers from 1 to 100
 
 //    var sum = 0
 //    for(i in 1..100){
@@ -822,14 +834,14 @@ fun main(args: Array<String>) {
 //    }
 //    println(sum)
 
-                                    //    Exercise: Printout message telling how many purchases they have made.
+    //                                      Exercise: Printout message telling how many purchases they have made.
 
 //    val customers = hashMapOf(Pair("Alice",4),Pair("Judy",8),Pair("Anna",6))
 //    for(customerName in customers.keys){
 //        println("$customerName has ${customers[customerName]} purchases.")
 //    }
 
-                                    //    Exercise:
+    //                                      Exercise:
 //    Ask the user to input a year. For each month of that year, print out how many days there are.
 //    Make sure you count leap years.
 //    Assume a leap year is a year that is divisible by 4.
@@ -851,14 +863,14 @@ fun main(args: Array<String>) {
 //            println("$month has 28 days") else println("$month has 29 days")
 //    }
 
-                                    //    FOR IN RANGE
+    //                                      FOR Loop ->  IN RANGE
 
 //    for(i in 1..3){
 //        println("Strike #$i")
 //    }
 //    println("You are out!")
 
-//    Descending
+//                                      Descending
 //    for(i in 10 downTo 0){
 //        println(i)
 //        when(i){
@@ -869,13 +881,13 @@ fun main(args: Array<String>) {
 //        }
 //    }
 
-                                    //    step Exercise:
+    //                                      step Example:
 
 //    for(i in 1..10 step 3){
 //        println(i)
 //    }
 
-                                    //    Nested for loop
+    //                                      Nested for loop
 
 //    for(i in 0..5){
 //        for(j in 0..5){
@@ -887,8 +899,8 @@ fun main(args: Array<String>) {
 //        println()
 //    }
 
-                                    //    Exercise: printout every number smaller than user-input(maxValue)
-                                    //    that is divisible by 7, in descending order
+    //                                      Exercise: printout every number smaller than user-input(maxValue)
+    //                                      that is divisible by 7, in descending order
 
 //    print("Please enter a value: ")
 //    val input = readLine()?:"70"
@@ -899,7 +911,7 @@ fun main(args: Array<String>) {
 //        }
 //    }
 
-                                    //    Exercise: print smiley pattern
+    //                                      Exercise: print smiley pattern
 //    for(i in 1..10){
 //        for(j in 1..i){
 //            print("\uD83D\uDE04 ")
@@ -907,7 +919,7 @@ fun main(args: Array<String>) {
 //        println()
 //    }
 
-                                    //    Exercise:
+    //                                      Exercise:
 //    Ask the user for a number.
 //    Print out a square matrix of the size indicated by the number.
 //    Inside each cell, print out 1 emoji
@@ -929,7 +941,7 @@ fun main(args: Array<String>) {
 //        println()
 //    }
 
-                                    //    While loop
+    //                                      While loop
 //    var puzzlePieces = 20
 //    var piecesPlaced = 0
 //    while (piecesPlaced < puzzlePieces) {
@@ -937,7 +949,7 @@ fun main(args: Array<String>) {
 //        println("Placed piece #$piecesPlaced")
 //    }
 
-                                    //    Example: Print out a greeting message 10 times
+    //                                      Example: Print out a greeting message 10 times
 
 //    var i=0
 //    while(i<=10){
@@ -945,7 +957,7 @@ fun main(args: Array<String>) {
 //        i++
 //    }
 
-                                    //    Exercise: Print out hello for each cat
+    //                                      Exercise: Print out hello for each cat
 
 //    var cats = listOf("Lucy", "Tommy", "Smokey", "Sammy", "Patch")
 //    var i = 0
@@ -954,7 +966,8 @@ fun main(args: Array<String>) {
 //        i++
 //    }
 
-    //   Exercise: Calculate the factorial of the inputted integer, for numbers up to 20, because the limit of Integer and Long is limited.
+    //                                     Exercise: Calculate the factorial of the inputted integer,
+    //                                     for numbers up to 20, because the limit of Integer and Long is limited.
 
 //    print("Please enter a number for calculating a factorial of it: ")
 //    val input = readLine() ?: "1"
@@ -966,7 +979,8 @@ fun main(args: Array<String>) {
 //    }
 //    println("Factorial of $input is $factorial")
 
-    //    Exercise: Print out all the numbers that are divisible by 7, that are less than the user’s number.
+    //                                      Exercise: Print out all the numbers that are divisible by 7,
+    //                                      that are less than the user’s number.
 
 //    print("Please enter a number to see all the numbers less than it that are divisible by 7: ")
 //    val input = readLine() ?: "1"
@@ -986,7 +1000,7 @@ fun main(args: Array<String>) {
 //        println("Placed piece #$piecesPlaced")
 //    } while (piecesPlaced < puzzlePieces)
 
-                                    //    nested  while loop
+    //                                      nested  while loop
 
 //    var i = 0
 //    var j = 0
@@ -1000,7 +1014,8 @@ fun main(args: Array<String>) {
 //        i++
 //    }
 
-        //    Exercise: Ask the user to input a number multiple times, until they input a number larger than 100
+    //                 Exercise: Ask the user to input a number multiple times, until they input
+    //                           a number larger than 100
 
 //    do {
 //        print("Please input a number greater than 100:")
@@ -1012,7 +1027,8 @@ fun main(args: Array<String>) {
 //        else println("Please try again!")
 //    } while (number < 100)
 
-        //    Exercise: If a factorial is less than 3000000, ask them to input another number and repeat the process
+    //              Exercise: If a factorial is less than 3000000,
+    //                        ask them to input another number and repeat the process
 
 //    do {
 //        var factorial = 1
@@ -1031,7 +1047,8 @@ fun main(args: Array<String>) {
 //
 //    } while (factorial < 3000000)
 
-                                    //    Exercise:
+
+    //                                      Exercise:
 //    You have a set of usernames
 //    val usernames = hashSetOf(“john”, “bob”, “alice”)
 //    Ask the user to choose their username. If their username is taken, print out a message and ask again.
@@ -1059,7 +1076,7 @@ fun main(args: Array<String>) {
 
 //                                              break keyword
 
-// Practice:
+//                                   Practice:
 
 //    var onlyEvenNumbers = arrayListOf(2, 4, 6, 8, 7, 10, 12) // 7 is not even
 //    for (number in onlyEvenNumbers) {
@@ -1070,7 +1087,7 @@ fun main(args: Array<String>) {
 
 
 //                                              continue keyword
-//    Practice:
+//                                      Practice:
 
 //    var onlyEvenNumbers = arrayListOf(2, 4, 6, 8, 7, 10, 12) // 7 is not even
 //    for (number in onlyEvenNumbers) {
@@ -1080,7 +1097,7 @@ fun main(args: Array<String>) {
 //    }
 
 //                                              label keyword
-//    Practice:
+//                                      Practice:
 
 //    loop@ for(i in 1..5){
 //        for(j in 1..5){
@@ -1093,7 +1110,7 @@ fun main(args: Array<String>) {
 
 //                      Exercise: Break and continue
 
-//    Exercise 1:
+//                                      Exercise 1:
 //    An animal shelter is accepting all animals except "snake".
 //    A user is allowed to bring 5 animals to the shelter.
 //    Ask the user to input the animals they want to bring.
@@ -1111,7 +1128,7 @@ fun main(args: Array<String>) {
 //    }
 //    println("Current animal is: $animals")
 
-//    Exercise 2:
+//                                      Exercise 2:
 //    You have a list of clients
 //    val clients = listOf("Anna","Bob","Carol","David")
 //    Print out a greeting message for each client, unless their name starts with the letter 'c'
@@ -1123,7 +1140,7 @@ fun main(args: Array<String>) {
 //        println("Hello $client")
 //    }
 
-//    Exercise 3:
+//                                      Exercise 3:
 //    A group of young people are going to a nightclub.
 //    Design a program that accepts user ages.
 //    The program displays a welcome message for each user.
@@ -1141,30 +1158,77 @@ fun main(args: Array<String>) {
 //    }
 
 
-                                // Functions
-                    //    Practice 1: Print hello 3 times
+    //                                  Functions
+    //                                  Practice 1: Print hello 3 times
     //for(i in 1..3)
     //    sayHello()
 
-                    //    Practice 2: print alphabets 5 times
+    //    Practice 2: print alphabets 5 times
 //    var i=5
 //    do {
 //        printAlphabets()
 //        i--
 //    }while(i>0)
 
-                    //    Practice 3: Take an input number and multiply by 17 and do it for 3 times
+    //                                     Practice 3: Take an input number and multiply by 17 and do it for 3 times
 //    for(i in 1..3){
 //        multipleOf17()
 //    }
 
-                    //    Exercise:
-                    //    Design a function that asks for a user’s name. Then it asks for a user’s birth year.
-                    //    Finally, it prints out a message saying the user’s name and age.
-                    //    Call the function 3 times.
-    for(i in 1..3){
-        printNameAndAge()
-    }
+    //    Exercise:
+    //    Design a function that asks for a user’s name. Then it asks for a user’s birth year.
+    //    Finally, it prints out a message saying the user’s name and age.
+    //    Call the function 3 times.
+//    for(i in 1..3){
+//        printNameAndAge()
+//    }
+
+
+    //                               #### Function Parameters
+    //                            Practice 1: Basic parameter int
+//    println(doubleInt(2))
+
+    //                            Practice 2: Print Hello message for each person in arrayList
+//    var people = arrayListOf("Abby", "Babby", "Cabby", "Dabby")
+//    sayHelloToPeople(people)
+
+//                               Practice 3: Parameter with default value
+//    doubleMessageMethod(5)
+//    doubleMessageMethod(5, "5 * 2 = ")
+
+//                              return keyword for a function
+//    var radius = 10
+//    println("The Area of a circle with radius $radius is ${areaOfCircle(radius)}")
+
+    //                      Practice 1: return personalised message for each person
+//    var people  = listOf("Anna", "Max", "Sophia", "Patrick")
+//    for(person in people){
+//        println(personalisedMessage(person))
+//    }
+
+//                    Practice 2: sum of 2 number(parameters), call the function 3 times
+//    for (i in 1..3) {
+//        println("The addition of 2 numbers is ${addition(i + 1, i + 2)}")
+//    }
+
+//                  Practice 3: Add 20% tax to the product cost and print the final price.
+//    val products = hashMapOf(Pair("Shoes", 29.99), Pair("Socks", 9.99), Pair("Joggers", 19.99), Pair("T-shirt", 4.99))
+//    for (item in products.keys) {
+//        val cost = products[item]
+//        println("The final price of the product ${item} is ${calculateTax(cost) + cost!!}")
+//    }
+
+//                                      Exercise:
+//    Create a function that receives the name of an animal, and returns the estimated lifespan.
+//    cats -> 15
+//    dogs -> 10
+//    rabbit -> 12
+//    everything else -> 20
+//    Ask the user to input an animal, then print out the estimated lifespan for that animal.
+
+    val animalsList = listOf("Cats", "Dogs", "Rabbit","Crocodile")
+    for(animal in animalsList)
+        println("$animal's estimated lifespan is ${lifespanOfAnimals(animal)} years")
 
 }
 //fun sayHello(){
@@ -1183,12 +1247,52 @@ fun main(args: Array<String>) {
 //
 //}
 
-fun printNameAndAge(){
-    print("Please Enter Name: ")
-    val inputName = readLine()?:""
-    print("Please Enter Birth year: ")
-    val inputYear = readLine()?:""
-    println("Name: $inputName, Age: ${2023-inputYear.toInt()} or ${2023-inputYear.toInt() - 1} ")
+//fun printNameAndAge(){
+//    print("Please Enter Name: ")
+//    val inputName = readLine()?:""
+//    print("Please Enter Birth year: ")
+//    val inputYear = readLine()?:""
+//    println("Name: $inputName, Age: ${2023-inputYear.toInt()} or ${2023-inputYear.toInt() - 1} ")
+//}
+
+//fun doubleInt(number: Int): Int{
+//    return number*2
+//}
+
+//fun sayHelloToPeople(people: ArrayList<String>){
+//    for(person in people){
+//        println("Hello $person")
+//    }
+//}
+
+//fun doubleMessageMethod(number: Int, message: String = "Double is"){
+//    println("$message ${number * 2}")
+//}
+
+//fun areaOfCircle(radius: Int): Double{
+//    return 3.1415 * radius * radius
+//}
+
+//fun personalisedMessage(person: String): String{
+//    val greeting = when(person){
+//        "Anna" -> "Hey $person"
+//        "Max" -> "How are you $person"
+//        "Sophia" -> "Hello $person"
+//        "Patrick" -> "Wasssup $person"
+//        else -> "Hallo leute"
+//    }
+//    return greeting
+//}
+
+//fun addition(number1: Int, number2: Int) = number1 + number2
+
+//fun calculateTax(price: Double?) = 20 * price!! / 100
+
+fun lifespanOfAnimals(animal: String): Int {
+    return when(animal){
+        "Cats" -> 15
+        "Dogs" -> 10
+        "Rabbit" -> 12
+        else -> 20
+    }
 }
-
-

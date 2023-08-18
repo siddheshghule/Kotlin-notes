@@ -2192,8 +2192,170 @@ Please Enter Name: Dabby
 Please Enter Birth year: 1990
 Name: Dabby, Age: 33 or 32
 ```
-#### Lambda Functions
 
+#### Function Parameters
+- A function can accept parameters(arguments)
+- `fun double(number:Int){print(number*2)}`
+- Parameter can have default values
+
+Practice 1:
+```
+fun main(args: Array<String>) {
+    print(doubleInt(2))
+}
+fun doubleInt(number: Int): Int{
+return number*2
+}
+Output:
+4
+```
+
+Practice 2: Print Hello message for each person in arrayList
+
+```
+fun main(args: Array<String>) {
+var people = arrayListOf("Abby", "Babby", "Cabby", "Dabby")
+    sayHelloToPeople(people)
+}
+fun sayHelloToPeople(people: ArrayList<String>){
+    for(person in people){
+        println("Hello $person")
+    }
+}
+Output:
+Hello Abby
+Hello Babby
+Hello Cabby
+Hello Dabby
+```
+
+Practice 3: Parameter with default value
+
+```
+fun main(args: Array<String>) {
+    doubleMessageMethod(5)
+    doubleMessageMethod(5, "5 * 2 = ")
+    
+}
+
+fun doubleMessageMethod(number: Int, message: String = "Double is"){
+    println("$message ${number * 2}")
+}
+Output:
+Double is 10 // with default value
+5 * 2 =  10
+```
+
+#### Function return
+
+- A function can return a result/value
+
+return with a single line code, without needing to specify return keyword/ return type
+```
+fun main(args: Array<String>) {
+var radius = 10
+println("The Area of a circle with radius $radius is ${areaOfCircle(radius)}")
+}
+fun areaOfCircle(radius: Int) = return 3.1415 * radius * radius
+Output:
+The Area of a circle with radius 10 is 314.15000000000003
+```
+
+Practice 1: return personalised message for each person
+```
+fun main(args: Array<String>) {
+var people  = listOf("Anna", "Max", "Sophia", "Patrick")
+    for(person in people){
+        println(personalisedMessage(person))
+    }
+}
+fun personalisedMessage(person: String): String{
+    val greeting = when(person){
+        "Anna" -> "Hey $person"
+        "Max" -> "How are you $person"
+        "Sophia" -> "Hello $person"
+        "Patrick" -> "Wasssup $person"
+        else -> "Hallo leute"
+    }
+    return greeting
+}
+
+Output:
+Hey Anna
+How are you Max
+Hello Sophia
+Wasssup Patrick
+```
+
+Practice 2: sum of 2 number(parameters), call the function 3 times
+
+```
+fun main(args: Array<String>) {
+for (i in 1..3) {
+        println("The addition of 2 numbers is ${addition(i + 1, i + 2)}")
+    }
+}
+fun addition(number1: Int, number2: Int) = number1 + number2
+
+Output: 
+The addition of 2 numbers is 5
+The addition of 2 numbers is 7
+The addition of 2 numbers is 9
+```
+
+Practice 3: Add 20% tax to the product cost and print the final price.
+
+```
+fun main(args: Array<String>) {
+val products = hashMapOf(Pair("Shoes", 29.99), Pair("Socks", 9.99), Pair("Joggers", 19.99), Pair("T-shirt", 4.99))
+    for (item in products.keys) {
+        val cost = products[item]
+        println("The final price of the product ${item} is ${calculateTax(cost) + cost!!}")
+    }
+}
+
+fun calculateTax(price: Double?) = 20 * price!! / 100
+
+Output:
+The final price of the product Shoes is 35.988
+The final price of the product Socks is 11.988
+The final price of the product Joggers is 23.988
+The final price of the product T-shirt is 5.988
+```
+
+Exercise:
+Create a function that receives the name of an animal, and returns the estimated lifespan.  
+cats -> 15  
+dogs -> 10  
+rabbit -> 12  
+everything else -> 20   
+Ask the user to input an animal, then print out the estimated lifespan for that animal.
+
+
+```
+fun main(args: Array<String>) {
+    val animalsList = listOf("Cats", "Dogs", "Rabbit","Crocodile")
+    for(animal in animalsList)
+        println("$animal's estimated lifespan is ${lifespanOfAnimals(animal)} years")
+}
+fun lifespanOfAnimals(animal: String): Int {
+    return when(animal){
+        "Cats" -> 15
+        "Dogs" -> 10
+        "Rabbit" -> 12
+        else -> 20
+    }
+}
+Output:
+Cats's estimated lifespan is 15 years
+Dogs's estimated lifespan is 10 years
+Rabbit's estimated lifespan is 12 years
+Crocodile's estimated lifespan is 20 years
+```
+
+
+#### Lambda Functions
+    
 -------------------------------
 
 ### Packages
