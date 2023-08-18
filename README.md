@@ -2099,6 +2099,69 @@ Please enter your age:stop
 ```
 -------------------------------
 ### Functions
+
+- A way to group code that can be executed 0 or more times.
+- Can accept input and return output, but both of these are optional depending on the requirements.
+- Create a function `fun functionName(){// do something}`
+- Call a function `functionName()`
+
+Practice 1: Print hello 3 times
+```
+fun main(args: Array<String>) {
+    for(i in 1..3)
+        sayHello()
+}
+fun sayHello(){
+    println("Hello Everyone!")
+}
+Output:
+Hello Everyone!
+Hello Everyone!
+Hello Everyone!
+```
+Practice 2: print alphabets 5 times
+```
+fun main(args: Array<String>) {
+    var i=5
+    do {
+        printAlphabets()
+        i--
+    }while(i>0)
+}
+fun printAlphabets(){
+    println("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z")
+}
+Output:
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z
+```
+
+Practice 3: Take an input number and multiply by 17 and do it for 3 times
+
+```
+fun main(args: Array<String>) {
+    for(i in 1..3)
+        multipleOf17()
+}
+fun multipleOf17(){
+    print("Please Enter a number: ")
+    val input = readLine()?:"0"
+    val number = input.toInt()
+    println("$number * 17 = ${number*17}")
+
+}
+
+Output:
+Please Enter a number: 14
+14 * 17 = 238
+Please Enter a number: 12
+12 * 17 = 204
+Please Enter a number: 1
+1 * 17 = 17
+```
 #### Lambda Functions
 
 -------------------------------

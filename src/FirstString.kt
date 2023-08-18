@@ -1130,15 +1130,48 @@ fun main(args: Array<String>) {
 //    If it receives an age lower than 18, it prints a message that this client is not allowed.
 //    If it receives the word “stop”, the program ends
 
-    while (true) {
-        print("Please enter your age:")
-        val input = readLine() ?: ""
-        if (input == "stop") break
-        if (input.toInt() < 18)
-            println("You are underage! No entry!")
-        else
-            println("Welcome to the club")
+//    while (true) {
+//        print("Please enter your age:")
+//        val input = readLine() ?: ""
+//        if (input == "stop") break
+//        if (input.toInt() < 18)
+//            println("You are underage! No entry!")
+//        else
+//            println("Welcome to the club")
+//    }
+
+
+                                // Functions
+                    //    Practice 1: Print hello 3 times
+    //for(i in 1..3)
+    //    sayHello()
+
+                    //    Practice 2: print alphabets 5 times
+//    var i=5
+//    do {
+//        printAlphabets()
+//        i--
+//    }while(i>0)
+
+                    //    Practice 3: Take an input number and multiply by 17 and do it for 3 times
+    for(i in 1..3){
+        multipleOf17()
     }
+
+}
+//fun sayHello(){
+//    println("Hello Everyone!")
+//}
+
+//fun printAlphabets(){
+//    println("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z")
+//}
+
+fun multipleOf17(){
+    print("Please Enter a number: ")
+    val input = readLine()?:"0"
+    val number = input.toInt()
+    println("$number * 17 = ${number*17}")
 
 }
 
