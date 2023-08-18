@@ -1154,8 +1154,16 @@ fun main(args: Array<String>) {
 //    }while(i>0)
 
                     //    Practice 3: Take an input number and multiply by 17 and do it for 3 times
+//    for(i in 1..3){
+//        multipleOf17()
+//    }
+
+                    //    Exercise:
+                    //    Design a function that asks for a user’s name. Then it asks for a user’s birth year.
+                    //    Finally, it prints out a message saying the user’s name and age.
+                    //    Call the function 3 times.
     for(i in 1..3){
-        multipleOf17()
+        printNameAndAge()
     }
 
 }
@@ -1167,12 +1175,20 @@ fun main(args: Array<String>) {
 //    println("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z")
 //}
 
-fun multipleOf17(){
-    print("Please Enter a number: ")
-    val input = readLine()?:"0"
-    val number = input.toInt()
-    println("$number * 17 = ${number*17}")
+//fun multipleOf17(){
+//    print("Please Enter a number: ")
+//    val input = readLine()?:"0"
+//    val number = input.toInt()
+//    println("$number * 17 = ${number*17}")
+//
+//}
 
+fun printNameAndAge(){
+    print("Please Enter Name: ")
+    val inputName = readLine()?:""
+    print("Please Enter Birth year: ")
+    val inputYear = readLine()?:""
+    println("Name: $inputName, Age: ${2023-inputYear.toInt()} or ${2023-inputYear.toInt() - 1} ")
 }
 
 

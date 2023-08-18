@@ -2162,10 +2162,42 @@ Please Enter a number: 12
 Please Enter a number: 1
 1 * 17 = 17
 ```
+
+Exercise:
+Design a function that asks for a user’s name. Then it asks for a user’s birth year.  
+Finally, it prints out a message saying the user’s name and age.  
+Call the function 3 times.
+
+```
+fun main(args: Array<String>) {
+    for(i in 1..3)
+        printNameAndAge()
+}
+fun printNameAndAge(){
+    print("Please Enter Name: ")
+    val inputName = readLine()?:""
+    print("Please Enter Birth year: ")
+    val inputYear = readLine()?:""
+    println("Name: $inputName, Age: ${2023-inputYear.toInt()}")
+}
+
+Output:
+Please Enter Name: abby
+Please Enter Birth year: 1995
+Name: abby, Age: 28 or 27
+Please Enter Name: Shabby
+Please Enter Birth year: 1989
+Name: Shabby, Age: 34 or 33
+Please Enter Name: Dabby
+Please Enter Birth year: 1990
+Name: Dabby, Age: 33 or 32
+```
 #### Lambda Functions
 
 -------------------------------
+
 ### Packages
+
 -------------------------------
 
 #### Question to search:
