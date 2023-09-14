@@ -2353,7 +2353,309 @@ Rabbit's estimated lifespan is 12 years
 Crocodile's estimated lifespan is 20 years
 ```
 
+#### Function Overloading
 
+- Two functions can have same name, if they have different numbers or types of parameters.
+- `fun multiply(number: Int) = number*2`  
+  And  
+  `fun multiply(number1: Int, number2: Int) = number1*number2`
+
+Practice 1:
+```
+fun main(args: Array<String>) {
+    multiply(5)
+    multiply(5,10)
+}
+fun multiply(number: Int) = 
+    println("Multiplication of $number by 2 = ${number*2}")
+fun multiply(number1: Int, number2: Int) = 
+    println("Multiplication of $number1 by $number2  = ${number1*number2}")
+Output:
+Multiplication of 5 by 2 = 10
+Multiplication of 5 by 10  = 50
+```
+
+Practice 2: Create an overloaded function that takes either an animal or a list of animals. Print out message to feed each animal.
+```
+fun main(args: Array<String>) {
+    feedAnimal("Cat")
+    feedAnimal(listOf("Hamster", "Dog", "Corcodile", "Snake"))
+}
+fun feedAnimal(animal: String){
+    println("Feed $animal")
+}
+fun feedAnimal(animalsList: Collection<String>){
+    for(animal in animalsList) {
+        feedAnimal(animal)
+    }
+}
+Output:
+Feed Cat
+Feed Hamster
+Feed Dog
+Feed Corcodile
+Feed Snake
+```
+
+Practice 3: Create a function that takes a message and prints out the size of the message.  
+Overload the function to take an integer and print out a string of the size of that integer. The content of the string is not important.
+
+```
+fun main(args: Array<String>) {
+    printMessageOrSize("Hello World")
+    printMessageOrSize(10)
+}
+fun printMessageOrSize(number: Int){
+    println("A random String of length $number is: ${getRandomString(number)}")
+}
+fun printMessageOrSize(message: String){
+    println("A length of the message '$message' is: ${message.length}")
+}
+ //              Random String Generator
+fun getRandomString(length: Int) : String {
+    val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
+    return (1..length)
+        .map { allowedChars.random() }
+        .joinToString("")
+}
+Output:
+A length of the message 'Hello World' is: 11
+A random String of length 10 is: Qd7tWyUcsX
+```
+
+Exercise: Create a function that takes a product name and price. 
+It adds 20% tax to that product and displays a message saying how much the product costs.  
+Overload the function so that it takes a map of products and prices, and does the same thing.
+Call both functions in your program.
+
+```
+fun main(args: Array<String>) {
+    val name = "Bat"
+    val basePrice = 100.00
+    val listOfProductsAndPrice = mapOf("Bat" to 100.00, "Ball" to 70.00, "Joggers" to 60.00)
+
+    calculateAndPrintTotalAmountWithTax(name, basePrice)
+    calculateAndPrintTotalAmountWithTax(listOfProductsAndPrice)
+}
+
+fun calculateTax(price: Double?) = 20 * price!! / 100
+
+fun calculateAndPrintTotalAmountWithTax(name: String, basePrice: Double) {
+    println("The final price of the product $name is ${calculateTax(basePrice) + basePrice!!}")
+}
+fun calculateAndPrintTotalAmountWithTax(productsAndPrice: Map<String, Double>) {
+    for(productName in productsAndPrice.keys){
+        calculateAndPrintTotalAmountWithTax(productName, productsAndPrice[productName]!!)
+    }
+}
+Output:
+The final price of the product Bat is 120.0
+The final price of the product Bat is 120.0
+The final price of the product Ball is 84.0
+The final price of the product Joggers is 72.0
+```
+
+#### Scope 
+- A variable defined inside a function only exists in that function, unless we pass that information via `return` keyword.
+```
+fun example(){
+    val flower = 5
+    println("I have $flowers flowers") // Output: I have 5 flowers
+}
+println("I have $flowers flowers") // Error: Unresolved reference: flowers
+```
+
+Exercise 1: 
+Create a function that has a variable `years` with the value `1985`.  
+In the main function, create a variable `years` with the value `2015`.  
+Call the function, then print out the `year` variable.
+What is the value?
+Which variable was accessed?
+
+```
+fun main(args: Array<String>) {
+    val year = 2015
+    println("The year in the main function is $year") // print this 
+    printYears() // then execute this
+}
+fun printYears() {
+    val year = 1985
+    println("The year inside the function is $year")
+}
+Output:
+The year in the main function is 2015
+The year inside the function is 1985
+```
+
+Exercise 2:
+ou have the following program.
+
+```
+fun main(args: Array<String>) {
+    var parakeets = 5
+    buyMoreParaqueets(parakeets)
+    println("You now have $parakeets parakeets")
+}
+ 
+fun buyMoreParaqueets(parakeets: Int) {
+    val parakeets = 3
+}
+```
+What is the outcome when running this program?
+
+```
+Output: You now have 5 parakeets
+// Because buyMoreParaqueets() does not perform any print action 
+// for the new assigned value, and there is no return of that variable.
+```
+
+#### varargs
+- Variable number of parameters(arguments)
+
+Practice: 
+```
+fun main(args: Array<String>) {
+    sayHello("Alice", "Bob", "Dan", "Fiona")
+    sayHello("Tom", "Patrick", "Philip")
+}
+fun sayHello(vararg names: String){
+    for(name in names){
+        println("Hello $name")
+    }
+}
+Output:
+Hello Alice
+Hello Bob
+Hello Dan
+Hello Fiona
+Hello Tom
+Hello Patrick
+Hello Philip
+```
+
+Practice: Create a function that takes a variable number of integers and returns the sum of those integers
+
+```
+fun main(args: Array<String>) {
+    var result = addIntegers(1,2,3,4,5,6,7,8,9,10)
+    println("The sum of integers is $result")
+}
+fun addIntegers(vararg numbers: Int): Int {
+    var result = 0
+        for(number in numbers){
+            result += number
+    }
+    return result
+}
+Output: 
+The sum of integers is 55
+```
+
+Exercise: Create a function that takes an integer variable “count” 
+and a variable number of client names. Print out “count” hello messages for each client.
+
+i.e. if count = 3, print out 3 hello messages for each client.
+```
+fun main(args: Array<String>) {
+    var count = 3
+    printHelloNTimes(3, "Tom", "Patrick", "Philip")
+}
+fun printHelloNTimes(count: Int, vararg names: String) {
+    for (name in names) {
+        for (i in 1..count) {
+            println("Hello $name")
+        }
+    }
+}
+
+Output:
+Hello Tom
+Hello Tom
+Hello Tom
+Hello Patrick
+Hello Patrick
+Hello Patrick
+Hello Philip
+Hello Philip
+Hello Philip
+```
+
+#### Local Functions
+
+- A local function is a function inside a function.
+- Don't have scope outside the parent function.
+```
+fun listAnimals() {
+    fun listOneAnimal(animal: String) {
+        println("I have $animal")
+    }
+
+    val myAnimals = arrayListOf("cat", "dog", "cow", "horse")
+    for (animal in myAnimals) {
+        listOneAnimal(animal)
+    }
+}
+
+Output:
+I have cat
+I have dog
+I have cow
+I have horse
+```
+
+Practice:
+Create a function that takes a map of users and their bank balance. Inside create a function that takes a number and returns its double.  
+Double each user's bank balance and print out a statement.
+
+```
+fun printDoubleBalance(){
+    val usersList = hashMapOf(Pair("User1",100.0), Pair("User2",200.0), Pair("User3",300.0), Pair("User4",400.0), Pair("User5",500.0))
+    println(usersList)
+    fun doubleBalance(balance: Double): Double {
+        return (balance.times(2))
+    }
+    for(user in usersList.keys){
+        var doubleBalance: Double = doubleBalance(usersList[user]!!)
+        usersList[user] = doubleBalance
+    }
+    println(usersList)
+}
+
+Output:
+{User5=500.0, User4=400.0, User3=300.0, User2=200.0, User1=100.0}
+{User5=1000.0, User4=800.0, User3=600.0, User2=400.0, User1=200.0}
+```
+
+Exercise:
+Create a function that asks the user for a name until an empty string is introduced.  
+Create a local function that takes a name and prints a greeting.  
+For each name introduced, print out a greeting.
+```
+fun readAndPrintGreetingMessage() {
+    var inputString: String
+    fun printGreetingMessage(name: String) {
+        println("Hello $name")
+    }
+    do {
+        print("Please enter Name: ")
+        println()
+        inputString = readlnOrNull() ?: ""
+        if (inputString != "") {
+            printGreetingMessage(inputString)
+        }
+    } while (inputString != "")
+}
+
+Output:
+Please enter Name: 
+Alex
+Hello Alex
+Please enter Name: 
+Priya
+Hello Priya
+Please enter Name:
+<Enter>
+```
 #### Lambda Functions
     
 -------------------------------

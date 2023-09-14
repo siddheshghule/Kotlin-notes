@@ -1226,11 +1226,163 @@ fun main(args: Array<String>) {
 //    everything else -> 20
 //    Ask the user to input an animal, then print out the estimated lifespan for that animal.
 
-    val animalsList = listOf("Cats", "Dogs", "Rabbit","Crocodile")
-    for(animal in animalsList)
-        println("$animal's estimated lifespan is ${lifespanOfAnimals(animal)} years")
+//    val animalsList = listOf("Cats", "Dogs", "Rabbit","Crocodile")
+//    for(animal in animalsList)
+//        println("$animal's estimated lifespan is ${lifespanOfAnimals(animal)} years")
 
+
+//                                   #### Function Overloading
+//                                           Practice 1:
+//    multiply(5)
+//    multiply(5,10)
+
+//                                          Practice 2:
+// Create an overloaded function that takes either an animal or a list of animals. Print out message to feed each animal.
+
+//    feedAnimal("Cat")
+//    feedAnimal(listOf("Hamster", "Dog", "Corcodile", "Snake"))
+
+//                                          Practice 3:
+//    Create a function that takes a message and prints out the size of the message.
+//    Overload the function to take an integer and print out a string of the size of that integer. The content of the string is not important.
+
+//    printMessageOrSize("Hello World")
+//    printMessageOrSize(10)
+
+//                                                              Exercise:
+//    Create a function that takes a product name and price.
+//    It adds 20% tax to that product and displays a message saying how much the product costs.
+//    Overload the function so that it takes a map of products and prices, and does the same thing.
+//    Call both functions in your program.
+
+//    val name = "Bat"
+//    val basePrice = 100.00
+//    val listOfProductsAndPrice = mapOf("Bat" to 100.00, "Ball" to 70.00, "Joggers" to 60.00)
+//
+//    calculateAndPrintTotalAmountWithTax(name, basePrice)
+//    calculateAndPrintTotalAmountWithTax(listOfProductsAndPrice)
+
+//                                                        SCOPE
+    //                                                  Exercise 1:
+    //        Create a function that has a variable `years` with the value `1985`.
+    //        In the main function, create a variable `years` with the value `2015`.
+    //        Call the function, then print out the `year` variable.
+    //        What is the value?
+    //        Which variable was accessed?
+
+//    val year = 2015
+//    println("The year in the main function is $year")
+//    printYears()
+
+//                            Exercise 2:
+//    var parakeets = 5
+//    buyMoreParaqueets(parakeets)
+//    println("You now have $parakeets parakeets")
+
+    //                                                      vararg
+
+//    sayHello("Alice", "Bob", "Dan", "Fiona")
+//    sayHello("Tom", "Patrick", "Philip")
+
+    //                                                      Practice:
+//    Create a function that takes a variable number of integers and returns the sum of those integers
+
+//    var result = addIntegers(1,2,3,4,5,6,7,8,9,10)
+//    println("The sum of integers is $result")
+
+//                                                           Exercise:
+//    Create a function that takes an integer variable “count”
+//    and a variable number of client names. Print out “count” hello messages for each client.
+//
+//    i.e. if count = 3, print out 3 hello messages for each client.
+
+//    var count = 3
+//    printHelloNTimes(3, "Tom", "Patrick", "Philip")
+
+    //                                                  Local Functions
+//    listAnimals()
+
+    //                                          Practice: Print double bank balance.
+//    printDoubleBalance()
+
+//                                                      Exercise:
+//    Create a function that asks the user for a name until an empty string is introduced.
+//    Create a local function that takes a name and prints a greeting.
+//    For each name introduced, print out a greeting.
+    readAndPrintGreetingMessage()
 }
+
+fun readAndPrintGreetingMessage() {
+    var inputString: String
+    fun printGreetingMessage(name: String) {
+        println("Hello $name")
+    }
+    do {
+        print("Please enter Name: ")
+        println()
+        inputString = readlnOrNull() ?: ""
+        if (inputString != "") {
+            printGreetingMessage(inputString)
+        }
+    } while (inputString != "")
+}
+
+//fun printDoubleBalance(){
+//    val usersList = hashMapOf(Pair("User1",100.0), Pair("User2",200.0), Pair("User3",300.0), Pair("User4",400.0), Pair("User5",500.0))
+//    println(usersList)
+//    fun doubleBalance(balance: Double): Double {
+//        return (balance.times(2))
+//    }
+//    for(user in usersList.keys){
+//        var doubleBalance: Double = doubleBalance(usersList[user]!!)
+//        usersList[user] = doubleBalance
+//    }
+//    println(usersList)
+//}
+
+
+//fun listAnimals() {
+//    fun listOneAnimal(animal: String) {
+//        println("I have $animal")
+//    }
+//
+//    val myAnimals = arrayListOf("cat", "dog", "cow", "horse")
+//    for (animal in myAnimals) {
+//        listOneAnimal(animal)
+//    }
+//}
+//
+//fun printHelloNTimes(count: Int, vararg names: String) {
+//    for (name in names) {
+//        for (i in 1..count) {
+//            println("Hello $name")
+//        }
+//    }
+//}
+
+
+//fun addIntegers(vararg numbers: Int): Int {
+//    var result = 0
+//        for(number in numbers){
+//            result += number
+//    }
+//    return result
+//}
+//fun sayHello(vararg names: String){
+//    for(name in names){
+//        println("Hello $name")
+//    }
+//}
+
+//fun buyMoreParaqueets(parakeets: Int) {
+//    val parakeets = 3
+//}
+
+//fun printYears() {
+//    val year = 1985
+//    println("The year inside the function is $year")
+//}
+
 //fun sayHello(){
 //    println("Hello Everyone!")
 //}
@@ -1286,13 +1438,51 @@ fun main(args: Array<String>) {
 
 //fun addition(number1: Int, number2: Int) = number1 + number2
 
-//fun calculateTax(price: Double?) = 20 * price!! / 100
+//fun lifespanOfAnimals(animal: String): Int {
+//    return when(animal){
+//        "Cats" -> 15
+//        "Dogs" -> 10
+//        "Rabbit" -> 12
+//        else -> 20
+//    }
+//}
 
-fun lifespanOfAnimals(animal: String): Int {
-    return when(animal){
-        "Cats" -> 15
-        "Dogs" -> 10
-        "Rabbit" -> 12
-        else -> 20
-    }
-}
+//fun multiply(number: Int) =
+//    println("Multiplication of $number by 2 = ${number*2}")
+//fun multiply(number1: Int, number2: Int) =
+//    println("Multiplication of $number1 by $number2  = ${number1*number2}")
+
+//fun feedAnimal(animal: String){
+//    println("Feed $animal")
+//}
+//fun feedAnimal(animalsList: Collection<String>){
+//    for(animal in animalsList) {
+//        feedAnimal(animal)
+//    }
+//}
+
+//fun printMessageOrSize(number: Int){
+//    println("A random String of length $number is: ${getRandomString(number)}")
+//}
+//
+////                                  Random String Generator
+//fun getRandomString(length: Int) : String {
+//    val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
+//    return (1..length)
+//        .map { allowedChars.random() }
+//        .joinToString("")
+//}
+//
+//fun printMessageOrSize(message: String){
+//    println("A length of the message $message is: ${message.length}")
+//}
+
+//fun calculateTax(price: Double?) = 20 * price!! / 100
+//fun calculateAndPrintTotalAmountWithTax(name: String, basePrice: Double) {
+//    println("The final price of the product $name is ${calculateTax(basePrice) + basePrice!!}")
+//}
+//fun calculateAndPrintTotalAmountWithTax(productsAndPrice: Map<String, Double>) {
+//    for(productName in productsAndPrice.keys){
+//        calculateAndPrintTotalAmountWithTax(productName, productsAndPrice[productName]!!)
+//    }
+//}
