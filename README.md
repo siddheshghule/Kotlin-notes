@@ -22,11 +22,15 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
         2. [Assignment Operators](#assignment-operators)
         3. [Comparison Operators](#comparison-operators)
         4. [Logical Operators](#logical-operators)
+        5. [Booleans](#booleans)
 5. [Nullability](#nullability)
     1. [Null values](#null-values)
     2. [Elvis Operator](#elvis-operator)
     3. [Non-null assertions](#non-null-assertions)
-6. [Handling Exception](#handling-exception)
+6. [Handling Exceptions](#handling-exceptions)
+   1. [try-catch](#try-catch)
+   2. [finally](#finally)
+   3. [throw](#throw)
 7. [Collections](#collections)
 8. [List and ArrayList](#list-and-arraylist)
 9. [Set and HashSet](#set-and-hashset)
@@ -71,7 +75,6 @@ println("(-.-)")
 println("O_(\")(\")")
 
 Output:
-
 (\(\
 (-.-)
 O_(")(")
@@ -87,14 +90,14 @@ A string is composed of character (String of chars)
 ### Variables
 
 A variable is a container of data.  
-Examples:
-
+Examples:  
 ```
 var dogs = 3
 var name = "Tommy"
 ```
 
-Variables (var) can be changed/updated.  
+- Variables (var) can be changed/updated.  
+
 Examples:
 
 ```
@@ -112,9 +115,10 @@ age = twentyone
 Error: Type mismatch
 ```
 
-Variables can be changeable(mutable) and constants/read-only(immutable).  
-mutable: var (can be changed)
-immutable: val (can be read-only)
+Variables can be changeable(mutable) or constants/read-only(immutable).  
+- mutable: var (can be changed)  
+- immutable: val (can be read-only)  
+
 Example:
 
 ```
@@ -131,9 +135,11 @@ example, first name can be written as
 `var firstName = 'Tommy'` (also known as camel case) or  
 `var first_name = 'Tommy' `
 
-**Naming convention** - camelCase - firstName.
+**_Naming convention_** - camelCase - firstName.
 
-String Examples:
+--------
+
+**String Examples:**
 
 ```
 val catName = "Fluffy"
@@ -146,7 +152,6 @@ var url = "https://www.google.com"
 println(url)
 
 Output:
-
 My cat's name is "Fluffy"
 Two types of slashesh \ and /
 https://google.com
@@ -177,19 +182,18 @@ We can use readLine().
 Example:
 
 ``` 
-println("Enter user input")
+println("Enter user input: ")
 val userInput = readLine() // read only one line
 println("Your input string is: $userInput")
 
 Output:
-
-Enter user input
+Enter user input:
 hello
 Your input string is hello
 ```  
 
-Input a number as a String and convert to integer.  
-The `readLine()` command can return nothing(null), then we can use `?:""`, asif the `readLine()` returns null, then
+- Input a number as a String and convert to integer.  
+The `readLine()` command can return nothing(null), then we can use `?:""`, as if the `readLine()` returns null, then
 empty string will be used `""`.
 
 ```  
@@ -198,7 +202,6 @@ val userInput = readLine()?:"" // if empty then use "" (empty string)
 println("Your input times 5 is: ${userInput.toInt()*5}")  
 
 Output:
-
 Enter user input
 5
 Your input times 5 is: 25
@@ -212,7 +215,6 @@ val name =  readLine()
 println("Welcome, $name")
 
 Output:
-
 What is your name?
 Tommy
 Welcome, Tommy
@@ -227,7 +229,6 @@ val multipleOfFive = number.toInt() * 5
 println("Number multiplied by 5 is: $multipleOfFive")
 
 Output:
-
 Enter a number: 4
 Number multiplied by 5 is: 20
 ```
@@ -242,7 +243,6 @@ val result = currentYear - birthYear.toInt()
 println("Estimated age of the user is: ${result-1} or $result")
 
 Output:
-
 Enter your birth year: 1996
 Estimated age of the user is: 26 or 27
 ```
@@ -261,7 +261,7 @@ Number types have limits.
 | int   | 32   | -2147483648 (-2^31)          | 2147483647    (2^31-1)       |
 | long  | 64   | -9223372036854775808 (-2^64) | 9223372036854775807 (2^64-1) |
 
--> Know the type of variable.
+- How to know the type of variable.
 
 ```
 var pi = 3.141592
@@ -274,7 +274,6 @@ var population = 75000000000
 println("Type of population: ${population::class.java}")
 
 Output:
-
 Type of pi: double
 Type of name: class java.lang.String
 Type of population: long
@@ -301,10 +300,9 @@ Implicit variable types are decided by Kotlin.
 Example: `val cat = 3 // Int`
 
 Explicit variable types are decided by us. We can instruct kotlin to assign a different type to our variable.  
-Example: `val cat:Byte = 5`  
+Example: `val cat: Byte = 5`  
 `val floatVal: Float = 29.99F` Or `val floatValue = 29.99F`  
 `val longVal: Float = 29` Or `val longVal = 29L`
-
 
 --------
 ### Operators And Booleans
@@ -344,7 +342,7 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | !=       | Not equal                | x != y  |
 | \>       | Greater than             | x > y   |
 | <        | Less than                | x < y   |
-| > =       | Greater than or equal to | x >= y  |
+| \>=      | Greater than or equal to | x >= y  |
 | <=       | Less than or equal to    | x <= y  |
 
 ##### Logical Operators
@@ -354,8 +352,6 @@ Referred From: https://www.w3schools.com/kotlin/kotlin_operators.php
 | &&           | Logical and | Returns true if both statements are true                | x < 5 && x < 10          |
 | &#124;&#124; | Logical or  | Returns true if one of the statements is true           | x < 5 &#124;&#124; x < 4 |
 | !            | Logical not | Reverse the result, returns false if the result is true |
-
-Remainder: See all the section objectives to create a table of content
 
 Exercise:
 
@@ -369,7 +365,6 @@ println("Division of $a and $b: ${a/b}")
 println("Remainder of $a and $b: ${a%b}")
 
 Output:
-
 Addition of 76.254 and 3.867: 80.12100000000001
 Subtraction of 76.254 and 3.867: 72.387
 Multiplication of 76.254 and 3.867: 294.87421800000004
@@ -392,7 +387,6 @@ var balanceWithInterest = principal.toDouble() * ((1 + (rateOfInterest.toDouble(
 println("Your bank balance with interest of $rateOfInterest per year for the period of $years years is: $balanceWithInterest")
 
 Output:
-
 Please enter your current bank balance: 1000
 Please enter rate of interest per annum: 5.5
 Please enter number of years: 5
@@ -401,8 +395,8 @@ Your bank balance with interest of 5.5 per year for the period of 5 years is: 13
 --------
 #### Booleans:
 
-It can only have True/False value.  
-Is very memory efficient, enables Logical Operators, enables program Flow Control.
+- It can only have True/False value.  
+- Is very memory efficient, enables Logical Operators, enables program Flow Control.
 
 Exercise: A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding.
 The requirements are
@@ -426,7 +420,6 @@ var conditionThree = (1 + noOfKids) >= 3
         println("Farmaer does not get funding")
 
 Output:
-
 Farmer gets funding
 ```
 
@@ -439,7 +432,8 @@ Farmer gets funding
 - If you use a variable with null value, your program will crash with NullPointerException (NPE)
 - Kotlin guards against null values, giving us Compilation Error.
 - Kotlin differentiates between variables that can be null(using '?') and those that cannot.  
-  Example:
+  
+Example:
   ```
   val herName: String = "Lilly" // (Cannot be null, must be given a value. Cannot assign null)  
   val hisName: String? = null // (Can be null, so giving a value is optional)
@@ -469,30 +463,29 @@ println(number?.rem(4)) // 2
 println(number?.times(2)) // 20
   ```
 
-- Null operator - Elvis Operator(?:)  
+#### Elvis Operator(?:)
   Guarantees a result returned  
   Either the actual result for a nun-null variable, or a default value
-  ```
-    var catName: String? = null
-    println(catName?:"This cat has no name")
-    catName = "Fluffy"
-    println(catName?:"This cat has no name")
-  ```
-  Output:
-    ```  
-    This cat has no name
-    Fluffy
-     ```
+```
+var catName: String? = null
+println(catName?:"This cat has no name")
+catName = "Fluffy"
+println(catName?:"This cat has no name")
 
-- Non-null assertions
-  !!. -> A developer guarantee that the variable is not null.  
+Output:
+This cat has no name
+Fluffy
+```
+
+#### Non-null assertions
+  !!. -> A **_developer guarantee_** that the variable is not null.  
   **Warning:** : This bypasses all the language checks for the null-safety. Can trigger a program to crash.
 
-  ```
-  val catName: String? = null
-  println(catName!!.length)
-  // If the value is null then the program will crash.
-  ```
+```
+val catName: String? = null
+println(catName!!.length)
+// If the value is null then the program will crash.  
+```
 
 Practice: Elvis and assertions Print input message or default message
 
@@ -514,98 +507,100 @@ val number: Int? = readLine()?.toIntOrNull()
 println(number!!.times(5))
  ```
 
-// Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is
+Exercise: A product costs 29.99. Ask a user at the console how many products they want to buy. If the read value is
 null, use the default of one. Print the total of the purchase.
 
- ```
-    val cost = 29.99
-    val items: Int? = readLine()?.toIntOrNull()?:1 // When value is null, items= 1
-    println("The cost of $items items is: ${items?.times(cost)}")
+```
+val cost = 29.99
+val items: Int? = readLine()?.toIntOrNull()?:1 
+// When value is null, items= 1
+println("The cost of $items items is: ${items?.times(cost)}")
 
-// The cost of 4 items is: 119.96
-// The cost of 1 items is: 29.99
- ```
+Output:
+The cost of 4 items is: 119.96 
+The cost of 1 items is: 29.99
+```
 
 --------
 ### Handling Exceptions
-
-#### 1. What is an Exception?
 
 An unexpected event in a program. A System cannot recover from an exception, we need to mitigate it ourselves. Execution
 is stopped and data is lost.  
 Exceptions always have a message, by default, and it is good practice having a message when creating custom Exception.
 
-#### 2. try-catch
+#### try-catch
 
 A way to manage exception.
 
 ```
-    print("Enter input:")
-    var test = readLine()
-    try {
-        println(test?.toInt())
-    } catch (e: Exception) {
-        println("An exception has occurred ${e.localizedMessage}")
-    }
-    
-    // Enter input:test
-       An exception has occurred For input string: "test"
+print("Enter input:")
+var test = readLine()
+try {
+    println(test?.toInt())
+} catch (e: Exception) {
+    println("An exception has occurred ${e.localizedMessage}")
+}
+
+Output:
+Enter input:test
+An exception has occurred For input string: "test"
 ```
 
-#### 3. finally
+#### finally
 
 A 'finally' block will always be executed whether an exception occurs.
 
 ```
-    print("Enter a number:")
-    var input = readLine()
-    try {
-        println(input?.toInt())
-    } catch (e: Exception) {
-        println("Exception has occurred with $e")
-    } finally {
-        println("Finally block, the input was $input")
-    }
+print("Enter a number:")
+var input = readLine()
+try {
+    println(input?.toInt())
+} catch (e: Exception) {
+    println("Exception has occurred with $e")
+} finally {
+    println("Finally block, the input was $input")
+}
     
-    // Output
-    Enter a number:4
-    4
-    Finally block, the input was 4
+Output:
+Enter a number:4
+4
+Finally block, the input was 4
 
 ```
 
 
-#### 4. throw
+#### throw
 
 A way to generate your own exceptions.  
 Can be used if you detect a state in your program that you cannot recover from.
 
 ```
-    print("Enter input:")
-    var input = readLine()
-    if(input.isNullOrBlank()) throw IllegalAccessException("Input is blank or null")
-    else
-        println("Input is: $input")
+print("Enter input:")
+var input = readLine()
+if(input.isNullOrBlank()) throw IllegalAccessException("Input is blank or null")
+else
+    println("Input is: $input")
 ```
 
 Exercise: Multiply by 5 if it is an Integer and print or else catch
 
 ```
-    print("Enter an Integer:")
-    var input = readLine()
-    try {
+print("Enter an Integer:")
+var input = readLine()
+try {
     var result = input?.toInt()?.times(5)
     println("Result of $input * 5 = $result")
-    } catch (e: Exception) {
+} catch (e: Exception) {
     println("Input was not an integer, input $input was ${input!!::class.java}")
-    }
-    finally {
+}
+finally {
     println("Finish.")
-    }
-    // Output:
-    Enter an Integer: 
-    Input was not an integer, input  was class java.lang.String
-    Finish.
+}
+
+Output:
+Enter an Integer:  Hello
+Input was not an integer, input  was class java.lang.String
+Finish.
 ```
 
 --------
