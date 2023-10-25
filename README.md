@@ -2669,6 +2669,3 @@ Please enter Name:
 #### Question to search:
 
 If `val` means immutable, and it cannot be changed, how can we make changes to arrayList
-
-Formatting:
-1-> linking every section 2_. code formatting, adding <tab> wherever needed 
