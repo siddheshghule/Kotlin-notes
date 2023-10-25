@@ -3,4 +3,6 @@ target/
 out/
 /lib
 /.DS_Store
-/.idea/*
+/.idea/*.iws
+/.idea/*.xml
+/.idea/*.iml

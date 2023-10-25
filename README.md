@@ -43,6 +43,13 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     5. [Break and continue](#break-and-continue)
     6. [Expressions](#expressions)
 12. [Functions](#functions)
+    1. [Function Parameters](#function-parameters)
+    2. [Function return](#function-return)
+    3. [Function Overloading](#function-overloading)
+    4. [Scope](#scope)
+    5. [varargs](#varargs)
+    6. [Local Functions](#local-functions)
+    7.[Lambda Functions](#lambda-functions)
 13. [Packages](#packages)
 
 ## String and Variables
@@ -2450,7 +2457,7 @@ The final price of the product Ball is 84.0
 The final price of the product Joggers is 72.0
 ```
 
-#### Scope 
+#### Scope
 - A variable defined inside a function only exists in that function, unless we pass that information via `return` keyword.
 ```
 fun example(){
