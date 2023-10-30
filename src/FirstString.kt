@@ -116,8 +116,8 @@ fun main(args: Array<String>) {
 //                                   Exercise 2:
     //A farmer has 3 cows, of which only one produces milk. He has two children. He is trying to apply for funding.
     // The requirements are
-    //You must have no more than 5 animals
-    //Animals must produce something that can be sold
+    // You must have no more than 5 animals
+    // Animals must produce something that can be sold
     //Regardless of the other conditions, funding will be approved if the family has 3 or more members
     //Does the farmer receive the funding?
 
@@ -1309,23 +1309,114 @@ fun main(args: Array<String>) {
 //    Create a function that asks the user for a name until an empty string is introduced.
 //    Create a local function that takes a name and prints a greeting.
 //    For each name introduced, print out a greeting.
-    readAndPrintGreetingMessage()
+//    readAndPrintGreetingMessage()
+
+    //                                      Lambda with Higher Order Function
+
+//    val names = arrayListOf("Dan", "Bob", "Carol", "Jenny")
+//    val myLambda = {name: String -> println("Hello $name")}
+//    sayHelloHOF(names, myLambda)
+//    // OR
+//    sayHelloHOF(names) { name: String -> println("Hello $name") }
+
+//    Practice HOF and lambda
+//    Create a HOF that takes a mutable collection of integers and a lambda function.
+//    It then applies the lambda function to every even element of that collection.
+//
+//    Create a lambda function that when applies to an integer, it returns that integer divided by 10.
+//
+//    Call HOF using your lambda and display the result.
+
+//    val numbers = arrayListOf(1, 2, 3, 4, 5, 6, 10, 20, 35, 36, 55, 48)
+//    higherOrderFunctionLambdaPractice(numbers) { num: Int -> num / 10 }
+
+//    Exercise:
+//
+//    Create a Higher Order Function that takes a list of client names and a lambda expression that returns a String.
+//    It then applies the lambda expression to every client name, creates a new collection of the results and returns the result.
+//    Create a lambda expression that takes a client name String and returns a personalised message.
+//    Call the HOF and print out the result.
+
+//    higherOrderFunctionLambdaExerciseString(arrayListOf("Dan", "Bob", "Carol", "Jenny")) {clientName: String -> println("Hello $clientName").toString() }
+
+//                                                      Practice:
+//    1. Given a set of random integers. printout a subset that consists only of double-digit integers.
+
+//    val numbers = setOf(1, 2, 12, 45, 3, 56, 7, 89, 76, 444, 98, 7, 126)
+//    val doubleDigitArray = numbers.filter { it -> it in 10..99 }
+//    println(doubleDigitArray)
+
+//    2. Display a list of clients sorted by the last letter of the name.
+
+//    val clientNames = arrayListOf("Dan", "Bob", "Carol", "Jenny")
+//    println(clientNames.sortedBy { it[it.length - 1] })
+
+//    3. Print out the integer that has the biggest middle digit, in the list of three digit numbers.
+
+//    val threeDigitNumbers = listOf(123, 456, 789, 456, 989, 798, 999)
+//    println(threeDigitNumbers.maxBy { it.toString()[1] })
+//    // OR
+//    println(threeDigitNumbers.maxBy { it /10 % 10 })
+
+//                                           Exercise:
+
+//    Given a collection of random integers.
+//    If a number is odd, double it.
+//    If a number is even, half it.
+//    Print out a subset of the collection that has numbers greater than 25.
+
+//    val randomNumbers = listOf(12, 23, 34, 56, 67, 87, 89, 214, 542, 55, 54, 67, 84, 123)
+//    println(randomNumbers.map {
+//        if (it % 2 == 0)
+//            it / 2
+//        else
+//            it * 2
+//    }.filter { it > 25 })
+
+
+
 }
 
-fun readAndPrintGreetingMessage() {
-    var inputString: String
-    fun printGreetingMessage(name: String) {
-        println("Hello $name")
-    }
-    do {
-        print("Please enter Name: ")
-        println()
-        inputString = readlnOrNull() ?: ""
-        if (inputString != "") {
-            printGreetingMessage(inputString)
-        }
-    } while (inputString != "")
-}
+//fun higherOrderFunctionLambdaExerciseString(
+//    clientNames: ArrayList<String>,
+//    lambdaFunctionExercise: (String) -> String
+//): ArrayList<String> {
+//    val message = arrayListOf<String>()
+//    for(name in clientNames){
+//        message.add(lambdaFunctionExercise(name))
+//    }
+//    return message;
+//}
+
+
+//fun higherOrderFunctionLambdaPractice(numbers: ArrayList<Int>, lambdaFunction: (Int) -> Int) {
+//    for (num in numbers) {
+//        if (num % 2 == 0) {
+//            val printVal = lambdaFunction(num)
+//            println("$num / 10 = $printVal, ")
+//        }
+//    }
+//}
+
+//fun sayHelloHOF(names: ArrayList<String>, doSomething: (String) -> Unit) {
+//    for (name in names) {
+//        doSomething(name)
+//    }
+//}
+//fun readAndPrintGreetingMessage() {
+//    var inputString: String
+//    fun printGreetingMessage(name: String) {
+//        println("Hello $name")
+//    }
+//    do {
+//        print("Please enter Name: ")
+//        println()
+//        inputString = readlnOrNull() ?: ""
+//        if (inputString != "") {
+//            printGreetingMessage(inputString)
+//        }
+//    } while (inputString != "")
+//}
 
 //fun printDoubleBalance(){
 //    val usersList = hashMapOf(Pair("User1",100.0), Pair("User2",200.0), Pair("User3",300.0), Pair("User4",400.0), Pair("User5",500.0))

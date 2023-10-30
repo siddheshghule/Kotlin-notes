@@ -48,8 +48,9 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     3. [Function Overloading](#function-overloading)
     4. [Scope](#scope)
     5. [varargs](#varargs)
-    6. [Local Functions](#local-functions)
-    7.[Lambda Functions](#lambda-functions)
+    6. [Local Functions](#local-functions) 
+    7. [Lambda Functions](#lambda-functions)
+       1. [Higher Order Functions](#higher-order-function)
 13. [Packages](#packages)
 
 ## String and Variables
@@ -2659,7 +2660,141 @@ Please enter Name:
 <Enter>
 ```
 #### Lambda Functions
-    
+
+- A lambda is an anonymous function (has no name)  
+- Normal function vs lambda
+```
+fun printMessage(name: String) {
+    println("Hello $name")
+}
+```
+vs  
+`{name: String -> println("Hello $name"")}`
+- A lambda function can have parameters, they have to be declared at the start of the block.  
+- A lambda function can be assigned to a variable  
+  `val myLambda = {name: String -> println("Hello $name"")}`
+- The variable can be passed as a parameter to a new function, Higher order function.
+
+##### Higher Order Functions
+
+- A Higher Order Function(HOF) is a function that takes another function as a parameter.  
+
+Exercise:  
+```
+fun main(args: Array<String>) {
+val names = arrayListOf("Dan", "Bob", "Carol", "Jenny")
+val myLambda = {name: String -> println("Hello $name")}
+sayHelloHOF(names, myLambda)
+    // OR lambda function can go outside
+sayHelloHOF(names) { name: String -> println("Hello $name") }
+}
+
+fun sayHelloHOF(names: ArrayList<String>, doSomething: (String) -> Unit) {
+    for (name in names) {
+        doSomething(name)
+    }
+}
+```
+
+Practice:  
+Create a HOF that takes a mutable collection of integers and a lambda function.  
+It then applies the lambda function to every even element of that collection.  
+Create a lambda function that when applies to an integer, it returns that integer divided by 10.  
+Call HOF using your lambda and display the result.
+```
+fun main(args: Array<String>) {
+    val numbers = arrayListOf(1, 2, 3, 4, 5, 6, 10, 20, 35, 36, 55, 48)
+    higherOrderFunctionLambdaPractice(numbers) { num: Int -> num / 10 }
+}
+
+fun higherOrderFunctionLambdaPractice(numbers: ArrayList<Int>, lambdaFunction: (Int) -> Int) {
+    for (num in numbers) {
+        if (num % 2 == 0) {
+            val printVal = lambdaFunction(num)
+            println("$num / 10 = $printVal, ")
+        }
+    }
+}
+```
+
+Exercise:
+
+Create a Higher Order Function that takes a list of client names and a lambda expression that returns a String.  
+It then applies the lambda expression to every client name, creates a new collection of the results and returns the result.  
+Create a lambda expression that takes a client name String and returns a personalised message.  
+Call the HOF and print out the result.  
+
+```
+fun main(args: Array<String>) {
+    higherOrderFunctionLambdaExerciseString(arrayListOf("Dan", "Bob", "Carol", "Jenny")) {clientName: String -> println("Hello $clientName").toString() }
+}
+fun higherOrderFunctionLambdaExerciseString(
+    clientNames: ArrayList<String>,
+    lambdaFunctionExercise: (String) -> String
+): ArrayList<String> {
+    val message = arrayListOf<String>()
+    for(name in clientNames){
+        message.add(lambdaFunctionExercise(name))
+    }
+    return message;
+}
+```
+
+##### Common Higher Order Functions
+
+Here are some of the common HOFs:  
+```
+forEach(), map(), filter(), 
+groupBy(), maxBy(), minBy(), 
+sortedBy(), ...
+```
+
+Practice:
+1. Given a set of random integers. printout a subset that consists only of double-digit integers.
+
+```
+val numbers = setOf(1, 2, 12, 45, 3, 56, 7, 89, 76, 444, 98, 7, 126)
+val doubleDigitArray = numbers.filter { it -> it in 10..99 }
+println(doubleDigitArray)
+```
+
+2. Display a list of clients sorted by the last letter of the name.  
+
+```
+val clientNames = arrayListOf("Dan", "Bob", "Carol", "Jenny")
+println(clientNames.sortedBy { it[it.length - 1] })
+```
+
+3. Print out the integer that has the biggest middle digit, in the list of three digit numbers.
+```
+val threeDigitNumbers = listOf(123, 456, 789, 456, 989, 798, 999)
+println(threeDigitNumbers.maxBy { it.toString()[1] })
+    // OR
+println(threeDigitNumbers.maxBy { it /10 % 10 })
+```
+
+Exercise:
+Given a collection of random integers.  
+If a number is odd, double it.  
+If a number is even, half it.  
+Print out a subset of the collection that has numbers greater than 25.  
+
+```dtd
+val randomNumbers = listOf(12, 23, 34, 56, 67, 87, 89, 214, 542, 55, 54, 67, 84, 123)
+println(randomNumbers.map {
+        if (it % 2 == 0)
+            it / 2
+        else
+            it * 2
+    }.filter { it > 25 })
+
+Output: [46, 28, 134, 174, 178, 107, 271, 110, 27, 134, 42, 246]
+```
+
+
+
+
+
 -------------------------------
 
 ### Packages
