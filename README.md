@@ -50,7 +50,7 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     5. [varargs](#varargs)
     6. [Local Functions](#local-functions) 
     7. [Lambda Functions](#lambda-functions)
-       1. [Higher Order Functions](#higher-order-function)
+       1. [Higher Order Functions](#higher-order-functions)
 13. [Packages](#packages)
 
 ## String and Variables
