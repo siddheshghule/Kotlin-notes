@@ -52,6 +52,8 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     7. [Lambda Functions](#lambda-functions)
        1. [Higher Order Functions](#higher-order-functions)
 13. [Packages](#packages)
+    1. [Naming conventions](#naming-conventions)
+    2. [Imports](#imports)
 
 ## String and Variables
 
@@ -2791,13 +2793,40 @@ println(randomNumbers.map {
 Output: [46, 28, 134, 174, 178, 107, 271, 110, 27, 134, 42, 246]
 ```
 
-
-
-
-
 -------------------------------
 
 ### Packages
+
+- A package is a way to group and organise related code together.
+- A package definition is the first line of a file.  
+  e.g. `package com.orginisation.project.configuration`
+- Practically, a package is a folder on the disk.
+- **Scope** - is the visibility in the same package. 
+In order to use the code from another package, that package must be [imported](#imports) into the project.
+
+#### Naming conventions
+
+- Package names are separated by dots.
+- Names are always lower case, with no underscore.
+- Leftmost name is the highest level package.
+- Rightmost name is the lowest level package.
+
+#### Imports
+
+- In order to use the code from another package, we mush import that package.  
+e.g. `com.orginisation.project.feature.featureOne`(for single function )
+OR  
+`com.orginisation.project.feature.*` (for all the functions available in that file.)
+
+
+
+
+
+
+
+
+
+
 
 -------------------------------
 
