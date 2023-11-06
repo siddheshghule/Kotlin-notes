@@ -54,6 +54,7 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
 13. [Packages](#packages)
     1. [Naming conventions](#naming-conventions)
     2. [Imports](#imports)
+14. [Project: Hangman](#project-hangman)
 
 ## String and Variables
 
@@ -2818,9 +2819,23 @@ e.g. `com.orginisation.project.feature.featureOne`(for single function )
 OR  
 `com.orginisation.project.feature.*` (for all the functions available in that file.)
 
+-------------------------------
 
+### Project: Hangman
 
+Build a hangman name  
+You have to guess a word letter by letter  
+You have 6 guesses  
+For every mistake, more of the man is drawn.  
+If the whole man is drawn, he is hanged, and game over  
+If the word is guessed, the man is spared.  
 
+Solution: 
+Execute the following code from [FirstString.kt](src/FirstString.kt)
+```
+val hangman = Hangman()
+hangman.setupGame()
+```
 
 
 

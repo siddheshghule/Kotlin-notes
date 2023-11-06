@@ -1,5 +1,7 @@
 package src
 
+import src.project.hangman.Hangman
+
 fun main(args: Array<String>) {
 
 //    println("Hello String")
@@ -1374,6 +1376,8 @@ fun main(args: Array<String>) {
 //    }.filter { it > 25 })
 
 
+    val hangman = Hangman()
+    hangman.setupGame()
 
 }
 
