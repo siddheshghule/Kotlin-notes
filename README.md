@@ -55,6 +55,7 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     1. [Naming conventions](#naming-conventions)
     2. [Imports](#imports)
 14. [Project: Hangman](#project-hangman)
+15. [Project: Tic Tac Toe](#project-tic-tac-toe)
 
 ## String and Variables
 
@@ -2829,6 +2830,14 @@ You have 6 guesses
 For every mistake, more of the man is drawn.  
 If the whole man is drawn, he is hanged, and game over  
 If the word is guessed, the man is spared.  
+  |--------|-
+  |  |
+  |  O
+  | /|\
+  |  |
+  | / \
+ /|\
+/ | \
 
 Solution: 
 Execute the following code from [FirstString.kt](src/FirstString.kt)
@@ -2838,8 +2847,14 @@ hangman.setupGame()
 ```
 
 
+### Project: Tic Tac Toe
 
-
+Solution:
+Execute the following code from [FirstString.kt](src/FirstString.kt)
+```
+val ticTacToe = TicTacToe()
+ticTacToe.inputValue()
+```
 
 
 

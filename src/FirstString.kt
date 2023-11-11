@@ -1,6 +1,7 @@
 package src
 
 import src.project.hangman.Hangman
+import src.project.tictactoe.TicTacToe
 
 fun main(args: Array<String>) {
 
@@ -1376,8 +1377,23 @@ fun main(args: Array<String>) {
 //    }.filter { it > 25 })
 
 
-    val hangman = Hangman()
-    hangman.setupGame()
+//                            Project: Hangman
+//
+//                            Build a hangman name
+//                                    You have to guess a word letter by letter
+//                            You have 6 guesses
+//                                    For every mistake, more of the man is drawn.
+//                            If the whole man is drawn, he is hanged, and game over
+//                            If the word is guessed, the man is spared.
+
+//    val hangman = Hangman()
+//    hangman.setupGame()
+
+
+//                                  Project: Tic tac toe
+
+    val ticTacToe = TicTacToe()
+    ticTacToe.inputValue()
 
 }
 
