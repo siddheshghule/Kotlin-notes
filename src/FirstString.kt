@@ -1392,8 +1392,8 @@ fun main(args: Array<String>) {
 
 //                                  Project: Tic tac toe
 
-    val ticTacToe = TicTacToe()
-    ticTacToe.inputValue()
+//    val ticTacToe = TicTacToe()
+//    ticTacToe.inputValue()
 
 }
 

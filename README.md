@@ -56,6 +56,9 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     2. [Imports](#imports)
 14. [Project: Hangman](#project-hangman)
 15. [Project: Tic Tac Toe](#project-tic-tac-toe)
+16. [Object Oriented Programming](#object-oriented-programming)
+    1. [Classes](#classes)
+    2. [Objects](#objects)
 
 ## String and Variables
 
@@ -2830,14 +2833,17 @@ You have 6 guesses
 For every mistake, more of the man is drawn.  
 If the whole man is drawn, he is hanged, and game over  
 If the word is guessed, the man is spared.  
-  |--------|-
-  |  |
-  |  O
-  | /|\
-  |  |
-  | / \
- /|\
-/ | \
+```
+  |--------|-  
+  |  |  
+  |  O  
+  | /|\  
+  |  |  
+  | / \  
+ /|\  
+/ | \  
+
+```
 
 Solution: 
 Execute the following code from [FirstString.kt](src/FirstString.kt)
@@ -2855,6 +2861,77 @@ Execute the following code from [FirstString.kt](src/FirstString.kt)
 val ticTacToe = TicTacToe()
 ticTacToe.inputValue()
 ```
+-------------------------------
+
+### Object Oriented Programming
+
+- Object-oriented programming, or OOPs, is a programming model which breaks down a problem in terms of **classes and objects**. 
+- OOPs allows the creation of several instances of a class called objects, hence facilitating code reuse. 
+- Some object-oriented programming languages are C++, Java, Javascript,Python, etc.
+
+- The four main pillars or features of object-oriented programming include 
+  
+  - **Abstraction,** 
+  - **Polymorphism,** 
+  - **Inheritance,** and 
+  - **Encapsulation,** 
+  - or you can learn it as `A PIE` to recall all of them easily.
+
+#### Classes
+
+- A class is a blueprint for components(objects). 
+- A class has
+  - Variables
+  - Functions(methods)
+  - Constructors 
+  - ... and few other features.  
+
+#### Objects
+
+- An object is an instance of a class.  
+`val student1 = Student()`  
+`val student2 = Student()`
+- An object can change its values without impacting other objects from the same class.  
+  `student1.name = "Rudolf"`
+- An object can call its methods.  
+`val studentAge = student1.getAge()`
+
+Code can be found in: [Oops.kt](src/Oops.kt)  
+
+Practice: 
+
+1. Create a class called Animal. It has a variable topSpeed and a function `run()` that prints out a message which states the animal's top speed.  
+Create an object from that class, and run the function.  
+Update the variable and run the function again.  
+
+```
+fun main(args: Array<String>) {
+    val cat = Animal();
+    cat.name = "Cat"
+    cat.topSpeed = 40
+    cat.run()
+
+    cat.topSpeed = 45
+    cat.run()
+}
+
+class Animal {
+    var name = ""
+    var topSpeed = 0
+    fun run() {
+        println("$name's top speed is $topSpeed")
+    }
+}
+```
+
+
+
+
+
+
+
+
+
 
 
 
