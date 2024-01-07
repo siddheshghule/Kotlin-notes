@@ -32,7 +32,46 @@ fun main(args: Array<String>) {
 //    println("Division is: $division");
 //    println("Multiplication is: $multiplication");
 
+//    3. A Jetpack can make a user fly. It achieves this with 2 operations:
+//    - _burn_(number of seconds) - which elevates the user.
+//    - _stop_(number of seconds) - which descends the user.
+//    Assume burn will elevate the user by 1 meter per second.
+//    Assume stop will descend the user by 3 meter per second.
+//    Create a class jetpack that stores a variable userHeight, and 2 functions, _burn_ and _stop_, that alter the height.
+//    Create an object, call its methods and printout some results.
+//    Enforce that the user cannot go below 0 in height.
+
+//    val jetpack = Jetpack();
+//    jetpack.burn(10)
+//    println("jetpack height: ${jetpack.userHeight}")
+//    jetpack.stop(2)
+//    println("jetpack height: ${jetpack.userHeight}")
+//    jetpack.burn(30)
+//    println("jetpack height: ${jetpack.userHeight}")
+//    jetpack.stop(5)
+//    println("jetpack height: ${jetpack.userHeight}")
+
+
 }
+
+//class Jetpack {
+//    var userHeight = 0
+//
+//    fun burn(seconds: Int) {
+//        println("burning for $seconds seconds")
+//        userHeight += seconds
+//    }
+//
+//    fun stop(seconds: Int) {
+//        userHeight -= (3 * seconds);
+//        println("stopping for $seconds seconds")
+//        if (userHeight < 0) {
+//            println("height less than 0, so userHeight = 0")
+//            userHeight = 0
+//        }
+//    }
+//
+//}
 
 //class Animal {
 //    var name = ""
