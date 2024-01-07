@@ -2952,7 +2952,7 @@ class Math {
 ```
 3. A Jetpack can make a user fly. It achieves this with 2 operations:
    - _burn_(number of seconds) - which elevates the user.
-   - _stop_(number of seconds) - which descends the user.
+   - _stop_(number of seconds) - which descends the user.   
 Assume burn will elevate the user by 1 meter per second.  
 Assume stop will descend the user by 3 meter per second.  
 Create a class jetpack that stores a variable userHeight, and 2 functions, _burn_ and _stop_, that alter the height.  
@@ -2989,7 +2989,61 @@ class Jetpack {
     }
 }
 ```
+Exercise: 
+Create a calculator class. It should have
+- A variable that stores the total
+- A function that adds a number to the total
+- A function that subtracts a number from the total
+- A function that multiplies the total by an amount
+- A function that divides the total by an amount
+- A function that resets the total to 0  
+Create an object, test out the functions and print out some results.
 
+```
+fun main(args: Array<String>) {
+    val calculator = Calculator()
+    calculator.add(47.0)
+    calculator.multiplies(15.0)
+    calculator.divides(23.0)
+    calculator.subtracts(135.746)
+    calculator.reset()
+    calculator.add(23.0)
+
+}
+
+class Calculator {
+    var total = 0.0;
+    fun add(number: Double) {
+        println("Adding to Total with $number")
+        total += number
+        println("Total=${total}")
+    }
+
+    fun subtracts(number: Double) {
+        println("Subtracting from Total by $number")
+        total -= number
+        println("Total=${total}")
+    }
+
+    fun multiplies(number: Double) {
+        println("Multiplying to Total with $number")
+        total *= number
+        println("Total=${total}")
+    }
+
+    fun divides(number: Double) {
+        println("Dividing from Total by $number")
+        total /= number
+        println("Total=${total}")
+    }
+
+    fun reset() {
+        println("Resetting Total")
+        total = 0.0
+        println("Total=${total}")
+    }
+}
+```
 
 
 -------------------------------
