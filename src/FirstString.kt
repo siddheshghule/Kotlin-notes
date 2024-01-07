@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
 //    val catName = "Fluffy"
 //    println("My cat's name is \"$catName\"")
 //
-//    var slashes = "Two types of slashesh \\ and /"
+//    var slashes = "Two types of slashes \\ and /"
 //    println(slashes)
 //
 //    var url = "https://www.google.com"
