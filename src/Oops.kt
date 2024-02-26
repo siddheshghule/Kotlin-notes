@@ -2,7 +2,7 @@ package src
 
 fun main(args: Array<String>) {
 
-//                                                  Practice
+//                                                             Practice
 
 //    1.
 //    Create a class called Animal. It has a variable topSpeed and a function `run()` that prints out a message which states the animal's top speed.
@@ -62,48 +62,70 @@ fun main(args: Array<String>) {
 //    - A function that resets the total to 0
 //    Create an object, test out the functions and print out some results.
 
-    val calculator = Calculator()
-    calculator.add(47.0)
-    calculator.multiplies(15.0)
-    calculator.divides(23.0)
-    calculator.subtracts(135.746)
-    calculator.reset()
-    calculator.add(23.0)
+//    val calculator = Calculator()
+//    calculator.add(47.0)
+//    calculator.multiplies(15.0)
+//    calculator.divides(23.0)
+//    calculator.subtracts(135.746)
+//    calculator.reset()
+//    calculator.add(23.0)
 
+//                                                      The "Object as construct"
+
+    if(DatabaseAccess.connected){
+        DatabaseAccess.disconnect()
+    }
+    else {
+        DatabaseAccess.connect()
+    }
+    println("Database connection status:" +DatabaseAccess.connected)
 }
 
-class Calculator {
-    var total = 0.0;
-    fun add(number: Double) {
-        println("Adding to Total with $number")
-        total += number
-        println("Total=${total}")
+object DatabaseAccess {
+    var connected = false
+    fun connect() {
+        connected = true
+        println("Connected to Database")
     }
 
-    fun subtracts(number: Double) {
-        println("Subtracting from Total by $number")
-        total -= number
-        println("Total=${total}")
-    }
-
-    fun multiplies(number: Double) {
-        println("Multiplying to Total with $number")
-        total *= number
-        println("Total=${total}")
-    }
-
-    fun divides(number: Double) {
-        println("Dividing from Total by $number")
-        total /= number
-        println("Total=${total}")
-    }
-
-    fun reset() {
-        println("Resetting Total")
-        total = 0.0
-        println("Total=${total}")
+    fun disconnect() {
+        connected = false
+        println("Disconnected to Database")
     }
 }
+
+//class Calculator {
+//    var total = 0.0;
+//    fun add(number: Double) {
+//        println("Adding to Total with $number")
+//        total += number
+//        println("Total=${total}")
+//    }
+//
+//    fun subtracts(number: Double) {
+//        println("Subtracting from Total by $number")
+//        total -= number
+//        println("Total=${total}")
+//    }
+//
+//    fun multiplies(number: Double) {
+//        println("Multiplying to Total with $number")
+//        total *= number
+//        println("Total=${total}")
+//    }
+//
+//    fun divides(number: Double) {
+//        println("Dividing from Total by $number")
+//        total /= number
+//        println("Total=${total}")
+//    }
+//
+//    fun reset() {
+//        println("Resetting Total")
+//        total = 0.0
+//        println("Total=${total}")
+//    }
+//}
 
 //class Jetpack {
 //    var userHeight = 0

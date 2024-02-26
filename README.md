@@ -59,6 +59,8 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
 16. [Object Oriented Programming](#object-oriented-programming)
     1. [Classes](#classes)
     2. [Objects](#objects)
+    3. [The "Object" construct](#the-object-construct)
+    4. [Classes and Objects](#classes-and-objects)
 
 ## String and Variables
 
@@ -3044,10 +3046,82 @@ class Calculator {
     }
 }
 ```
+#### The "Object" construct
+
+- A class can be instantiated with an instance, and that instance is called an **object**.
+- An object is a static class(unrelated to the instance of a class). All the methods and variables can be accessed without an instance.  
+- Declared as:` object className {...} `
+
+Example:
+
+```
+fun main(args: Array<String>) {
+    if(DatabaseAccess.connected){
+        DatabaseAccess.disconnect()
+    }
+    else {
+        DatabaseAccess.connect()
+    }
+    println("Database connection status:" +DatabaseAccess.connected)
+}
+object DatabaseAccess {
+    var connected = false
+    fun connect() {
+        connected = true
+        println("Connected to Database")
+    }
+
+    fun disconnect() {
+        connected = false
+        println("Disconnected to Database")
+    }
+}
+
+Output:
+Connected to Database
+Database connection status:true
+```
+
+#### Classes and Objects
 
 
 -------------------------------
 
 #### Question to search:
 
-If `val` means immutable, and it cannot be changed, how can we make changes to arrayList
+**Question #1**: If `val` means immutable, and it cannot be changed, how can we make changes to arrayList
+  
+**Answer#1**:
+In Kotlin, the `val` keyword is used to declare read-only (immutable) variables, indicating that the variable cannot be reassigned after initialization. However, when `val` is used with a collection type, such as an `ArrayList`, the immutability applies to the reference, not the contents of the collection.
+
+### Example 1: `ArrayList`
+
+```kotlin
+val myList = ArrayList<String>()
+myList.add("Item 1")
+myList.add("Item 2")
+
+// Cannot reassign a new ArrayList to myList
+// myList = ArrayList() // Error
+
+// Can modify the contents of the ArrayList
+myList.add("Item 3")
+```
+
+In this example, `myList` is a read-only reference to an `ArrayList`, but you can still modify the list's contents (add or remove elements) because the contents of the `ArrayList` are mutable.
+
+### Example 2: Immutable List
+
+If you want to create a truly immutable list in Kotlin, you can use the `listOf` function:
+
+```kotlin
+val immutableList = listOf("Item 1", "Item 2")
+
+// Cannot modify the contents of the immutable list
+// immutableList.add("Item 3") // Error
+```
+
+Here, `immutableList` is truly immutable, and you cannot modify its contents once it's created.
+
+To summarize, `val` in Kotlin makes the reference immutable, but it does not imply that the contents of the collection (if it's a mutable collection) are immutable. If you want an immutable collection, use `listOf`, `setOf`, or similar functions.
+
