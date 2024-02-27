@@ -60,7 +60,7 @@ Self-notes for kotlin from Complete Kotlin development masterclass 2023 by Catal
     1. [Classes](#classes)
     2. [Objects](#objects)
     3. [The "Object" construct](#the-object-construct)
-    4. [Classes and Objects](#classes-and-objects)
+    4. [Inheritance](#inheritance)
 
 ## String and Variables
 
@@ -3082,7 +3082,188 @@ Connected to Database
 Database connection status:true
 ```
 
-#### Classes and Objects
+#### Inheritance
+
+We can apply the variables and methods of a class to another class.  
+A class inherits from another class.  
+
+Example:  
+```
+fun main(args: Array<String>) {
+    val myDog = Corgi()
+    myDog.size = 10
+    println("Dog's size: " + myDog.size)
+    myDog.bark()
+    myDog.play()
+}
+
+open class Dog {
+    var size = 10
+    fun bark() {
+        println("Bark")
+    }
+    fun play() {
+        println("Play")
+    }
+}
+
+class Corgi : Dog() {
+    // Inherits everything from Dog as nothing is private
+}
+
+Output:
+Dog's size: 10
+Bark
+Play
+```
+
+Practice #1:
+A class Laptop has characteristics like screenSize and speed, and a function run that prints out a message which includes its characteristics.  
+
+A class Apple is a Laptop, so it inherits the laptop characteristics.  
+However it has a smaller screen size.  
+
+Implement this in a program, call the method run in both Laptop and Apple, and observe the different values.  
+```
+fun main(args: Array<String>) {
+    val myLaptop = Laptop()
+    val myAppleLaptop = Apple()
+     myAppleLaptop.screenSize = 13
+    myAppleLaptop.name = "Apple Macbook"
+
+    myLaptop.run()
+    myAppleLaptop.run()
+}
+
+open class Laptop {
+    var screenSize = 15
+    var speed = 1200
+    var name = "Generic Laptop"
+    fun run() {
+        println("Running laptop $name with screen size $screenSize and speed $speed")
+    }
+}
+
+class Apple: Laptop() {
+    // Inherits everything from Laptop as nothing is private
+}
+
+Output:
+Running laptop Generic Laptop with screen size 15 and speed 1200
+Running laptop Apple Macbook with screen size 13 and speed 1200
+```
+
+Practice #2:
+An Airplane has speed and altitude. It also two methods, ascend which increases altitude, and descend, which decreases altitude.  
+
+Create two classes that inherit from Airplane, Boeing and Airbus. They have different speeds.
+
+Create objects, call methods and print out messages for both child classes.
+
+```
+fun main(args: Array<String>) {
+    var boeing737 = Boeing()
+    var a320 = Airbus()
+
+    boeing737.name = "Boeing 737"
+    a320.name = "Airbus A320"
+
+    boeing737.ascend()
+    a320.descend()
+    boeing737.ascend()
+    boeing737.descend()
+    a320.descend()
+
+}
+
+open class Airplane {
+    var speed = 1000
+    var altitude = 20000
+    var name = "Generic Airplane"
+    fun ascend() {
+        altitude += 1000
+        println("$name has an altitude of $altitude and speed $speed")
+    }
+
+    fun descend() {
+        altitude -= 1000
+        println("$name has an altitude of $altitude and speed $speed")
+    }
+}
+
+class Boeing : Airplane() {
+// Inherits everything from Airplane as nothing is private
+}
+
+class Airbus : Airplane() {
+// Inherits everything from Airplane as nothing is private
+}
+
+Output:
+Boeing 737 has an altitude of 21000 and speed 1000
+Airbus A320 has an altitude of 19000 and speed 1000
+Boeing 737 has an altitude of 22000 and speed 1000
+Boeing 737 has an altitude of 21000 and speed 1000
+Airbus A320 has an altitude of 18000 and speed 1000
+```
+
+Exercise:  
+A class Job has three variables, name, revenue and salary, and two methods, work - which increases revenue by the amount in salary study - which increases salary  
+
+Two classes, Engineer and Doctor inherit from the Job class, but have different values for salary.  
+
+Create objects and call the functions a few times, printing out messages to see the result of the functions.
+
+```
+fun main(args: Array<String>) {
+    var engineer = Engineer()
+    var doctor = Doctor()
+    engineer.name = "Engineer #1"
+    doctor.name = "Doctor #1"
+    engineer.salary = 15000
+    doctor.salary = 25000
+
+    doctor.work()
+    engineer.work()
+    doctor.study()
+    engineer.study()
+    doctor.work()
+    engineer.work()
+    doctor.study()
+    engineer.study()
+}
+
+open class Job {
+    var name = "Generic Name"
+    var revenue = 0
+    var salary = 1000
+    fun work() {
+        revenue += salary
+        println("$name has revenue: $revenue")
+    }
+    fun study() {
+        salary += 100
+        println("$name has salary: $salary")
+    }
+}
+
+class Doctor : Job() {
+    // Inherits everything from Job as nothing is private
+}
+class Engineer : Job() {
+    // Inherits everything from Job as nothing is private
+}
+
+Output:
+Doctor #1 has revenue: 25000
+Engineer #1 has revenue: 15000
+Doctor #1 has salary: 25100
+Engineer #1 has salary: 15100
+Doctor #1 has revenue: 50100
+Engineer #1 has revenue: 30100
+Doctor #1 has salary: 25200
+Engineer #1 has salary: 15200
+```
 
 
 -------------------------------

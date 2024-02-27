@@ -72,27 +72,167 @@ fun main(args: Array<String>) {
 
 //                                                      The "Object as construct"
 
-    if(DatabaseAccess.connected){
-        DatabaseAccess.disconnect()
-    }
-    else {
-        DatabaseAccess.connect()
-    }
-    println("Database connection status:" +DatabaseAccess.connected)
+//    if(DatabaseAccess.connected){
+//        DatabaseAccess.disconnect()
+//    }
+//    else {
+//        DatabaseAccess.connect()
+//    }
+//    println("Database connection status:" +DatabaseAccess.connected)
+
+
+//                                                                    Inheritance
+
+//    val myDog = Corgi()
+//    myDog.size = 10
+//    println("Dog's size: " + myDog.size)
+//    myDog.bark()
+//    myDog.play()
+
+
+//                                                                    Inheritance: Practice #1
+//    A class Laptop has characteristics like screenSize and speed, and a function run that prints out a message which includes its characteristics.
+//    A class Apple is a Laptop, so it inherits the laptop characteristics.
+//    However it has a smaller screen size.
+//    Implement this in a program, call the method run in both Laptop and Apple, and observe the different values.
+
+//    val myLaptop = Laptop()
+//    val myAppleLaptop = Apple()
+//     myAppleLaptop.screenSize = 13
+//    myAppleLaptop.name = "Apple Macbook"
+//
+//    myLaptop.run()
+//    myAppleLaptop.run()
+
+//                                                              Inheritance: Practice #2
+//    An Airplane has speed and altitude. It also two methods, ascend which increases altitude, and descend, which decreases altitude.
+//    Create two classes that inherit from Airplane, Boeing and Airbus. They have different speeds.
+//    Create objects, call methods and print out messages for both child classes.
+
+//    var boeing737 = Boeing()
+//    var a320 = Airbus()
+//
+//    boeing737.name = "Boeing 737"
+//    a320.name = "Airbus A320"
+//
+//    boeing737.ascend()
+//    a320.descend()
+//    boeing737.ascend()
+//    boeing737.descend()
+//    a320.descend()
+//
+
+//                                                                          Inheritance: Exercise
+//                          A class Job has three variables, name, revenue and salary, and two methods, work - which increases revenue
+//                          by the amount in salary study - which increases salary
+//                          Two classes, Engineer and Doctor inherit from the Job class, but have different values for salary.
+//                          Create objects and call the functions a few times, printing out messages to see the result of the functions.
+
+    var engineer = Engineer()
+    var doctor = Doctor()
+    engineer.name = "Engineer #1"
+    doctor.name = "Doctor #1"
+    engineer.salary = 15000
+    doctor.salary = 25000
+
+    doctor.work()
+    engineer.work()
+    doctor.study()
+    engineer.study()
+    doctor.work()
+    engineer.work()
+    doctor.study()
+    engineer.study()
 }
 
-object DatabaseAccess {
-    var connected = false
-    fun connect() {
-        connected = true
-        println("Connected to Database")
+open class Job {
+    var name = "Generic Name"
+    var revenue = 0
+    var salary = 1000
+    fun work() {
+        revenue += salary
+        println("$name has revenue: $revenue")
     }
-
-    fun disconnect() {
-        connected = false
-        println("Disconnected to Database")
+    fun study() {
+        salary += 100
+        println("$name has salary: $salary")
     }
 }
+
+class Doctor : Job() {
+    // Inherits everything from Job as nothing is private
+}
+class Engineer : Job() {
+    // Inherits everything from Job as nothing is private
+}
+
+//
+//open class Airplane {
+//    var speed = 1000
+//    var altitude = 20000
+//    var name = "Generic Airplane"
+//    fun ascend() {
+//        altitude += 1000
+//        println("$name has an altitude of $altitude and speed $speed")
+//    }
+//
+//    fun descend() {
+//        altitude -= 1000
+//        println("$name has an altitude of $altitude and speed $speed")
+//    }
+//}
+//
+//class Boeing : Airplane() {
+//  // Inherits everything from Airplane as nothing is private
+//}
+//
+//class Airbus : Airplane() {
+//// Inherits everything from Airplane as nothing is private
+//}
+
+//open class Laptop {
+//    var screenSize = 15
+//    var speed = 1200
+//    var name = "Generic Laptop"
+//    fun run() {
+//        println("Running laptop $name with screen size $screenSize and speed $speed")
+//    }
+//}
+//
+//class Apple: Laptop() {
+//    // Inherits everything from Laptop as nothing is private
+//}
+
+
+//open class Dog {
+//    var size = 10
+//    fun bark() {
+//        println("Bark")
+//    }
+//
+//    fun play() {
+//        println("Play")
+//    }
+//}
+//
+//class Corgi : Dog() {
+//    // Inherits everything from Dog as nothing is private
+//}
+
+
+//
+//object DatabaseAccess {
+//    var connected = false
+//    fun connect() {
+//        connected = true
+//        println("Connected to Database")
+//    }
+//
+//    fun disconnect() {
+//        connected = false
+//        println("Disconnected to Database")
+//    }
+//}
 
 //class Calculator {
 //    var total = 0.0;
